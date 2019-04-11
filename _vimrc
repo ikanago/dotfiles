@@ -14,7 +14,7 @@ set showcmd
 " スクロールの余裕を確保する
 set scrolloff=5
 " カラースキーム
-colorscheme molokai
+"colorscheme molokai
 
 " 行番号を表示
 set number
@@ -31,16 +31,39 @@ set showmatch
 set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
+"構文に色付け
+syntax on
+" 画面の点滅を無効化
+set vb t_vb=
+
+"----------------------------------------
+"キーマッピング
+"----------------------------------------
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
 " インサートモードでjjと入力した場合はESCとみなす
 inoremap jj <Esc>
-" 括弧の補完
-inoremap { {}
+"インサートモードでも移動
+inoremap <C-j> <down>
+inoremap <C-k> <up>
+inoremap <C-h> <left>
+inoremap <C-l> <right>
+" 括弧等の補完
 inoremap {<ENTER> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
+inoremap { {}<Left>
+inoremap ( ()<Left>
+inoremap < <><Left>
+inoremap [ []<Left>
+inoremap ' ''<Left>
+inoremap " ""<Left>
+inoremap <C-b> <End>;
+" タブ関連
+nnoremap tc :<C-u>tabc<Cr>
+nnoremap th :<C-u>tabn<Cr>
+nnoremap tl :<C-u>tabN<Cr>
+
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
 " 行頭でのTab文字の表示幅
@@ -77,6 +100,12 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/vim-auto-save'
+
+" vim-auto-saveの設定
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 1
 
 call neobundle#end()
 filetype plugin indent on
