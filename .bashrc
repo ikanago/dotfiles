@@ -91,6 +91,15 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..2='cd ../../..'
+alias g='git'
+alias ga='git add'
+alias gc='git commit'
+alias gs='git status'
+alias gp='git push'
+alias gl='git log'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,3 +124,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Setting for neovim.
+export XDG_CONFIG_HOME="$HOME/.config"
