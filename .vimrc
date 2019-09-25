@@ -15,7 +15,7 @@ set showcmd
 set scrolloff=5
 " カラースキーム
 "colorscheme molokai
-colorscheme srcery
+"colorscheme srcery
 
 " 行番号を表示
 set number
