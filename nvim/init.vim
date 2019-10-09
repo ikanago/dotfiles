@@ -15,14 +15,15 @@ endif
 filetype plugin indent on
 syntax enable
 
-"colorscheme molokai
-colorscheme srcery
+colorscheme molokai
+"colorscheme srcery
 
-" vim-airlineのテーマ
+" vim-airline
 let g:airline_theme='deus'
 let g:airline#extensions#branch#enabled=1
+let g:airline#extensions#tabline#eneabled=1
 
-" NERDTreeの設定
+" NERDTree
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
@@ -32,7 +33,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let g:rainbow_active=1
 
 " vim-cheatsheet
-let g:cheatsheet#cheat_file='~/.cheatsheet.md'
+let g:cheatsheet#cheat_file='~/.config/nvim/cheetsheet.md'
 
 " termianlモードで行番号を表示しない
 autocmd TermOpen * setlocal nonumber

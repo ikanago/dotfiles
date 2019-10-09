@@ -7,3 +7,4 @@ do
 	ln -sfnv $PWD/$f $HOME/$f
 done
 
+ln -sfnv $PWD/nvim $HOME/.config
