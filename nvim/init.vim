@@ -38,6 +38,14 @@ let g:cheatsheet#cheat_file='~/.config/nvim/cheetsheet.md'
 " termianlモードで行番号を表示しない
 autocmd TermOpen * setlocal nonumber
 
+" yankでclipboardにコピー
+if system('uname -a | grep Microsoft') != ''
+	augroup myyank
+		autocmd!
+		autocmd TextYankPost * :call system('clip.exe', @")
+	augroup END
+endif
+
 " .vimrcからimportしてきた設定
 " 文字コードをUFT-8に設定
 set fenc=utf-8
@@ -85,6 +93,8 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
+inoremap <C-^> <HOME>
+inoremap <C-4> <End>
 " 括弧等の補完
 inoremap {<ENTER> {}<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
@@ -99,6 +109,9 @@ inoremap <C-b> <End>;
 nnoremap tc :<C-u>tabc<Cr>
 nnoremap th :<C-u>tabN<Cr>
 nnoremap tl :<C-u>tabn<Cr>
+
+" terminal mode
+tnoremap jj <C-\><C-n> 
 
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
