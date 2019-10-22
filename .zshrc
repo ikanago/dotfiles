@@ -6,7 +6,7 @@ promptinit
 autoload -Uz colors
 colors
 
-PROMPT=$'%{\e[30;48;5;082m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}'
+PROMPT=$'%{\e[30;48;5;016m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}'
 
 setopt histignorealldups sharehistory
 
@@ -59,7 +59,9 @@ autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
 
-zstyle :prompt:pure:path color '#FF5599'
+zstyle :prompt:pure:path color 033
+zstyle :prompt:pure:prompt:success color 034
+zstyle :prompt:pure:git:branch color 058
 
 # Load theme
 zplugin ice pick"async.zsh" src"pure.zsh"
@@ -83,3 +85,4 @@ alias gs="git status"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 source /home/yuta/k/k.sh
+

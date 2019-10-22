@@ -103,8 +103,14 @@ inoremap ( ()<Left>
 inoremap < <><Left>
 inoremap [ []<Left>
 inoremap ' ''<Left>
+autocmd Filetype lisp inoremap ' '
 inoremap " ""<Left>
 inoremap <C-b> <End>;
+"上下に空行を挿入
+inoremap <S-CR> <END><CR>
+inoremap <C-S-CR> <Up><End><CR>
+nnoremap <S-CR> mzo<ESC>`z
+nnoremap <C-S-CR> mzo<ESC>`z
 " タブ関連
 nnoremap tc :<C-u>tabc<Cr>
 nnoremap th :<C-u>tabN<Cr>
