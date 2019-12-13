@@ -82,7 +82,11 @@ alias gl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)
 alias gs="git status"
 # }}}
 
+# others {{{
+alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
+# }}}
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 source /home/yuta/k/k.sh
+source $HOME/.cargo/env
 
