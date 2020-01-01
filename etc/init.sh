@@ -18,6 +18,7 @@ install_executable() {
 
 sudo apt update
 sudo apt -y upgrade
+pwd
 
 if is_exists "git"; then
 	git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
