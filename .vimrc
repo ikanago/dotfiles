@@ -3,7 +3,7 @@
 set fenc=utf-8
 " バックアップファイルを作らない
 set nobackup
-" スワップファイルを作らない
+v スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
@@ -62,6 +62,14 @@ inoremap <C-b> <End>;
 nnoremap tc :<C-u>tabc<Cr>
 nnoremap tl :<C-u>tabn<Cr>
 nnoremap th :<C-u>tabN<Cr>
+" タイル移動
+nnoremap ss :<C-u>sp<CR><C-w>j
+nnoremap sv :<C-u>vs<CR><C-w>l
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+
 
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4

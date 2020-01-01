@@ -11,5 +11,5 @@ done
 script=recover_zsh_history.sh 
 ln -sfnv $PWD/$script $HOME/$script
 
-#mkdir -p $HOME/.config
-ln -sfnv $PWD/nvim $HOME/.config
+mkdir -p $HOME/.config
+ln -sfnv $PWD/etc/nvim $HOME/.config

@@ -89,4 +89,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 source /home/yuta/k/k.sh
 source $HOME/.cargo/env
+source $HOME/.gvm/scripts/gvm
 
