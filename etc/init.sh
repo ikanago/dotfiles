@@ -1,7 +1,6 @@
 #!/bin/sh
 
-DOTFILES_GITHUB="https://github.com/ikanago/dotfiles.git"; export DOTFILES_GITHUB
-DOTPATH="~/dotfiles"
+DOTPATH="$HOME/dotfiles"
 
 # Returns if executable $1 exists in $PATH.
 is_exists() {
@@ -10,9 +9,10 @@ is_exists() {
 }
 
 install_executable() {
-	for file in $(ls $DOTPATH/init)
+	INIT=$DOTPATH/etc/init
+	for file in $(ls $INIT)
 	do
-		sh "$file"
+		sh "$INIT/$file"
 	done
 }
 
