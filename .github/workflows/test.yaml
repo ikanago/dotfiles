@@ -1,0 +1,10 @@
+name: Dotfile CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v
+    - name: Run test
+      run: sh test/test.sh
+

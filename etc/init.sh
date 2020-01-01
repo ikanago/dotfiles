@@ -24,5 +24,5 @@ else
 fi
 
 install_executable
-sh deploy.sh
+sh "$DOTPATH/deploy.sh"
 
