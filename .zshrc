@@ -50,7 +50,7 @@ function mkcd() {
 
 # cd and ls simultaneously
 function cl() {
-    cd $1 && ls --color=tty -F -la
+    cd $1 && exa -la
 }
 
 ### Added by Zplugin's installer
@@ -64,14 +64,14 @@ zstyle :prompt:pure:prompt:success color 034
 zstyle :prompt:pure:git:branch color 058
 
 # Load theme
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+#zplugin ice pick"async.zsh" src"pure.zsh"
+#zplugin light sindresorhus/pure
 
 # Aliases
 # commands {{{
-alias ls="ls -F --color=tty"
-alias la="ls -a"
-alias ll="ls -la"
+alias ls="exa"
+alias la="exa -a"
+alias ll="exa -la"
 # }}}
 
 # git {{{
@@ -90,3 +90,4 @@ source /home/yuta/k/k.sh
 source $HOME/.cargo/env
 source $HOME/.gvm/scripts/gvm
 
+eval "$(starship init zsh)"
