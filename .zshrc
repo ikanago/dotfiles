@@ -72,6 +72,11 @@ zstyle :prompt:pure:git:branch color 058
 alias ls="exa"
 alias la="exa -a"
 alias ll="exa -la"
+alias cat="bat"
+alias find="fd"
+alias ps="procs"
+alias grep="rg"
+alias time="hyperfine"
 # }}}
 
 # git {{{
@@ -84,6 +89,7 @@ alias gs="git status"
 
 # others {{{
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
+alias rm='rm -i'
 # }}}
 export PATH="$HOME/.cargo/bin:$PATH"
 source /home/yuta/k/k.sh
@@ -91,3 +97,24 @@ source $HOME/.cargo/env
 source $HOME/.gvm/scripts/gvm
 
 eval "$(starship init zsh)"
+
+# OPAM configuration
+. /home/yuta/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# n(node version manager)
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# yarn
+export PATH="$(yarn global bin):$PATH"
+
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH="$JAVA_HOME/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# haskell-ide-engine
+export PATH="$HOME/.local/bin:$PATH"
+
+# dotnet tools
+export PATH="$HOME/.dotnet/tools:$PATH"
