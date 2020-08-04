@@ -42,7 +42,7 @@ syntax on
 nnoremap j gj
 nnoremap k gk
 " インサートモードでjjと入力した場合はファイルの変更を保存する
-inoremap jj <Esc>:<C-u>w<CR>
+inoremap jj <Esc>
 " インサートモードでも移動
 inoremap <C-j> <down>
 inoremap <C-k> <up>

@@ -53,6 +53,18 @@ function cl() {
     cd $1 && exa -la
 }
 
+# Fuzzy search in repositories
+function search_ghq() {
+	local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
+	if [ -n "$target_dir" ]; then
+		BUFFER="cd ${target_dir}"
+		zle accept-line
+	fi
+	zle reset-prompt
+}
+zle -N search_ghq
+bindkey "^g" search_ghq
+
 ### Added by Zplugin's installer
 source '/home/yuta/.zplugin/bin/zplugin.zsh'
 autoload -Uz _zplugin
@@ -89,10 +101,12 @@ alias gs="git status"
 
 # others {{{
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
+alias dc='docker-compose'
 alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
 # }}}
 export PATH="$HOME/.cargo/bin:$PATH"
-source /home/yuta/k/k.sh
 source $HOME/.cargo/env
 source $HOME/.gvm/scripts/gvm
 
@@ -118,3 +132,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

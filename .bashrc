@@ -128,3 +128,5 @@ fi
 
 # Setting for neovim.
 export XDG_CONFIG_HOME="$HOME/.config"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
