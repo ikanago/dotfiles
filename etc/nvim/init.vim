@@ -18,22 +18,46 @@ syntax enable
 colorscheme molokai
 "colorscheme srcery
 
-" vim-airline
-let g:airline_theme='deus'
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#tabline#eneabled=1
-
 " NERDTree
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
 
+" Coc.nvim
+let g:coc_global_extensions = [
+    \ 'coc-css',
+    \ 'coc-html',
+    \ 'coc-json',
+    \ 'coc-pairs',
+    \ 'coc-rust-analyzer',
+    \ 'coc-texlab',
+    \ 'coc-tsserver'
+    \ ]
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" lightline
+set laststatus=2
+let g:lightline = {
+    \ 'active': {
+    \   'left': [
+    \       ['mode', 'paste'],
+    \       ['gitbranch', 'filename', 'modified']
+    \   ],
+    \   'right': [
+    \       ['filetype', 'fileencoding', 'lineinfo', 'percent']
+    \   ],
+    \   'component_function': {
+    \       'cocstatus': 'coc#status',
+    \       'gitbranch': 'FugitiveHead'
+    \   },
+    \ }
+\ }
+set noshowmode
+
 " Rainbow parentheses
 let g:rainbow_active=1
-
-" vim-cheatsheet
-let g:cheatsheet#cheat_file='~/.config/nvim/cheetsheet.md'
 
 " termianlモードで行番号を表示しない
 autocmd TermOpen * setlocal nonumber
@@ -79,6 +103,10 @@ set laststatus=2
 set wildmode=list:longest
 "構文に色付け
 syntax on
+set listchars=tab:>-,trail:~
+set list
+" Status message of coc.nvim
+"set statusline^=%{coc#status()}
 
 "----------------------------------------
 "キーマッピング
@@ -87,7 +115,7 @@ syntax on
 nnoremap j gj
 nnoremap k gk
 " インサートモードでjjと入力した場合はファイルの変更を保存する
-inoremap jj <Esc>
+inoremap jj <Esc>:w<CR>
 " インサートモードでも移動
 inoremap <C-j> <down>
 inoremap <C-k> <up>
@@ -95,30 +123,27 @@ inoremap <C-h> <left>
 inoremap <C-l> <right>
 inoremap <C-^> <HOME>
 inoremap <C-4> <End>
-" 括弧等の補完
-inoremap {<ENTER> {}<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
-inoremap { {}<Left>
-inoremap ( ()<Left>
-inoremap < <><Left>
-inoremap [ []<Left>
-inoremap ' ''<Left>
-autocmd Filetype lisp inoremap ' '
-inoremap " ""<Left>
-inoremap <C-b> <End>;
 "上下に空行を挿入
-inoremap <S-CR> <END><CR>
+imap <S-CR> <END><CR>
 inoremap <C-S-CR> <Up><End><CR>
 nnoremap <S-CR> mzo<ESC>`z
 nnoremap <C-S-CR> mzo<ESC>`z
 " タブ関連
+nnoremap tn :<C-u>tabnew<CR>
 nnoremap tc :<C-u>tabc<Cr>
 nnoremap th :<C-u>tabN<Cr>
 nnoremap tl :<C-u>tabn<Cr>
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+
+noremap sh <C-w>h
 
 " terminal mode
-tnoremap jj <C-\><C-n> 
+tnoremap jj <C-\><C-n>
 
+set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
 " 行頭でのTab文字の表示幅
