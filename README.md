@@ -73,7 +73,7 @@ Enter the new value, or press ENTER for the default
 ```
 
 ### Neovim
-Reference: https://docs.docker.com/install/linux/docker-ce/ubuntu/  
+Reference: https://github.com/neovim/neovim/wiki/Installing-Neovim
 Just download `nvim.appimage` and run it.
 ```
 $ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage

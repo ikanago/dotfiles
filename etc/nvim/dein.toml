@@ -20,9 +20,6 @@ repo = 'jistr/vim-nerdtree-tabs'
 repo = 'luochen1990/rainbow'
 
 [[plugins]]
-repo = 'reireias/vim-cheatsheet'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
@@ -39,3 +36,9 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+#[[plugins]]
+#repo = 'leafgarland/typescript-vim'
+#
+#[[plugins]]
+#repo = 'peitalin/vim-jsx-typescript'
