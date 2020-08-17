@@ -1,26 +1,57 @@
 # dotfiles
 
-## How to use
-### init
-Automatically install binaries(unverified).
-`sh etc/init.sh`
+## Before use
+1. Install `git`.
+2. Configure personal information.
+```
+$ git config --global user.name "ikanago"
+$ git config --global user.email "<username>@users.noreply.github.com"
+```
+You can get the email address [here](https://github.com/settings/emails).  
+3. Generate ssh key to establish connection with GitHub. [Connecting to GitHub with SSH](https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh). You may need to add some lines of configuration to `~/.ssh/config`. See [here](https://gist.github.com/ikanago/cbbaffbef12b86f6cbb60886b30d4ac0)  
+4. Clone this repository with SSH.
 
+## How to use
 ### Create link
 Create link to dotfiles in home directory(this will be executed in `init.sh`).
-`sh deploy.sh`
+```
+sh deploy.sh
+```
 
-## Manual installation
-Enumerate installation of binaries below(in ubuntu). Remember that run `sudo apt update` and `sudo apt-get update` occationally.
+## Install tools
+Enumerate installation of tools below(in ubuntu). Remember that run `sudo apt update` and `sudo apt-get update` occationally.
+
+### Utilities
+```
+sudo apt install build-essential make zsh
+```
+
+### Starship
+Reference: https://starship.rs/
+```
+$ curl -fsSL https://starship.rs/install.sh | bash
+```
 
 ### Cargo
 Reference: https://doc.rust-lang.org/cargo/getting-started/installation.html  
-`cargo` is a Rust packege manager.  
-Just run this.
 ```
 $ curl https://sh.rustup.rs -sSf | sh
 ```
-Select installation option `1) Proceed with installation`.
-`~/.cargo/env` is already written in `.zshrc` as a environment variable.
+
+### Utilities made with Rust
+```
+$ cargo install exa fd procs rh hyperfine tokei
+```
+
+### fzf
+Reference: https://github.com/junegunn/fzf
+```
+$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+$ ~/.fzf/install
+```
+
+### n
+
 
 ### GVM
 Reference: https://qiita.com/makoto1007/items/9400d232f5673b34abda  
@@ -53,28 +84,20 @@ $ echo $GOROOT
 /home/user/.gvm/gos/go1.x.x
 ```
 
-### Zsh
-Reference: https://github.com/zdharma/zplugin  
-Install zsh and its plugin manager `zplugin`.
+### ghq
+Reference: https://github.com/x-motemen/ghq
 ```
-$ sudo apt install zsh
+go get github.com/x-motemen/ghq
 ```
-Then run this line to install `zplugin`.
+
+### Zinit
+Reference: https://github.com/zdharma/zinit  
 ```
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
-```
-After installation, change login shell.
-```
-$ chsh
-Password: 
-Changing the login shell for user
-Enter the new value, or press ENTER for the default
-        Login Shell [/bin/zsh]: /usr/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 ```
 
 ### Neovim
 Reference: https://github.com/neovim/neovim/wiki/Installing-Neovim
-Just download `nvim.appimage` and run it.
 ```
 $ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 $ chmod u+x nvim.appimage
@@ -84,40 +107,3 @@ Configuration file is automatically deployed on home directory through `deploy.s
 
 ### Docker
 Reference: https://docs.docker.com/install/linux/docker-ce/ubuntu/  
-Install packages to allow `apt` to use a repository over HTTPS.
-```
-$ sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-```
-Add Docker's official GPG key.
-```
-$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-```
-Verify that you now have the key.
-```
-$ sudo apt-key fingerprint 0EBFCD88
-    
-pub   rsa4096 2017-02-22 [SCEA]
-      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
-uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
-sub   rsa4096 2017-02-22 [S]
-```
-Set up `stable` repository.
-```
-$ sudo add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) \
-    stable"
-```
-Update the `apt` package index.
-```
-$ sudo apt-get update
-```
-And install the latest version of Docker Engine.
-```
-$ sudo apt-get install docker-ce docker-ce-cli containerd.io
-```
