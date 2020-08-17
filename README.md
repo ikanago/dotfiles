@@ -9,9 +9,12 @@ $ git config --global user.email "<username>@users.noreply.github.com"
 ```
 You can get the email address [here](https://github.com/settings/emails).  
 3. Generate ssh key to establish connection with GitHub. [Connecting to GitHub with SSH](https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh). You may need to add some lines of configuration to `~/.ssh/config`. See [here](https://gist.github.com/ikanago/cbbaffbef12b86f6cbb60886b30d4ac0)  
-4. Clone this repository with SSH.
 
 ## How to use
+### Clone this repository
+1. Install `gvm`, `go`, `ghq`.  
+2. Run `ghq get -p git@github.com:ikanago/dotfiles.git` to clone this repository.  
+
 ### Create link
 Create link to dotfiles in home directory(this will be executed in `init.sh`).
 ```
@@ -40,25 +43,26 @@ $ curl https://sh.rustup.rs -sSf | sh
 
 ### Utilities made with Rust
 ```
-$ cargo install exa fd procs rh hyperfine tokei
+$ cargo install bat exa fd-find procs ripgrep hyperfine tokei
 ```
 
-### fzf
-Reference: https://github.com/junegunn/fzf
+### Node
+Install version manager for Node.js.
+Reference: https://github.com/tj/n
 ```
-$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-$ ~/.fzf/install
+$ curl -L https://git.io/n-install | bash
 ```
-
-### n
-
+And install `yarn`.
+```
+$ npm install -g yarn
+```
 
 ### GVM
 Reference: https://qiita.com/makoto1007/items/9400d232f5673b34abda  
 `gvm` is a Go package manager.
 Run this line.
-```$ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/bin
-scripts/gvm-installer)
+```
+$ bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
 ```
 You may be warned that `Could not find bison` or `Could not find gcc`. If so, install them:
 ```
@@ -87,13 +91,20 @@ $ echo $GOROOT
 ### ghq
 Reference: https://github.com/x-motemen/ghq
 ```
-go get github.com/x-motemen/ghq
+$ go get github.com/x-motemen/ghq
 ```
 
-### Zinit
+### fzf
+Reference: https://github.com/junegunn/fzf
+```
+$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+$ ~/.fzf/install
+```
+
+### zinit
 Reference: https://github.com/zdharma/zinit  
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 ```
 
 ### Neovim
@@ -103,7 +114,11 @@ $ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appima
 $ chmod u+x nvim.appimage
 $ ./nvim.appimage
 ```
-Configuration file is automatically deployed on home directory through `deploy.sh`.
+And install package manager.
+```
+$ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+$ sh ./installer.sh ~/.cache/dein
+```
 
 ### Docker
 Reference: https://docs.docker.com/install/linux/docker-ce/ubuntu/  
