@@ -55,7 +55,7 @@ function cl() {
 
 # Fuzzy search in repositories
 function search_ghq() {
-	local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
+	local target_dir=$(ghq list -p | fzf --query="$LBUFFER" --reverse)
 	if [ -n "$target_dir" ]; then
 		BUFFER="cd ${target_dir}"
 		zle accept-line
@@ -80,36 +80,35 @@ zstyle :prompt:pure:git:branch color 058
 #zplugin light sindresorhus/pure
 
 # Aliases
-# commands {{{
+# commands
 alias ls="exa"
 alias la="exa -a"
 alias ll="exa -la"
-alias cat="bat"
 alias find="fd"
 alias ps="procs"
 alias grep="rg"
 alias time="hyperfine"
-# }}}
 
-# git {{{
+# git
 alias ga="git add ."
 alias gc="git commit"
 alias gp="git push"
 alias gl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias gs="git status"
-# }}}
+alias gd="git diff"
 
-# others {{{
+# others
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
 alias dc='docker-compose'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-# }}}
+
 export PATH="$HOME/.cargo/bin:$PATH"
 source $HOME/.cargo/env
 source $HOME/.gvm/scripts/gvm
 
+# starship
 eval "$(starship init zsh)"
 
 # OPAM configuration
@@ -125,6 +124,7 @@ export PATH="$(yarn global bin):$PATH"
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH="$JAVA_HOME/bin:$PATH"
 
+# yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # haskell-ide-engine
@@ -133,4 +133,5 @@ export PATH="$HOME/.local/bin:$PATH"
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

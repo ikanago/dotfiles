@@ -70,7 +70,6 @@ if system('uname -a | grep Microsoft') != ''
 	augroup END
 endif
 
-" .vimrcからimportしてきた設定
 " 文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
@@ -85,7 +84,6 @@ set hidden
 set showcmd
 " スクロールの余裕を確保する
 set scrolloff=5
-
 " 行番号を表示
 set number
 " 現在の行を強調表示
@@ -97,8 +95,6 @@ set virtualedit=onemore
 set visualbell
 " 括弧入力時の対応する括弧を表示
 set showmatch
-" ステータスラインを常に表示
-set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 "構文に色付け
@@ -107,6 +103,8 @@ set listchars=tab:>-,trail:~
 set list
 " Status message of coc.nvim
 "set statusline^=%{coc#status()}
+" yamlファイルのインデント幅はスペース2つ
+autocmd Filetype yaml setlocal shiftwidth=2 expandtab
 
 "----------------------------------------
 "キーマッピング

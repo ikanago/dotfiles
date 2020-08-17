@@ -36,9 +36,3 @@ repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
-#[[plugins]]
-#repo = 'leafgarland/typescript-vim'
-#
-#[[plugins]]
-#repo = 'peitalin/vim-jsx-typescript'
