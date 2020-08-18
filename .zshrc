@@ -33,10 +33,35 @@ zstyle ':completion:*' menu select=long
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
-
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+zstyle :prompt:pure:path color 033
+zstyle :prompt:pure:prompt:success color 034
+zstyle :prompt:pure:git:branch color 058
 
+### zinit configuration
+source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# cd
+zinit ice wait lucid
+zinit light changyuheng/zsh-interactive-cd
+
+# autosuggestions, trigger precmd hook upon load
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=10
+
+# Tab completions
+zinit ice wait lucid blockf atpull'zinit creinstall -q .'
+zinit light zsh-users/zsh-completions
+
+# Syntax highlighting
+zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
+zinit light zdharma/fast-syntax-highlighting
+
+### Useful Commands
 # mkdir and cd simultaneously
 function mkcd() {
     if [[ -d $1 ]]; then
@@ -64,21 +89,7 @@ function search_ghq() {
 zle -N search_ghq
 bindkey "^g" search_ghq
 
-### Added by Zplugin's installer
-source '/home/yuta/.zplugin/bin/zplugin.zsh'
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-
-zstyle :prompt:pure:path color 033
-zstyle :prompt:pure:prompt:success color 034
-zstyle :prompt:pure:git:branch color 058
-
-# Load theme
-#zplugin ice pick"async.zsh" src"pure.zsh"
-#zplugin light sindresorhus/pure
-
-# Aliases
+### Aliases
 # commands
 alias ls="exa"
 alias la="exa -a"
@@ -103,8 +114,11 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+# cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 source $HOME/.cargo/env
+
+# gvm
 source $HOME/.gvm/scripts/gvm
 
 # starship
@@ -135,4 +149,3 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-### End of Zinit's installer chunk
