@@ -99,6 +99,14 @@ $ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 $ ~/.fzf/install
 ```
 
+### pyenv
+Reference: https://github.com/pyenv/pyenv#basic-github-checkout
+```
+$ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+$ pyenv install 3.8
+$ pyenv global 3.8
+```
+
 ### zinit
 Reference: https://github.com/zdharma/zinit  
 ```

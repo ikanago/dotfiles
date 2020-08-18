@@ -115,7 +115,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # cargo
-export PATH="$HOME/.cargo/bin:$PATH"
 source $HOME/.cargo/env
 
 # gvm
@@ -123,29 +122,9 @@ source $HOME/.gvm/scripts/gvm
 
 # starship
 eval "$(starship init zsh)"
-export STARSHIP_CONFIG=~/.starship.toml
 
 # OPAM configuration
-. /home/yuta/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# n(node version manager)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-# yarn
-export PATH="$(yarn global bin):$PATH"
-
-# Java
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-export PATH="$JAVA_HOME/bin:$PATH"
-
-# yarn
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# haskell-ide-engine
-export PATH="$HOME/.local/bin:$PATH"
-
-# dotnet tools
-export PATH="$HOME/.dotnet/tools:$PATH"
+# . /home/yuta/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

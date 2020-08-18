@@ -3,7 +3,7 @@ error_symbol = "✗"
 use_symbol_for_status = true
 
 [cmd_duration]
-min_time = 100
+min_time = 10
 show_milliseconds = true
 prefix = " "
 
