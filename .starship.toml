@@ -1,0 +1,23 @@
+[character]
+error_symbol = "✗"
+use_symbol_for_status = true
+
+[cmd_duration]
+min_time = 100
+show_milliseconds = true
+prefix = " "
+
+[git_branch]
+symbol = "🌱 "
+
+[memory_usage]
+disabled = false
+show_percentage = true
+show_swap = false
+threshold = -1
+symbol = ""
+
+[time]
+disabled = false
+format = "| %T |"
+utc_time_offset = "+9"

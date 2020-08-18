@@ -15,7 +15,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -110,6 +109,7 @@ source $HOME/.gvm/scripts/gvm
 
 # starship
 eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship.toml
 
 # OPAM configuration
 . /home/yuta/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -135,3 +135,4 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+### End of Zinit's installer chunk
