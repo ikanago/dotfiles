@@ -120,3 +120,6 @@ $ sh ./installer.sh ~/.cache/dein
 
 ### Docker
 Reference: https://docs.docker.com/engine/install/  
+
+### Docker compose
+Reference: http://docs.docker.jp/compose/install.html#linux-compose
