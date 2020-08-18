@@ -1,20 +1,18 @@
 # dotfiles
 
 ## Before use
-1. Install `git`.
+1. Install `git`, `gvm`, `go`, `ghq`.
 2. Configure personal information.
 ```
 $ git config --global user.name "ikanago"
 $ git config --global user.email "<username>@users.noreply.github.com"
+$ git config --global core.editor vim
 ```
 You can get the email address [here](https://github.com/settings/emails).  
 3. Generate ssh key to establish connection with GitHub. [Connecting to GitHub with SSH](https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh). You may need to add some lines of configuration to `~/.ssh/config`. See [here](https://gist.github.com/ikanago/cbbaffbef12b86f6cbb60886b30d4ac0)  
+4. Run `ghq get -p git@github.com:ikanago/dotfiles.git` to clone this repository.  
 
 ## How to use
-### Clone this repository
-1. Install `gvm`, `go`, `ghq`.  
-2. Run `ghq get -p git@github.com:ikanago/dotfiles.git` to clone this repository.  
-
 ### Create link
 Create link to dotfiles in home directory(this will be executed in `init.sh`).
 ```
