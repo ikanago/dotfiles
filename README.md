@@ -1,7 +1,7 @@
 # dotfiles
 
 ## Before use
-1. Install `git`, `gvm`, `go`, `ghq`.
+1. Install `git`, `gvm`, `go`, `ghq`. [Install latest version of git](https://git-scm.com/download/linux)  
 2. Configure personal information.
 ```
 $ git config --global user.name "ikanago"
