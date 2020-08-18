@@ -26,7 +26,7 @@ Enumerate installation of tools below(in ubuntu). Remember that run `sudo apt up
 
 ### Utilities
 ```
-sudo apt install build-essential make zsh
+sudo apt install build-essential bison zsh
 ```
 
 ### Starship
