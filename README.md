@@ -18,7 +18,7 @@ You can get the email address [here](https://github.com/settings/emails).
 ### Create link
 Create link to dotfiles in home directory(this will be executed in `init.sh`).
 ```
-sh deploy.sh
+$ sh deploy.sh
 ```
 
 ## Install tools
@@ -26,7 +26,7 @@ Enumerate installation of tools below(in ubuntu). Remember that run `sudo apt up
 
 ### Utilities
 ```
-sudo apt install build-essential bison zsh
+$ sudo apt install build-essential bison zsh
 ```
 
 ### Starship
@@ -121,4 +121,4 @@ $ sh ./installer.sh ~/.cache/dein
 ```
 
 ### Docker
-Reference: https://docs.docker.com/install/linux/docker-ce/ubuntu/  
+Reference: https://docs.docker.com/engine/install/  
