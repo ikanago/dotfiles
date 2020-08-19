@@ -27,6 +27,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " Coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-css',
+    \ 'coc-go',
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-pairs',
