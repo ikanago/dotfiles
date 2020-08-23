@@ -86,7 +86,7 @@ set showcmd
 " スクロールの余裕を確保する
 set scrolloff=5
 " 行番号を表示
-set number
+set relativenumber
 " 現在の行を強調表示
 set cursorline
 hi clear CursorLine
@@ -104,8 +104,8 @@ set listchars=tab:>-,trail:~
 set list
 " Status message of coc.nvim
 "set statusline^=%{coc#status()}
-" yamlファイルのインデント幅はスペース2つ
 autocmd Filetype yaml setlocal shiftwidth=2 expandtab
+autocmd Filetype go setlocal tabstop=4 expandtab!
 
 "----------------------------------------
 "キーマッピング
@@ -143,26 +143,16 @@ noremap sh <C-w>h
 tnoremap jj <C-\><C-n>
 
 set expandtab
-" 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
-" 行頭でのTab文字の表示幅
 set shiftwidth=4
-" 改行時に前の行のインデントを継続する
+set softtabstop=4
 set autoindent
-" インデントはスマートインデント
 set smartindent
-" マウス操作を有効にする
 set mouse=a
 
-" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
-" 検索文字列に大文字が含まれている場合は区別して検索する
 set smartcase
-" 検索文字列入力時に順次対象文字列にヒットさせる
 set incsearch
-" 検索時に最後まで行ったら最初に戻る
 set wrapscan
-" 検索語をハイライト表示
 set hlsearch
-" ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
