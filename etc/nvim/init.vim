@@ -27,6 +27,7 @@ let g:nerdtree_tabs_open_on_console_startup=1
 " Coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-css',
+	\ 'coc-git',
     \ 'coc-go',
     \ 'coc-html',
     \ 'coc-json',
@@ -86,6 +87,7 @@ set showcmd
 " スクロールの余裕を確保する
 set scrolloff=5
 " 行番号を表示
+set number
 set relativenumber
 " 現在の行を強調表示
 set cursorline
