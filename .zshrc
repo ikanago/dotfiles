@@ -91,9 +91,9 @@ bindkey "^g" search_ghq
 
 ### Aliases
 # commands
-alias ls="exa"
-alias la="exa -a"
-alias ll="exa -la"
+alias ls="exa --git"
+alias la="exa -a --git"
+alias ll="exa -lab --git"
 alias find="fd"
 alias ps="procs"
 alias grep="rg"
