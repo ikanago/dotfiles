@@ -5,9 +5,6 @@ repo = 'Shougo/dein.vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
 repo = 'srcery-colors/srcery-vim'
 
 [[plugins]]
@@ -18,9 +15,6 @@ repo = 'jistr/vim-nerdtree-tabs'
 
 [[plugins]]
 repo = 'luochen1990/rainbow'
-
-[[plugins]]
-repo = 'thinca/vim-quickrun'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
