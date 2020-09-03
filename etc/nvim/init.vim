@@ -43,7 +43,6 @@ nmap <silent> gr <Plug>(coc-references)
 " lightline
 set laststatus=2
 let g:lightline = {
-    \ 'colorscheme': 'srcery',
     \ 'active': {
     \   'left': [
     \       ['mode', 'paste'],
