@@ -1,0 +1,24 @@
+# mkdir and cd simultaneously
+function mkcd() {
+    if [[ -d $1 ]]; then
+	echo "$1 already exists"
+	cd $1
+    else
+	mkdir -p $1 && cd $1
+    fi
+}
+
+# cd and ls simultaneously
+function cl() {
+    cd $1 && exa -la
+}
+
+# Fuzzy search in repositories
+function search_ghq() {
+	local target_dir=$(ghq list -p | fzf --query="$LBUFFER" --reverse)
+	if [ -n "$target_dir" ]; then
+		BUFFER="cd ${target_dir}"
+		zle accept-line
+	fi
+	zle reset-prompt
+}

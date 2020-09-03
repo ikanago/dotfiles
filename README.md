@@ -18,9 +18,10 @@ Create link to dotfiles in home directory(this will be executed in `init.sh`).
 ```
 $ sh deploy.sh
 ```
+Or you have `make`, run `make deploy`.
 
 ## Install tools
-Enumerate installation of tools below(in ubuntu). Remember that run `sudo apt update` and `sudo apt-get update` occationally.
+Enumerate installation of tools below(in ubuntu).
 
 ### Utilities
 ```

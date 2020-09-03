@@ -1,5 +1,4 @@
 # Set up the prompt
-
 autoload -Uz promptinit
 promptinit
 
@@ -61,58 +60,16 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light zdharma/fast-syntax-highlighting
 
-### Useful Commands
-# mkdir and cd simultaneously
-function mkcd() {
-    if [[ -d $1 ]]; then
-	echo "$1 already exists"
-	cd $1
-    else
-	mkdir -p $1 && cd $1
-    fi
-}
+# Load aliases and useful functions
+for file in $HOME/.{aliases,functions}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
-# cd and ls simultaneously
-function cl() {
-    cd $1 && exa -la
-}
-
-# Fuzzy search in repositories
-function search_ghq() {
-	local target_dir=$(ghq list -p | fzf --query="$LBUFFER" --reverse)
-	if [ -n "$target_dir" ]; then
-		BUFFER="cd ${target_dir}"
-		zle accept-line
-	fi
-	zle reset-prompt
-}
+# Search and move to a repository easily
+# `search_ghq` is defined at .functions
 zle -N search_ghq
 bindkey "^g" search_ghq
-
-### Aliases
-# commands
-alias ls="exa --git"
-alias la="exa -a --git"
-alias ll="exa -lab --git"
-alias find="fd"
-alias ps="procs"
-alias grep="rg"
-alias time="hyperfine"
-
-# git
-alias ga="git add ."
-alias gc="git commit"
-alias gp="git push"
-alias gl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
-alias gs="git status"
-alias gd="git diff"
-
-# others
-alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
-alias dc='docker-compose'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 
 # cargo
 source $HOME/.cargo/env
