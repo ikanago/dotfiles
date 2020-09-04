@@ -1,16 +1,10 @@
-#...
+#!/bin/sh
+set -eu
+DOTFILES_HOME=$PWD/dotfiles
 
-for f in .??*
-do
-	[ "$f" = ".git" ] && continue
-	[ "$f" = ".gitignore" ] && continue
-	[ "$f" = ".github" ] && continue
-	ln -sfnv $PWD/$f $HOME/$f
-done
+cd $DOTFILES_HOME
 
-# Script to recover from `zsh: corrupt history file`.
-script=recover_zsh_history.sh 
-ln -sfnv $PWD/$script $HOME/$script
+echo 'Creating symbolic links to dotfiles'
+find . -type d | xargs -I '{}' mkdir -p "${HOME}/{}"
+find . -type f | xargs -I '{}' ln -snvf "${DOTFILES_HOME}/{}" "${HOME}/{}"
 
-mkdir -p $HOME/.config
-ln -sfnv $PWD/etc/nvim $HOME/.config
