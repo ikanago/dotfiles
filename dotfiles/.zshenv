@@ -1,3 +1,6 @@
+# General
+export EDITOR="nvim"
+
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 

@@ -4,7 +4,6 @@ alias la="exa -a --git"
 alias ll="exa -lab --git"
 alias ps="procs"
 alias grep="rg"
-alias time="hyperfine"
 alias dc='docker-compose'
 alias rm='rm -i'
 alias cp='cp -i'

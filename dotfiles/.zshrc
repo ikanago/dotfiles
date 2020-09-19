@@ -60,6 +60,9 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light zdharma/fast-syntax-highlighting
 
+# Jump directories quickly
+zinit load agkozak/zsh-z
+
 # Load aliases and useful functions
 for file in $HOME/.{aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
@@ -85,3 +88,5 @@ eval "$(starship init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /home/ikanago/.config/broot/launcher/bash/br
