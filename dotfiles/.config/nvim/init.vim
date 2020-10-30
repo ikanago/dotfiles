@@ -16,7 +16,10 @@ filetype plugin indent on
 syntax enable
 
 " Color scheme
-colorscheme srcery
+" colorscheme srcery
+let g:tokyonight_style = 'night'
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 " NERDTree
 autocmd vimenter * NERDTree

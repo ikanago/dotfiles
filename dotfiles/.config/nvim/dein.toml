@@ -8,6 +8,9 @@ repo = 'itchyny/lightline.vim'
 repo = 'srcery-colors/srcery-vim'
 
 [[plugins]]
+repo = 'ghifarit53/tokyonight-vim'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
