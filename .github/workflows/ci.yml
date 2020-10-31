@@ -23,7 +23,7 @@ jobs:
         python -m pip install --user ansible
     - name: Run Ansible Playbook
       run: |
-        ansible-playbook linux.yml
+        ansible-playbook ubuntu.yml
 
   build-macos:
     runs-on: macos-latest
