@@ -15,7 +15,7 @@
     - .zshenv
     - .zshrc
 
-- name: Create .config directory
+- name: Create .config/nvim directory
   file:
     path: "{{ ansible_env.HOME }}/.config/nvim"
     state: directory
