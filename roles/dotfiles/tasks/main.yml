@@ -3,6 +3,7 @@
     src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: link
+    force: yes
   loop:
     - .aliases
     - .bashrc
