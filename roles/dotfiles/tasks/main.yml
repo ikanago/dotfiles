@@ -1,7 +1,7 @@
 - name: Deploy dotfiles
   file:
     src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
-    path: "~/{{ item }}"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
     state: link
   loop:
     - .aliases
@@ -16,13 +16,13 @@
 
 - name: Create .config directory
   file:
-    path: ~/.config/nvim
+    path: "{{ ansible_env.HOME }}/.config/nvim"
     state: directory
 
-- name: Deploy dotfiles in .config
+- name: Deploy dotfiles in .config/nvim
   file:
     src: "{{ ansible_env.PWD }}/roles/dotfiles/files/.config/nvim/{{ item }}"
-    path: "~/.config/nvim/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/nvim/{{ item }}"
     state: link
   loop:
     - .netrwhist
