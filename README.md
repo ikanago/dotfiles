@@ -1,5 +1,39 @@
 # dotfiles
 
+![Ansible CI](https://github.com/ikanago/dotfiles/workflows/Ansible%20CI/badge.svg?branch=master)
+
+## Requirements
+### Ubuntu
+Install ansible and git.
+```
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo apt-add-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible git
+```
+
+Then run playbook.
+```
+$ ansible-playbook ubuntu.yml
+```
+
+### macOS
+First install [Homebrew](https://brew.sh/).
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Then install ansible and git.
+```
+$ brew update
+$ brew install ansible git
+```
+
+Finally, run playbook.
+```
+$ ansible-playbook macos.yml
+```
+
 ## Before use
 1. Install `git`, `gvm`, `go`, `ghq`. [Install latest version of git](https://git-scm.com/download/linux)  
 2. Configure personal information.
