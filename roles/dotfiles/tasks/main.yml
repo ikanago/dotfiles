@@ -1,0 +1,32 @@
+- name: Deploy dotfiles
+  file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/{{ item }}"
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - .aliases
+    - .bashrc
+    - .functions
+    - .gdbinit
+    - .starship.toml
+    - .tmux.conf
+    - .vimrc
+    - .zshenv
+    - .zshrc
+
+- name: Create .config/nvim directory
+  file:
+    path: "{{ ansible_env.HOME }}/.config/nvim"
+    state: directory
+
+- name: Deploy dotfiles in .config/nvim
+  file:
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/.config/nvim/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/nvim/{{ item }}"
+    state: link
+  loop:
+    - .netrwhist
+    - coc-settings.json
+    - dein.toml
+    - init.vim

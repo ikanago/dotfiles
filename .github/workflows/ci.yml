@@ -1,0 +1,37 @@
+name: Ansible CI
+on:
+  push:
+  pull_request:
+    branches: [ master ]
+    types: [ closed ]
+
+jobs:
+  build-ubuntu:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.6
+    - name: Install Ansible
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install --user ansible
+    - name: Run Ansible Playbook
+      run: |
+        ansible-playbook ubuntu.yml
+
+  build-macos:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Ansible
+      run: |
+        brew install ansible
+    - name: Run Ansible Playbook
+      run: |
+        ansible-playbook macos.yml
