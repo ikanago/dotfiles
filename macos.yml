@@ -12,6 +12,7 @@
     - curl
     - fzf
     - ghq
+    - go
     - jq
     - mercurial
     - n
@@ -25,28 +26,6 @@
     creates: |
       "{{ ansible_env.HOME }}/.cargo"
       "{{ ansible_env.HOME }}/.rustup"
-
-- name: Install node
-  shell:
-    cmd: |
-      n latest
-      npm install -g yarn
-      node -v && yarn -v
-  register: node_version_check
-  failed_when: node_version_check.rc >= 1
-
-- name: Install go
-  vars:
-    go_version: 1.15
-  shell:
-    cmd: |
-      /bin/bash -c "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"
-      "gvm install go{{ go_version }} -B"
-      "gvm use go{{ go_version }} --default"
-      go version
-    creates: "{{ ansible_env.HOME }}/gvm"
-  register: go_version_check
-  failed_when: go_version not in go_version_check
 
 - name: Install fzf key bindings
   shell:

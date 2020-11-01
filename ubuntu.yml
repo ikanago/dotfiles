@@ -17,6 +17,7 @@
     - ltrace
     - strace
     - vim
+    - wget
     - zsh
   become: yes
 
@@ -38,28 +39,14 @@
       curl -L https://git.io/n-install | bash -s -- -y
       npm install -g yarn
 
-- name: Install yarn
-  npm:
-    name: yarn
-    global: yes
-
-- name: Install gvm
-  shell:
-    cmd: |
-      /bin/bash -c "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"
-    creates: "{{ ansible_env.HOME }}/.gvm"
-    # source "{{ ansible_env.HOME }}/.gvm/scripts/gvm"
+# - name: Install yarn
+#   npm:
+#     name: yarn
+#     global: yes
 
 - name: Install go
-  vars:
-    go_version: 1.15
-  shell:
-    cmd: |
-      "{{ ansible_env.HOME }}/.gvm/bin/gvm install go{{ go_version }} -B"
-      "{{ ansible_env.HOME }}/.gvm/bin/gvm use go{{ go_version }} --default"
-      go version
-  register: go_version_check
-  failed_when: go_version not in go_version_check
+  import_role:
+    name: golang
 
 - name: Install ghq
   shell:

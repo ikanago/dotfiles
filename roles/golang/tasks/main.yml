@@ -1,0 +1,16 @@
+- name: Download Go tarball
+  get_url:
+    url: "{{ go_tarball }}"
+    dest: "/usr/local/{{ go_tarball }}"
+
+- name: Remove old Go
+  file:
+    path: /usr/local/go
+    state: absent
+  when: go_version|failed or go_version.stdout != go_version
+
+- name: Extract tarball
+  unarchive:
+    src: "/usr/local/{{ go_tarball }}"
+    dest: /usr/local
+  when: go_version|failed or go_version.stdout != go_version
