@@ -5,14 +5,15 @@
 
 - name: Install tools via homebrew
   homebrew:
-    name: "{{ item }}"
-  loop:
-    - fzf
-    - ghq
-    - mercurial
-    - "n"
-    - neovim
-    - starship
+    name: fzf
+  #   name: "{{ item }}"
+  # loop:
+  #   - fzf
+  #   - ghq
+  #   - mercurial
+  #   - "n"
+  #   - neovim
+  #   - starship
 
 - name: Install node
   shell:
@@ -20,8 +21,8 @@
       n latest
       npm install -g yarn
       node -v && yarn -v
-    register: node_version_check
-    failed_when: node_version_check.rc >= 1
+  register: node_version_check
+  failed_when: node_version_check.rc >= 1
 
 - name: Install go
   vars:
@@ -33,8 +34,8 @@
       "gvm use go{{ go_version }} --default"
       go version
     creates: "{{ ansible_env.HOME }}/gvm"
-    register: go_version_check
-    failed_when: go_version not in go_version_check
+  register: go_version_check
+  failed_when: go_version not in go_version_check
 
 - name: Install fzf key bindings
   shell:
