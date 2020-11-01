@@ -12,8 +12,9 @@ $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible git
 ```
 
-Then run playbook.
+Then clone this repository and run playbook(SSH connection between git and GitHub is needed).
 ```
+$ git clone git@github.com:ikanago/dotfiles.git
 $ ansible-playbook ubuntu.yml
 ```
 
@@ -29,8 +30,9 @@ $ brew update
 $ brew install ansible git
 ```
 
-Finally, run playbook.
+Finally, clone this repository and run playbook.
 ```
+$ git clone git@github.com:ikanago/dotfiles.git
 $ ansible-playbook macos.yml
 ```
 

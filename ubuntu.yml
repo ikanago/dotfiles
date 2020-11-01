@@ -1,5 +1,3 @@
-- name: Set up environment
-  hosts: localhost
-  roles:
-    - role: dotfiles
-      tags: dotfiles
+- name: Update apt
+  apt:
+    update_cache: yes

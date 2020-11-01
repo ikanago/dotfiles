@@ -1,5 +1,5 @@
-- name: Set up environment
-  hosts: localhost
-  roles:
-    - role: dotfiles
-      tags: dotfiles
+- name: Update brew
+  tasks:
+    - name: Update homebrew
+      homebrew:
+        update_homebrew: yes
