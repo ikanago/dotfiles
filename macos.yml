@@ -2,4 +2,3 @@
   homebrew:
     update_homebrew: yes
     upgrade_all: yes
-  become: yes
