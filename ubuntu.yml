@@ -22,12 +22,9 @@
   shell:
     cmd: |
       curl -sSf https://sh.rustup.rs | sh -s -- -y
-      rustup --version
     creates: |
       "{{ ansible_env.HOME }}/.cargo"
       "{{ ansible_env.HOME }}/.rustup"
-  register: rustup_version_check
-  failed_when: rustup_version_check.rc >= 1
 
 - name: Install Starship
   shell:
