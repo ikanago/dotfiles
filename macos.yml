@@ -9,11 +9,12 @@
     state: installed
   with_items:
     - bat
+    - curl
     - fzf
     - ghq
     - jq
     - mercurial
-    - "n"
+    - n
     - neovim
     - starship
 

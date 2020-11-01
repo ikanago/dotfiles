@@ -9,6 +9,7 @@
     pkg:
     - bison
     - build-essential
+    - curl
     - file
     - gdb
     - jq
@@ -34,11 +35,8 @@
   shell:
     cmd: |
       curl -L https://git.io/n-install | bash
-      n latest
+      "{{ ansible_env.HOME }}/n latest"
       npm install -g yarn
-      node -v && yarn -v
-  register: node_version_check
-  failed_when: node_version_check.rc >= 1
 
 - name: Install go
   vars:
@@ -46,8 +44,8 @@
   shell:
     cmd: |
       /bin/bash -c "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"
-      "gvm install go{{ go_version }} -B"
-      "gvm use go{{ go_version }} --default"
+      "{{ ansible_env.HOME }}/.gvm/bin/gvm install go{{ go_version }} -B"
+      "{{ ansible_env.HOME }}/.gvm/bin/gvm use go{{ go_version }} --default"
       go version
     creates: "{{ ansible_env.HOME }}/.gvm"
   register: go_version_check

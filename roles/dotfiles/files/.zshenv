@@ -4,6 +4,9 @@ export EDITOR="nvim"
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# go
+export PATH="$PATH:/usr/local/go/bin"
+
 # starship
 export STARSHIP_CONFIG=~/.starship.toml
 
@@ -26,4 +29,3 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"
-

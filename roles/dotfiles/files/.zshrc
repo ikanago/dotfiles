@@ -88,5 +88,3 @@ eval "$(starship init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /home/ikanago/.config/broot/launcher/bash/br
