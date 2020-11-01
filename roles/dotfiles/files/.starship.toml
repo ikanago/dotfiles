@@ -5,19 +5,22 @@ use_symbol_for_status = true
 [cmd_duration]
 min_time = 10
 show_milliseconds = true
-prefix = " "
+format = "took [$duration](bold yellow)"
 
 [git_branch]
 symbol = "🌱 "
 
+[gcloud]
+disabled = true
+
 [memory_usage]
 disabled = false
-show_percentage = true
-show_swap = false
+format = "RAM: [$ram_pct](dimmed white) "
 threshold = -1
 symbol = ""
 
 [time]
 disabled = false
-format = "| %T |"
+format = "[| $time |](yellow) "
+time_format = "%T"
 utc_time_offset = "+9"

@@ -1,5 +1,82 @@
 - name: Update apt
   apt:
     update_cache: yes
-    upgrade: yes
+    upgrade: "yes"
   become: yes
+
+- name: Install tools via apt
+  apt:
+    pkg:
+    - bison
+    - build-essential
+    - file
+    - gdb
+    - jq
+    - libssl-dev
+    - ltrace
+    - strace
+    - zsh
+  become: yes
+
+- name: Install rustup
+  shell:
+    cmd: |
+      curl -sSf https://sh.rustup.rs | sh -s -- -y
+      rustup --version
+    register: rustup_version_check
+    creates: |
+      "{{ ansible_env.HOME }}/.cargo"
+      "{{ ansible_env.HOME }}/.rustup"
+    failed_when: rustup_version_check.rc >= 1
+
+- name: Install Starship
+  shell:
+    cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
+- name: Install node
+  shell:
+    cmd: |
+      curl -L https://git.io/n-install | bash
+      n latest
+      npm install -g yarn
+      node -v && yarn -v
+    register: node_version_check
+    failed_when: node_version_check.rc >= 1
+
+- name: Install go
+  vars:
+    go_version: 1.15
+  shell:
+    cmd: |
+      bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      "gvm install go{{ go_version }} -B"
+      "gvm use go{{ go_version }} --default"
+      go version
+    creates: "{{ ansible_env.HOME }}/gvm"
+    register: go_version_check
+    failed_when: go_version not in go_version_check
+
+- name: Install ghq
+  shell:
+    cmd: go get github.com/x-motemen/ghq
+
+- name: Install fzf
+  shell:
+    cmd: |
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      {{ ansible_env.HOME }}/.fzf/install
+    creates: .fzf
+
+- name: Install zinit
+  shell:
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    creates: .zinit
+
+- name: Install Neovim
+  shell:
+    cmd: |
+      curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+      chmod u+x nvim.appimage
+      mv nvim.appimage /usr/local/bin/nvim
+      curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+      sh ./installer.sh ~/.cache/dein

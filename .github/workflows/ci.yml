@@ -13,10 +13,6 @@ jobs:
         os: [ ubuntu-18.04, ubuntu-20.04 ]
     steps:
     - uses: actions/checkout@v2
-    - name: Install Ansible
-      run: |
-        sudo apt update
-        sudo apt install ansible
     - name: Run Ansible Playbook
       run: |
         ansible-playbook main.yml -b

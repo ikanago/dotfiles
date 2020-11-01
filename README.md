@@ -26,6 +26,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 Then install ansible and git.
 ```
+$ xcode-select --install
 $ brew update
 $ brew install ansible git
 ```
