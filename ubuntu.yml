@@ -45,11 +45,11 @@
     go_version: 1.15
   shell:
     cmd: |
-      bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      /bin/bash -c "bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)"
       "gvm install go{{ go_version }} -B"
       "gvm use go{{ go_version }} --default"
       go version
-    creates: "{{ ansible_env.HOME }}/gvm"
+    creates: "{{ ansible_env.HOME }}/.gvm"
   register: go_version_check
   failed_when: go_version not in go_version_check
 
@@ -62,12 +62,12 @@
     cmd: |
       git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       {{ ansible_env.HOME }}/.fzf/install
-    creates: .fzf
+    creates: "{{ ansible_env.HOME }}.fzf"
 
 - name: Install zinit
   shell:
     cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-    creates: .zinit
+    creates: "{{ ansible_env.HOME }}.zinit"
 
 - name: Install Neovim
   shell:
