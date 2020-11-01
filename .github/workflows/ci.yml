@@ -23,7 +23,7 @@ jobs:
         python -m pip install --user ansible
     - name: Run Ansible Playbook
       run: |
-        ansible-playbook ubuntu.yml
+        ansible-playbook main.yml -b
 
   build-macos:
     runs-on: macos-latest
@@ -34,4 +34,4 @@ jobs:
         brew install ansible
     - name: Run Ansible Playbook
       run: |
-        ansible-playbook macos.yml
+        ansible-playbook main.yml -b

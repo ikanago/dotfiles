@@ -1,5 +1,5 @@
 - name: Update brew
-  tasks:
-    - name: Update homebrew
-      homebrew:
-        update_homebrew: yes
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+  become: yes
