@@ -18,7 +18,7 @@
   when: go_version_check is failed or go_version not in go_version_check.stdout
   become: yes
 
-- name: Extract tarball
+- name: Extract the go tarball
   unarchive:
     src: "/usr/local/{{ go_tarball }}"
     dest: /usr/local

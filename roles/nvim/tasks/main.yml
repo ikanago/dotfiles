@@ -1,8 +1,11 @@
+- name: Add repository for nvim 
+  apt_repository:
+    repo: ppa:neovim-ppa/stable
+
 - name: Install nvim
-  get_url:
-    url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-    dest: /usr/local/bin/nvim
-  become: yes
+  apt:
+    name: neovim
+    update_cache: yes
 
 - name: Fetch dein.vim
   get_url:
@@ -13,7 +16,6 @@
 - name: Install dein.vim
   shell:
     cmd: "{{ ansible_env.HOME }}/.cache/installer.sh {{ ansible_env.HOME }}/.cache/dein"
-
 
 - name: Clean up installer
   file:
