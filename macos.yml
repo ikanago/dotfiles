@@ -8,14 +8,21 @@
     name: {
       'bat',
       'curl',
+      'exa',
+      'fd',
       'fzf',
       'ghq',
       'go',
+      'hexyl',
+      'hyperfine',
       'jq',
       'mercurial',
       'n',
       'neovim',
-      'starship'
+      'procs',
+      'ripgrep',
+      'starship',
+      'tokei',
     }
     state: installed
 

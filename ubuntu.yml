@@ -66,6 +66,8 @@
     name: nvim
 
 - name: Install utilities through cargo
+  environment:
+    PATH: "PATH:{{ ansible_env.HOME }}/.cargo/bin"
   shell:
     cmd: "cargo install {{ item }}"
     creates: "{{ ansible_env.HOME }}/.cargo/bin/{{ item }}"

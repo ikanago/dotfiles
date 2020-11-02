@@ -79,7 +79,7 @@ $ curl https://sh.rustup.rs -sSf | sh
 
 ### Utilities made with Rust
 ```
-$ cargo install bat exa fd-find procs ripgrep hyperfine tokei hexyl broot
+$ cargo install bat exa fd-find procs ripgrep hyperfine tokei hexyl
 ```
 
 ### Node
