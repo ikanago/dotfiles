@@ -46,6 +46,7 @@
 - name: Install Starship
   shell:
     cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+    creates: /usr/local/bin/starship
 
 - name: Install fzf
   shell:
@@ -60,10 +61,5 @@
     creates: "{{ ansible_env.HOME }}/.zinit"
 
 - name: Install Neovim
-  shell:
-    cmd: |
-      curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-      chmod u+x nvim.appimage
-      mv nvim.appimage /usr/local/bin/nvim
-      curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-      sh ./installer.sh ~/.cache/dein
+  import_role:
+    name: nvim

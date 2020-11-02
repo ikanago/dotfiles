@@ -5,19 +5,19 @@
 
 - name: Install tools via homebrew
   homebrew:
-    name: "{{ item }}"
+    name: {
+      'bat',
+      'curl',
+      'fzf',
+      'ghq',
+      'go',
+      'jq',
+      'mercurial',
+      'n',
+      'neovim',
+      'starship'
+    }
     state: installed
-  with_items:
-    - bat
-    - curl
-    - fzf
-    - ghq
-    - go
-    - jq
-    - mercurial
-    - n
-    - neovim
-    - starship
 
 - name: Install rustup
   shell:

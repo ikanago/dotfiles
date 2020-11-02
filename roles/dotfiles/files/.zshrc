@@ -77,9 +77,6 @@ bindkey "^g" search_ghq
 # cargo
 source $HOME/.cargo/env
 
-# gvm
-source $HOME/.gvm/scripts/gvm
-
 # starship
 eval "$(starship init zsh)"
 

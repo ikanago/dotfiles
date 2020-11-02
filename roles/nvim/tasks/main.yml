@@ -1,0 +1,21 @@
+- name: Install nvim
+  get_url:
+    url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    dest: /usr/local/bin/nvim
+  become: yes
+
+- name: Fetch dein.vim
+  get_url:
+    url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+    dest: "{{ ansible_env.HOME }}/.cache/installer.sh"
+    mode: 0755
+
+- name: Install dein.vim
+  shell:
+    cmd: "{{ ansible_env.HOME }}/.cache/installer.sh {{ ansible_env.HOME }}/.cache/dein"
+
+
+- name: Clean up installer
+  file:
+    path: "{{ ansible_env.HOME }}/.cache/installer.sh"
+    state: absent
