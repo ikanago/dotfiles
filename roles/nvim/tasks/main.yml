@@ -1,11 +1,13 @@
 - name: Add repository for nvim 
   apt_repository:
     repo: ppa:neovim-ppa/stable
+  become: yes
 
 - name: Install nvim
   apt:
     name: neovim
     update_cache: yes
+  become: yes
 
 - name: Fetch dein.vim
   get_url:
