@@ -1,5 +1,5 @@
 - name: Register the current Node.js version (if any)
-  command: node version
+  command: node --version
   ignore_errors: yes
   register: node_version_check
   changed_when: false
