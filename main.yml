@@ -1,0 +1,10 @@
+- name: Set up environment
+  hosts: localhost
+  tasks:
+    - import_tasks: ubuntu.yml
+      when: ansible_os_family == "Debian"
+    - import_tasks: macos.yml
+      when: ansible_os_family == "Darwin"
+  roles:
+    - role: dotfiles
+      tags: dotfiles

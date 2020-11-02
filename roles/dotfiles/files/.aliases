@@ -5,6 +5,7 @@ alias ll="exa -lab --git"
 alias ps="procs"
 alias grep="rg"
 alias dc='docker-compose'
+alias tree='exa --tree'
 alias ca='cargo'
 alias rm='rm -i'
 alias cp='cp -i'

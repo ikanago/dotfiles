@@ -1,5 +1,44 @@
-- name: Set up environment
-  hosts: localhost
-  roles:
-    - role: dotfiles
-      tags: dotfiles
+- name: Update brew
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Install tools via homebrew
+  homebrew:
+    name: {
+      'bat',
+      'curl',
+      'exa',
+      'fd',
+      'fzf',
+      'ghq',
+      'go',
+      'hexyl',
+      'hyperfine',
+      'jq',
+      'mercurial',
+      'n',
+      'neovim',
+      'procs',
+      'ripgrep',
+      'starship',
+      'tokei',
+    }
+    state: installed
+
+- name: Install rustup
+  shell:
+    cmd: |
+      curl -sSf https://sh.rustup.rs | sh -s -- -y
+    creates: |
+      "{{ ansible_env.HOME }}/.cargo"
+      "{{ ansible_env.HOME }}/.rustup"
+
+- name: Install fzf key bindings
+  shell:
+    cmd: $(brew --prefix)/opt/fzf/install
+
+- name: Install zinit
+  shell:
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    creates: .zinit

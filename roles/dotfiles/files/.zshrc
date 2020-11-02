@@ -77,9 +77,6 @@ bindkey "^g" search_ghq
 # cargo
 source $HOME/.cargo/env
 
-# gvm
-source $HOME/.gvm/scripts/gvm
-
 # starship
 eval "$(starship init zsh)"
 
@@ -88,5 +85,3 @@ eval "$(starship init zsh)"
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /home/ikanago/.config/broot/launcher/bash/br

@@ -1,5 +1,66 @@
-- name: Set up environment
-  hosts: localhost
-  roles:
-    - role: dotfiles
-      tags: dotfiles
+- name: Update apt
+  apt:
+    update_cache: yes
+    upgrade: "yes"
+  become: yes
+
+- name: Install tools via apt
+  apt:
+    pkg:
+    - bison
+    - build-essential
+    - curl
+    - file
+    - gdb
+    - jq
+    - libssl-dev
+    - ltrace
+    - strace
+    - vim
+    - wget
+    - zsh
+  become: yes
+
+- name: Install rustup
+  shell:
+    cmd: |
+      curl -sSf https://sh.rustup.rs | sh -s -- -y
+    creates: |
+      "{{ ansible_env.HOME }}/.cargo"
+      "{{ ansible_env.HOME }}/.rustup"
+
+- name: Install node.js
+  import_role:
+    name: nodejs
+
+- name: Install go
+  import_role:
+    name: golang
+
+- name: Install ghq
+  environment:
+    PATH: "/usr/local/go/bin:{{ ansible_env.PATH }}"
+    GOROOT: /usr/local/go
+  shell:
+    cmd: go get github.com/x-motemen/ghq
+
+- name: Install Starship
+  shell:
+    cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+    creates: /usr/local/bin/starship
+
+- name: Install fzf
+  shell:
+    cmd: |
+      git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      {{ ansible_env.HOME }}/.fzf/install
+    creates: "{{ ansible_env.HOME }}/.fzf"
+
+- name: Install zinit
+  shell:
+    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    creates: "{{ ansible_env.HOME }}/.zinit"
+
+- name: Install Neovim
+  import_role:
+    name: nvim

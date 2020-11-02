@@ -12,8 +12,9 @@ $ sudo apt-add-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible git
 ```
 
-Then run playbook.
+Then clone this repository and run playbook(SSH connection between git and GitHub is needed).
 ```
+$ git clone git@github.com:ikanago/dotfiles.git
 $ ansible-playbook ubuntu.yml
 ```
 
@@ -25,12 +26,14 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 Then install ansible and git.
 ```
+$ xcode-select --install
 $ brew update
 $ brew install ansible git
 ```
 
-Finally, run playbook.
+Finally, clone this repository and run playbook.
 ```
+$ git clone git@github.com:ikanago/dotfiles.git
 $ ansible-playbook macos.yml
 ```
 
@@ -76,7 +79,7 @@ $ curl https://sh.rustup.rs -sSf | sh
 
 ### Utilities made with Rust
 ```
-$ cargo install bat exa fd-find procs ripgrep hyperfine tokei hexyl broot
+$ cargo install bat exa fd-find procs ripgrep hyperfine tokei hexyl
 ```
 
 ### Node
