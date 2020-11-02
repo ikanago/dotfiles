@@ -29,21 +29,9 @@
       "{{ ansible_env.HOME }}/.cargo"
       "{{ ansible_env.HOME }}/.rustup"
 
-- name: Install Starship
-  shell:
-    cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
-
-- name: Install node
-  shell:
-    cmd: |
-      curl -L https://git.io/n-install | bash -s -- -y
-
-- name: Install yarn
-  environment:
-    PATH: "{{ ansible_env.HOME }}/n/bin/:{{ ansible_env.PATH }}"
-  npm:
-    name: yarn
-    global: yes
+- name: Install node.js
+  import_role:
+    name: nodejs
 
 - name: Install go
   import_role:
@@ -55,17 +43,21 @@
   shell:
     cmd: go get github.com/x-motemen/ghq
 
+- name: Install Starship
+  shell:
+    cmd: curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
 - name: Install fzf
   shell:
     cmd: |
       git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
       {{ ansible_env.HOME }}/.fzf/install
-    creates: "{{ ansible_env.HOME }}.fzf"
+    creates: "{{ ansible_env.HOME }}/.fzf"
 
 - name: Install zinit
   shell:
     cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-    creates: "{{ ansible_env.HOME }}.zinit"
+    creates: "{{ ansible_env.HOME }}/.zinit"
 
 - name: Install Neovim
   shell:
