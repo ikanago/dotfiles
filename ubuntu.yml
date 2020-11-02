@@ -37,18 +37,21 @@
   shell:
     cmd: |
       curl -L https://git.io/n-install | bash -s -- -y
-      npm install -g yarn
 
-# - name: Install yarn
-#   npm:
-#     name: yarn
-#     global: yes
+- name: Install yarn
+  environment:
+    PATH: "{{ ansible_env.HOME }}/n/bin/:{{ ansible_env.PATH }}"
+  npm:
+    name: yarn
+    global: yes
 
 - name: Install go
   import_role:
     name: golang
 
 - name: Install ghq
+  environment:
+    PATH: "/usr/local/go/bin:{{ ansible_env.PATH }}"
   shell:
     cmd: go get github.com/x-motemen/ghq
 

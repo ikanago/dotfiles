@@ -1,2 +1,3 @@
 go_version: 1.15.3
-go_tarball: "https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz"
+go_tarball: "go{{ go_version }}.linux-amd64.tar.gz"
+go_tarball_location: "https://dl.google.com/go/{{ go_tarball }}"

@@ -17,16 +17,16 @@ jobs:
       run: |
         ansible-playbook main.yml -b
 
-  build-macos:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ macos-latest, macos-11.0 ]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install Ansible
-      run: |
-        brew install ansible
-    - name: Run Ansible Playbook
-      run: |
-        ansible-playbook main.yml
+  # build-macos:
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       os: [ macos-latest, macos-11.0 ]
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - name: Install Ansible
+  #     run: |
+  #       brew install ansible
+  #   - name: Run Ansible Playbook
+  #     run: |
+  #       ansible-playbook main.yml
