@@ -64,3 +64,17 @@
 - name: Install Neovim
   import_role:
     name: nvim
+
+- name: Install utilities through cargo
+  shell:
+    cmd: "cargo install {{ item }}"
+    creates: "{{ ansible_env.HOME }}/.cargo/bin/{{ item }}"
+  loop:
+    - bat
+    - fd-find
+    - exa
+    - hexyl
+    - hyperfine
+    - procs
+    - ripgrep
+    - tokei
