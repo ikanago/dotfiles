@@ -1,3 +1,7 @@
 - name: Install tools via homebrew
   homebrew:
     name: "{{ homebrew_packages }}"
+
+- name: Install tools via homebrew casks
+  homebrew_cask:
+    name: "{{ homebrew_cask_packages }}"

@@ -15,6 +15,7 @@
       - jq
       - libssl-dev
       - ltrace
+      - python3.8
       - strace
       - vim
       - wget

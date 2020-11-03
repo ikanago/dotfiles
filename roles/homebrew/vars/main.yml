@@ -18,3 +18,11 @@ homebrew_packages:
   - starship
   - tmux
   - tokei
+  - wget
+
+homebrew_cask_packages:
+  - alacritty
+  - discord
+  - firefox
+  - google-cloud-sdk
+  - visual-studio-code
