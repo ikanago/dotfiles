@@ -1,26 +1,6 @@
-- name: Install tools via homebrew
-  homebrew:
-    name: {
-      'bat',
-      'curl',
-      'exa',
-      'fd',
-      'fzf',
-      'ghq',
-      'go',
-      'hexyl',
-      'hyperfine',
-      'jq',
-      'mercurial',
-      'n',
-      'neovim',
-      'procs',
-      'ripgrep',
-      'starship',
-      'tmux',
-      'tokei',
-    }
-    update_homebrew: false
+- name: Install tools
+  import_role:
+    name: homebrew
 
 - name: Install rustup
   shell:
