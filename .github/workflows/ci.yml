@@ -18,10 +18,10 @@ jobs:
         ansible-playbook main.yml -b
 
   build-macos:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ macos-latest, macos-11.0 ]
+    runs-on: macos-latest
+    # strategy:
+    #   matrix:
+    #     os: [ macos-latest, macos-11.0 ]
     steps:
     - uses: actions/checkout@v2
     - name: Install Ansible
