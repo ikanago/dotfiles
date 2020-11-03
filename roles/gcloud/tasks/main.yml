@@ -8,7 +8,7 @@
   apt:
     pkg:
       - apt-transport-https
-      - -ca-certificates
+      - ca-certificates
       - gnupg
   become: yes
 
