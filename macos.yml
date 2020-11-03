@@ -20,7 +20,7 @@
       'tmux',
       'tokei',
     }
-    with_update: false
+    update_homebrew: false
 
 - name: Install rustup
   shell:
