@@ -1,0 +1,25 @@
+- name: Add repository
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main
+    filename: google-cloud-sdk.list
+  become: yes
+
+- name: Install packages
+  apt:
+    pkg:
+      - apt-transport-https
+      - -ca-certificates
+      - gnupg
+  become: yes
+
+- name: Add key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    keyring: /usr/share/keyrings/cloud.google.gpg
+  become: yes
+
+- name: Install gcloud
+  apt:
+    name: google-cloud-sdk
+    update_cache: yes
+  become: yes

@@ -7,19 +7,19 @@
 - name: Install tools via apt
   apt:
     pkg:
-    - bison
-    - build-essential
-    - curl
-    - file
-    - gdb
-    - jq
-    - libssl-dev
-    - ltrace
-    - python3.8
-    - strace
-    - vim
-    - wget
-    - zsh
+      - bison
+      - build-essential
+      - curl
+      - file
+      - gdb
+      - jq
+      - libssl-dev
+      - ltrace
+      - python3.8
+      - strace
+      - vim
+      - wget
+      - zsh
   become: yes
 
 - name: Install rustup
@@ -65,3 +65,7 @@
 - name: Install Neovim
   import_role:
     name: nvim
+
+- name: Install docker
+  import_role:
+    name: docker
