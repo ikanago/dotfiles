@@ -69,3 +69,7 @@
 - name: Install docker
   import_role:
     name: docker
+
+- name: Install gcloud
+  import_role:
+    name: gcloud
