@@ -24,7 +24,7 @@
       'starship',
       'tokei',
     }
-    state: installed
+    state: present
 
 - name: Install rustup
   shell:
