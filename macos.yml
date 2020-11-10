@@ -18,3 +18,7 @@
   shell:
     cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
     creates: .zinit
+
+- name: Install heroku CLI
+  import_role:
+    name: heroku

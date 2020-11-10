@@ -5,8 +5,4 @@ RUN apt update \
     && apt-add-repository --y --update ppa:ansible/ansible \
     && apt install -y git ansible vim
 
-RUN git clone https://github.com/ikanago/dotfiles.git \
-    && cd dotfiles \
-    # && git branch -r \
-    # && git fetch origin ansible-packages \
-    # && git checkout ansible-packages
+COPY . .
