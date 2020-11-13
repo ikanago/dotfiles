@@ -6,9 +6,9 @@
 ### Ubuntu
 ```
 $ sudo apt update \
-    && apt install -y software-properties-common \
-    && apt-add-repository -y --update ppa:ansible/ansible \
-    && apt install -y ansible git
+    && sudo apt install -y software-properties-common \
+    && sudo apt-add-repository -y --update ppa:ansible/ansible \
+    && sudo apt install -y ansible git
 ```
 
 ### macOS
@@ -30,7 +30,7 @@ Generate ssh key to establish connection with GitHub. [Connecting to GitHub with
 ## Run Playbook
 ```
 $ git clone git@github.com:ikanago/dotfiles.git && cd dotfiles
-$ ansible-playbook macos.yml -K
+$ ansible-playbook main.yml -K
 ```
 
 ### Utilities made with Rust

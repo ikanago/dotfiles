@@ -20,5 +20,5 @@
     file:
       path: ./install.sh
       state: absent
-  
+
   when: heroku_version_check is failed
