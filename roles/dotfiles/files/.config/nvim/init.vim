@@ -16,7 +16,6 @@ filetype plugin indent on
 syntax enable
 
 " Color scheme
-" colorscheme srcery
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 colorscheme tokyonight
@@ -137,4 +136,7 @@ nnoremap sl <C-w>l
 noremap sh <C-w>h
 " Terminal mode
 tnoremap jj <C-\><C-n>
+" Vim Test
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
 

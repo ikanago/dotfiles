@@ -5,9 +5,6 @@ repo = 'Shougo/dein.vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'srcery-colors/srcery-vim'
-
-[[plugins]]
 repo = 'ghifarit53/tokyonight-vim'
 
 [[plugins]]
@@ -36,3 +33,6 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'vim-test/vim-test'
