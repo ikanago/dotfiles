@@ -23,16 +23,5 @@ merged = '0'
 on_i = 1
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'Yggdroot/indentLine'
 
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'vim-test/vim-test'

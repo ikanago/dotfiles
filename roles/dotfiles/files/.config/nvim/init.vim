@@ -5,7 +5,7 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
     call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-"   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
+    call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
     call dein#end()
     call dein#save_state()
 endif
@@ -18,6 +18,7 @@ syntax enable
 " Color scheme
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
 
 " NERDTree
@@ -39,8 +40,6 @@ let g:coc_global_extensions = [
     \ 'coc-texlab',
     \ 'coc-tsserver'
     \ ]
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gr <Plug>(coc-references)
 
 " lightline
 set laststatus=2
@@ -61,6 +60,8 @@ let g:lightline = {
     \ }
 set noshowmode
 set statusline^=%{coc#status()}
+autocmd Filetype yaml setlocal shiftwidth=2 expandtab
+autocmd Filetype go setlocal tabstop=4 expandtab!
 
 " Rainbow parentheses
 let g:rainbow_active=1
@@ -101,9 +102,6 @@ set wildmode=list:longest
 syntax on
 set listchars=tab:>-,trail:~
 set list
-" Status message of coc.nvim
-autocmd Filetype yaml setlocal shiftwidth=2 expandtab
-autocmd Filetype go setlocal tabstop=4 expandtab!
 
 "----------------------------------------
 " Key mapping
@@ -119,11 +117,6 @@ inoremap <C-h> <left>
 inoremap <C-l> <right>
 inoremap <C-^> <HOME>
 inoremap <C-4> <End>
-"上下に空行を挿入
-imap <S-CR> <END><CR>
-inoremap <C-S-CR> <Up><End><CR>
-nnoremap <S-CR> mzo<ESC>`z
-nnoremap <C-S-CR> mzo<ESC>`z
 " Tab
 nnoremap tn :<C-u>tabnew<CR>
 nnoremap tc :<C-u>tabc<Cr>
@@ -134,9 +127,28 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 noremap sh <C-w>h
+" Key mapping w/ space
+nnoremap <Space>s :%s/
+nnoremap <Space>/ <S-i>// <ESC>
 " Terminal mode
 tnoremap jj <C-\><C-n>
 " Vim Test
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
+" Coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <Space>r <Plug>(coc-rename)
+xmap <Space>f  <Plug>(coc-format)
+nmap <Space>f  <Plug>(coc-format)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+	execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+	call CocActionAsync('doHover')
+  else
+	execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 

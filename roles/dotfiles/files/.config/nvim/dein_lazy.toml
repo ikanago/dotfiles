@@ -1,0 +1,6 @@
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'vim-test/vim-test'
+
