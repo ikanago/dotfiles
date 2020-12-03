@@ -20,8 +20,3 @@ homebrew_packages:
   - tokei
   - wget
 
-homebrew_cask_packages:
-  - alacritty
-  - discord
-  - firefox
-  - visual-studio-code
