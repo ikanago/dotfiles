@@ -137,11 +137,12 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 " Coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <Space>r <Plug>(coc-rename)
-xmap <Space>f  <Plug>(coc-format)
-nmap <Space>f  <Plug>(coc-format)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+xmap <Space>f <Plug>(coc-format)
+nmap <Space>f <Plug>(coc-format)
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
 	execute 'h '.expand('<cword>')

@@ -1,25 +1,44 @@
 # commands
-alias ls="exa --git"
-alias la="exa -a --git"
-alias ll="exa -lab --git"
-alias ps="procs"
+alias c="cargo"
+alias ct="cargo test"
+alias cr="cargo run"
+alias dc="docker-compose"
+alias e='nvim'
 alias grep="rg"
-alias dc='docker-compose'
-alias tree='exa --tree'
-alias ca='cargo'
-alias rm='rm -i'
+alias t='tmux'
+
+# For safety
 alias cp='cp -i'
 alias mv='mv -i'
+alias rm='rm -i'
 
 # git
+alias g='git'
 alias ga="git add ."
 alias gc="git commit"
 alias gp="git push"
 alias gl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias gs="git status"
 alias gd="git diff"
+alias gb="git branch"
 alias gsw="git switch"
 alias gco="git checkout"
+
+if [ $(command -v exa) ]; then
+	alias l="exa"
+	alias ls="exa --git"
+	alias la="exa -a --git"
+	alias ll="exa -lab --git"
+	alias tree='exa --tree'
+else
+	alias l="ls"
+	alias la="ls -a"
+	alias ll="ls -al"
+fi
+
+if [ $(command -v procs) ]; then
+	alias ps="procs"
+fi
 
 # others
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'

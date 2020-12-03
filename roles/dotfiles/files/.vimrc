@@ -42,7 +42,7 @@ syntax on
 nnoremap j gj
 nnoremap k gk
 " インサートモードでjjと入力した場合はファイルの変更を保存する
-inoremap jj <Esc>
+inoremap jj <Esc>:w<Enter>
 " インサートモードでも移動
 inoremap <C-j> <down>
 inoremap <C-k> <up>
@@ -69,7 +69,6 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
-
 
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
