@@ -70,10 +70,6 @@
   import_role:
     name: docker
 
-- name: Install gcloud
-  import_role:
-    name: gcloud
-
 - name: Install heroku CLI
   import_role:
     name: heroku
