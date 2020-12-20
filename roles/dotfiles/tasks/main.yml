@@ -29,4 +29,5 @@
     - .netrwhist
     - coc-settings.json
     - dein.toml
+    - dein_lazy.toml
     - init.vim

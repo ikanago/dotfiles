@@ -36,6 +36,7 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-pairs',
+	\ 'coc-python',
     \ 'coc-rust-analyzer',
     \ 'coc-texlab',
     \ 'coc-tsserver'
@@ -135,6 +136,8 @@ tnoremap jj <C-\><C-n>
 " Vim Test
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
+" NerdTree
+"map <C-n> :NERDTreeToggle<CR>
 " Coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

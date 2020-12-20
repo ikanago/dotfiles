@@ -31,3 +31,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"
+source "$HOME/.cargo/env"

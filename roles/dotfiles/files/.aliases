@@ -1,5 +1,7 @@
 # commands
 alias c="cargo"
+alias cb="cargo build"
+alias cf="cargo fmt"
 alias ct="cargo test"
 alias cr="cargo run"
 alias dc="docker-compose"

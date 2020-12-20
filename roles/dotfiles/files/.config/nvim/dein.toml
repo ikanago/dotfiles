@@ -25,3 +25,6 @@ on_i = 1
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
+[[plugins]]
+repo = 'tpope/vim-obsession'
+

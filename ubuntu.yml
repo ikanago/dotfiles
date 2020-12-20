@@ -12,6 +12,7 @@
       - curl
       - file
       - gdb
+      - httpie
       - jq
       - libssl-dev
       - ltrace
@@ -21,6 +22,7 @@
       - wget
       - zsh
   become: yes
+  ignore_errors: yes
 
 - name: Install rustup
   shell:
