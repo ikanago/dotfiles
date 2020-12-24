@@ -42,6 +42,10 @@ if [ $(command -v procs) ]; then
 	alias ps="procs"
 fi
 
+if [ $(command -v powershell.exe) ]; then
+	alias open="powershell.exe /c start"
+fi
+
 # others
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
 

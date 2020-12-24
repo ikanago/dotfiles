@@ -24,6 +24,10 @@
   become: yes
   ignore_errors: yes
 
+- name: Git config
+  import_role:
+    name: git
+
 - name: Install rustup
   shell:
     cmd: |

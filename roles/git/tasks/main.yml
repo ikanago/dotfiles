@@ -1,0 +1,11 @@
+- name: Configure git editor
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Configure global gitignore
+  community.general.git_config:
+    name: core.excludesfile
+    scope: global
+    value: ~/.gitignore_global

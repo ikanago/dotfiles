@@ -9,6 +9,7 @@
     - .bashrc
     - .functions
     - .gdbinit
+    - .gitignore_global
     - .starship.toml
     - .tmux.conf
     - .vimrc

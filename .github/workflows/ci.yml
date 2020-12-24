@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run Ansible Playbook
       run: |
+        ansible-galaxy collection install community.general
         ansible-playbook main.yml -b
 
   build-macos:
@@ -29,4 +30,5 @@ jobs:
         brew install ansible
     - name: Run Ansible Playbook
       run: |
+        ansible-galaxy collection install community.general
         ansible-playbook main.yml
