@@ -1,13 +1,12 @@
 {
 	"html.autoClosingTags": true,
-	"languageserver": {
-		"rust": {
-			"command": "rust-analyzer",
-			"filetypes": ["rust"],
-			"rootPatterns": ["Cargo.toml"]
-		}
-	},
 	"python.linting.pylintEnabled": false,
 	"python.linting.pep8Enabled": true,
-	"python.linting.enabled": true
+	"python.linting.enabled": true,
+	"coc.preferences.formatOnSaveFileTypes": [
+		"rust",
+		"go",
+		"python"
+	],
+	"coc.preferences.formatOnType": false
 }

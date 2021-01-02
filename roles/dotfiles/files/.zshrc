@@ -69,6 +69,9 @@ for file in $HOME/.{aliases,functions}; do
 done;
 unset file;
 
+# Vim like key binding on terminal
+bindkey -v
+
 # Search and move to a repository easily
 # `search_ghq` is defined at .functions
 zle -N search_ghq
@@ -79,9 +82,6 @@ source $HOME/.cargo/env
 
 # starship
 eval "$(starship init zsh)"
-
-# OPAM configuration
-# . /home/yuta/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

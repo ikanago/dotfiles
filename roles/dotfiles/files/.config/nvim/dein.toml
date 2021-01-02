@@ -28,3 +28,12 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'tpope/vim-obsession'
 
+[[plugins]]
+repo = 'junegunn/fzf'
+path = '~/.fzf'
+hook_post_update = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'

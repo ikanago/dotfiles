@@ -15,10 +15,18 @@ function cl() {
 
 # Fuzzy search in repositories
 function search_ghq() {
-	local target_dir=$(ghq list -p | fzf --query="$LBUFFER" --reverse)
+	local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
 	if [ -n "$target_dir" ]; then
 		BUFFER="cd ${target_dir}"
 		zle accept-line
 	fi
 	zle reset-prompt
+}
+
+function drm() {
+	sudo docker ps -a | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rm
+}
+
+function drmi() {
+	sudo docker images | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rmi
 }
