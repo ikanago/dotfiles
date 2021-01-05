@@ -72,6 +72,10 @@
   import_role:
     name: nvim
 
+- name: Install dein.vim
+  import_role:
+    name: dein
+
 - name: Install docker
   import_role:
     name: docker

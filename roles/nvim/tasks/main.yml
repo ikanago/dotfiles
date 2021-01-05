@@ -8,18 +8,3 @@
     name: neovim
     update_cache: yes
   become: yes
-
-- name: Fetch dein.vim
-  get_url:
-    url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
-    dest: "{{ ansible_env.HOME }}/.cache/installer.sh"
-    mode: 0755
-
-- name: Install dein.vim
-  shell:
-    cmd: "{{ ansible_env.HOME }}/.cache/installer.sh {{ ansible_env.HOME }}/.cache/dein"
-
-- name: Clean up installer
-  file:
-    path: "{{ ansible_env.HOME }}/.cache/installer.sh"
-    state: absent

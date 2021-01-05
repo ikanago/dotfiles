@@ -6,6 +6,7 @@
     force: yes
   loop:
     - .aliases
+    - .alacritty.yml
     - .bashrc
     - .functions
     - .gdbinit

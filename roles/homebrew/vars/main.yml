@@ -1,5 +1,7 @@
 homebrew_packages:
   - bat
+  - clang-format
+  - cmake
   - curl
   - exa
   - fd
@@ -19,4 +21,5 @@ homebrew_packages:
   - tmux
   - tokei
   - wget
+  - yarn
 

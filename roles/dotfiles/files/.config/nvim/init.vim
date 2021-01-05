@@ -167,7 +167,7 @@ endfunction
 noremap <leader>g :Rg<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>h :History<CR>
-noremap <leader>f :Files<CR>
+noremap <leader>ff :Files<CR>
 noremap <leader>ft :tabnew<CR>:Files<CR>
 noremap <leader>fh <C-w>s<CR>:Files<CR>
 noremap <leader>fv <C-w>v<CR>:Files<CR>
