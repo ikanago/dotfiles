@@ -6,9 +6,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 source "$HOME/.cargo/env"
 
 # go
-export GOROOT="/usr/local/go"
+if [ $(uname) != "Darwin" ]; then
+	export GOROOT="/usr/local/go"
+	export PATH="$PATH:$GOROOT/bin:$HOME/go/bin"
+else
+	export PATH="$PATH:$HOME/go/bin"
+fi
 export GOPATH="$HOME/go"
-export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 
 # starship
 export STARSHIP_CONFIG=~/.starship.toml
