@@ -32,4 +32,5 @@
     - coc-settings.json
     - dein.toml
     - dein_lazy.toml
+    - dein_macos.toml
     - init.vim

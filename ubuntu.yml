@@ -18,6 +18,7 @@
       - ltrace
       - python3.8
       - strace
+      - tmux
       - vim
       - wget
       - zsh
@@ -75,6 +76,10 @@
 - name: Install dein.vim
   import_role:
     name: dein
+
+- name: Install tpm(tmux plugin manager)
+  import_role:
+    name: tmux
 
 - name: Install docker
   import_role:
