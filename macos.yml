@@ -10,6 +10,10 @@
       "{{ ansible_env.HOME }}/.cargo"
       "{{ ansible_env.HOME }}/.rustup"
 
+- name: Git config
+  import_role:
+    name: git
+
 - name: Install fzf key bindings
   shell:
     cmd: $(brew --prefix)/opt/fzf/install

@@ -6,9 +6,11 @@ homebrew_packages:
   - exa
   - fd
   - fzf
+  - gcc
   - ghq
   - go
   - hexyl
+  - httpie
   - hyperfine
   - jq
   - mercurial

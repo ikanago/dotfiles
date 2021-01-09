@@ -76,7 +76,7 @@ let g:rainbow_active=1
 " fzf.vim
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
-    \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>),
+    \   'rg --column --line-number --hidden --follow --ignore-case --no-heading --color always --glob "!.git/*" '.shellescape(<q-args>),
     \   1, fzf#vim#with_preview(), <bang>0
     \ )
 
@@ -155,7 +155,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>r <Plug>(coc-rename)
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Fmt :call CocAction('format')
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
