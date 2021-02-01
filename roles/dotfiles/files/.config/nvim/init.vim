@@ -152,7 +152,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>r <Plug>(coc-rename)
-command! -nargs=0 Format :call CocAction('format')
+command! -nargs=0 Fmt :call CocAction('format')
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
