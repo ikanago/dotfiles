@@ -6,6 +6,7 @@
     force: yes
   loop:
     - .aliases
+    - .alacritty.yml
     - .bashrc
     - .functions
     - .gdbinit
@@ -31,4 +32,5 @@
     - coc-settings.json
     - dein.toml
     - dein_lazy.toml
+    - dein_macos.toml
     - init.vim

@@ -14,6 +14,14 @@
   shell:
     cmd: $(brew --prefix)/opt/fzf/install
 
+- name: Install dein.vim
+  import_role:
+    name: dein
+
+- name: Install tpm(tmux plugin manager)
+  import_role:
+    name: tmux
+
 - name: Install zinit
   shell:
     cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
