@@ -128,9 +128,7 @@ inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
-inoremap <C-^> <HOME>
-inoremap <C-4> <End>
-"Buffers Tab and pane
+" Buffers Tab and pane
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabc<CR>
 nnoremap th :tabN<CR>
@@ -143,6 +141,8 @@ noremap sh <C-w>h
 " Key mapping w/ space
 nnoremap <leader>s :%s/
 nnoremap <leader>/ <S-i>// <ESC>
+
+" Key mapping about plugins
 " Terminal mode
 tnoremap jj <C-\><C-n>
 " Vim Test

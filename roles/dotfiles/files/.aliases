@@ -24,7 +24,6 @@ alias gs="git status"
 alias gd="git diff"
 alias gb="git branch"
 alias gsw="git switch"
-alias gco="git checkout"
 
 if [ $(command -v exa) ]; then
 	alias l="exa"

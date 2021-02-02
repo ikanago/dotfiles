@@ -7,10 +7,10 @@ source "$HOME/.cargo/env"
 
 # go
 if [ $(uname) != "Darwin" ]; then
-	export GOROOT="/usr/local/go"
-	export PATH="$PATH:$GOROOT/bin:$HOME/go/bin"
+    export GOROOT="/usr/local/go"
+    export PATH="$PATH:$GOROOT/bin:$HOME/go/bin"
 else
-	export PATH="$PATH:$HOME/go/bin"
+    export PATH="$PATH:$HOME/go/bin"
 fi
 export GOPATH="$HOME/go"
 
@@ -29,16 +29,16 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 # yarn
 export PATH="$(yarn global bin):$PATH"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # haskell-ide-engine
 export PATH="$HOME/.local/bin:$PATH"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"

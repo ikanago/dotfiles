@@ -4,3 +4,6 @@
 
 # Vim session file
 Session.vim
+
+# cpplint
+CPPLINT.cfg
