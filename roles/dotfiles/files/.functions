@@ -1,10 +1,10 @@
 # mkdir and cd simultaneously
 function mkcd() {
     if [[ -d $1 ]]; then
-	echo "$1 already exists"
-	cd $1
+    echo "$1 already exists"
+    cd $1
     else
-	mkdir -p $1 && cd $1
+    mkdir -p $1 && cd $1
     fi
 }
 
@@ -15,18 +15,24 @@ function cl() {
 
 # Fuzzy search in repositories
 function search_ghq() {
-	local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
-	if [ -n "$target_dir" ]; then
-		BUFFER="cd ${target_dir}"
-		zle accept-line
-	fi
-	zle reset-prompt
+    local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
+    if [ -n "$target_dir" ]; then
+        BUFFER="cd ${target_dir}"
+        zle accept-line
+    fi
+    zle reset-prompt
 }
 
 function drm() {
-	sudo docker ps -a | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rm
+    sudo docker ps -a | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rm
 }
 
 function drmi() {
-	sudo docker images | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rmi
+    sudo docker images | sed 1d | fzf --no-sort -m | awk "{ print $1 }" | xargs -r docker rmi
+}
+
+function kp() {
+    # ps is procs
+    pid=$(ps | sed 1,2d | fzf -m --ansi --color prompt:166,border:46 --height 40%  | awk '{print $1}')
+    kill $pid
 }

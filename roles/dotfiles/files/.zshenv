@@ -42,3 +42,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # dotnet tools
 export PATH="$HOME/.dotnet/tools:$PATH"
+
+# riscv toolchain
+export PATH="/opt/riscv:$PATH"
+export PATH="/opt/riscv/bin:$PATH"
