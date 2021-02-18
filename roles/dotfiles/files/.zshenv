@@ -46,3 +46,6 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 # riscv toolchain
 export PATH="/opt/riscv:$PATH"
 export PATH="/opt/riscv/bin:$PATH"
+
+# gpg
+export GPG_TTY=$(tty)
