@@ -3,12 +3,14 @@ homebrew_packages:
   - clang-format
   - cmake
   - curl
+  - dust
   - exa
   - fd
   - fzf
   - gcc
   - gh
   - ghq
+  - git-delta
   - go
   - hexyl
   - httpie
@@ -20,9 +22,11 @@ homebrew_packages:
   - procs
   - python
   - ripgrep
+  - silicon
   - starship
   - tmux
   - tokei
   - wget
+  - xh
   - yarn
 

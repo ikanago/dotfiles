@@ -20,7 +20,7 @@ export STARSHIP_CONFIG=~/.starship.toml
 # fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=header,grid --line-range :100 {}"'
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # n(node version manager)
@@ -44,8 +44,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet/tools:$PATH"
 
 # riscv toolchain
-export PATH="/opt/riscv:$PATH"
-export PATH="/opt/riscv/bin:$PATH"
+export PATH="/opt/rv32/bin:$PATH"
 
 # gpg
 export GPG_TTY=$(tty)

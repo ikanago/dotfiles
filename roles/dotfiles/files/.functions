@@ -36,3 +36,8 @@ function kp() {
     pid=$(ps | sed 1,2d | fzf -m --ansi --color prompt:166,border:46 --height 40%  | awk '{print $1}')
     kill $pid
 }
+
+function ff() {
+    RG_DEFAULT_COMMAND="rg -i -l --hidden --follow --glob '!.git/*'"
+    fzf -m --ansi --phony --bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" --preview "rg -i --context 2 --pretty {q} {}"
+}
