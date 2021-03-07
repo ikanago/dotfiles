@@ -33,8 +33,7 @@ function drmi() {
 
 function kp() {
     # ps is procs
-    pid=$(ps | sed 1,2d | fzf -m --ansi --color prompt:166,border:46 --height 40%  | awk '{print $1}')
-    kill $pid
+    ps | sed 1,2d | fzf -m --ansi --color prompt:166,border:46 --height 40%  | awk '{print $1}' | xargs -r kill
 }
 
 function ff() {

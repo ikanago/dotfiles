@@ -142,9 +142,10 @@ noremap sh <C-w>h
 nnoremap <leader>s :%s/
 nnoremap <leader>/ <S-i>// <ESC>
 
-" Key mapping about plugins
 " Terminal mode
 tnoremap jj <C-\><C-n>
+
+" Key mapping about plugins
 " Vim Test
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
