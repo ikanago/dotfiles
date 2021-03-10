@@ -19,18 +19,15 @@
 
 - name: Create .config/nvim directory
   file:
-    path: "{{ ansible_env.HOME }}/.config/nvim"
+    path: "{{ ansible_env.HOME }}/.config"
     state: directory
 
-- name: Deploy dotfiles in .config/nvim
+- name: Deploy dotfiles in .config
   file:
-    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/.config/nvim/{{ item }}"
-    path: "{{ ansible_env.HOME }}/.config/nvim/{{ item }}"
+    src: "{{ ansible_env.PWD }}/roles/dotfiles/files/.config/{{ item }}"
+    path: "{{ ansible_env.HOME }}/.config/{{ item }}"
     state: link
+    force: yes
   loop:
-    - .netrwhist
-    - coc-settings.json
-    - dein.toml
-    - dein_lazy.toml
-    - dein_macos.toml
-    - init.vim
+    - nvim
+    - git

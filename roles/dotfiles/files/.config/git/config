@@ -1,0 +1,10 @@
+[commit]
+    gpgsign = true
+
+[core]
+    editor = vim
+    excludesfile = ~/.gitignoreglobal
+    pager = delta
+
+[pull]
+    ff = only
