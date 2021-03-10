@@ -25,15 +25,11 @@ $ git config --global user.name "ikanago" \
 ```
 Generate ssh key to establish connection with GitHub. [Connecting to GitHub with SSH](https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh). You may need to add some lines of configuration to `~/.ssh/config`. See [here](https://gist.github.com/ikanago/cbbaffbef12b86f6cbb60886b30d4ac0)  
 
-## Install Ansible plugin
-```
-$ ansible-galaxy collection install community.general
-```
-
 ## Run Playbook
 ```
 $ git clone git@github.com:ikanago/dotfiles.git && cd dotfiles
 $ ansible-playbook main.yml -K
+$ ansible-playbook main.yml --tags dotfiles # dotfiles only
 ```
 
 ### Utilities made with Rust
