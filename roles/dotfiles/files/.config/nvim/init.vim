@@ -1,6 +1,3 @@
-if &compatible
-    set nocompatible
-endif
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state('~/.cache/dein')
     call dein#begin('~/.cache/dein')
@@ -27,7 +24,6 @@ colorscheme tokyonight
 "----------------------------------------
 " Plugin settings
 "----------------------------------------
-
 " NERDTree
 "autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

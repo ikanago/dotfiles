@@ -12,10 +12,10 @@ alias e='nvim'
 alias grep="rg"
 alias t='tmux'
 
-# For safety
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+# Prompt before action and show influenced files
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
 
 # git
 alias g='git'
@@ -32,7 +32,7 @@ if [ $(command -v exa) ]; then
 	alias l="exa"
 	alias ls="exa --git"
 	alias la="exa -a --git"
-	alias ll="exa -lab --git"
+	alias ll="exa -lab --time-style=long-iso --git"
 	alias tree='exa --tree'
 else
 	alias l="ls"
@@ -47,6 +47,9 @@ fi
 if [ $(command -v powershell.exe) ]; then
 	alias open="powershell.exe /c start"
 fi
+
+# Show paths splitted with newline.
+alias path="printf '%b\n' '${PATH//:/\\n}'"
 
 # others
 alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'

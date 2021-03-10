@@ -1,6 +1,18 @@
 "----------------------------------------
 " General settings
 "----------------------------------------
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set smartindent
+set mouse=a
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
 set fenc=utf-8
 set nobackup
 set noswapfile
@@ -15,20 +27,10 @@ hi clear CursorLine
 set virtualedit=onemore
 set visualbell
 set showmatch
-set laststatus=2
 set wildmode=list:longest
 syntax on
-set tabstop=4
-set shiftwidth=4
-set autoindent
-set smartindent
-set mouse=a
-set ignorecase
-set smartcase
-set incsearch
-set wrapscan
-set hlsearch
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
+set listchars=tab:>-,trail:~
+set list
 
 " Color scheme 
 "colorscheme molokai
@@ -54,5 +56,3 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sh <C-w>h
 
-set nocompatible
-filetype plugin indent off

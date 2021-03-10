@@ -77,9 +77,6 @@ bindkey -v
 zle -N search_ghq
 bindkey "^g" search_ghq
 
-# cargo
-source $HOME/.cargo/env
-
 # starship
 eval "$(starship init zsh)"
 
@@ -90,7 +87,6 @@ eval "$(starship init zsh)"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
 
 # Wasmer
 export WASMER_DIR="/Users/ikanago/.wasmer"

@@ -1,6 +1,9 @@
 # General
 export EDITOR="nvim"
 
+# Do not clear the screen after quitting a man page
+export MANPAGER="less -X"
+
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 source "$HOME/.cargo/env"
