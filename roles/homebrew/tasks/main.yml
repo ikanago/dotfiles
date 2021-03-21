@@ -1,4 +1,5 @@
 - name: Install tools via homebrew
   homebrew:
     name: "{{ homebrew_packages }}"
+  ignore_errors: yes
 
