@@ -1,5 +1,6 @@
 homebrew_packages:
   - bat
+  - bandwhich
   - cmake
   - curl
   - dust

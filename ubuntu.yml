@@ -31,6 +31,7 @@
   environment:
     PATH: /home/linuxbrew/.linuxbrew/bin:{{ ansible_facts.env.PATH }}
   ignore_errors: yes
+  become: no
 
 - name: Install fzf key bindings
   shell:
