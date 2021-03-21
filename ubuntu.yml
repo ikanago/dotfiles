@@ -28,6 +28,8 @@
 - name: Install tools via brew
   import_role:
     name: homebrew
+  environment:
+    PATH: /home/linuxbrew/.linuxbrew/bin:{{ ansible_facts.env.PATH }}
   ignore_errors: yes
 
 - name: Install fzf key bindings
