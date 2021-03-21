@@ -20,6 +20,11 @@ export GOPATH="$HOME/go"
 # starship
 export STARSHIP_CONFIG=~/.starship.toml
 
+# Linuxbrew
+if [ $(uname) = "Linux" ]; then
+    export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+fi
+
 # fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
