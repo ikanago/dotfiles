@@ -30,6 +30,7 @@ To use HTTPS for authentication, set up credential helper(now macOS only).
 $ git config --global credential.helper osxkeychain
 ```
 See [here](https://docs.github.com/en/github/using-git/caching-your-github-credentials-in-git) for details.
+Generate Personal Access Token with `repo` and `workflow` permission.
 
 ## Run Playbook
 ```
