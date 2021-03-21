@@ -91,3 +91,9 @@ fi
 # Wasmer
 export WASMER_DIR="/Users/ikanago/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ikanago/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ikanago/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/completion.zsh.inc'; fi

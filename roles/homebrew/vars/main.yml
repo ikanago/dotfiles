@@ -13,10 +13,13 @@ homebrew_packages:
   - git-delta
   - go
   - hexyl
+  - htop
   - httpie
   - hyperfine
   - jq
+  - kubectl
   - mercurial
+  - minikube
   - 'n'
   - neovim
   - procs
