@@ -1,6 +1,5 @@
 homebrew_packages:
   - bat
-  - clang-format
   - cmake
   - curl
   - dust
@@ -33,4 +32,7 @@ homebrew_packages:
   - wget
   - xh
   - yarn
+
+homebrew_packages_macOS:
+  - clang-format
 

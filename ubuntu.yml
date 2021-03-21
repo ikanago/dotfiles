@@ -28,10 +28,11 @@
 - name: Install tools via brew
   import_role:
     name: homebrew
+  ignore_errors: yes
 
 - name: Install fzf key bindings
   shell:
-    cmd: /home/linuxbrew/.linuxbrew/bin/fzf/install
+    cmd: /home/linuxbrew/.linuxbrew/opt/fzf/install
 
 - name: Install rustup
   shell:

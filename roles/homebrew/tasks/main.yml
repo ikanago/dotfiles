@@ -3,3 +3,8 @@
     name: "{{ homebrew_packages }}"
   ignore_errors: yes
 
+- name: Install tools for macOS via homebrew
+  homebrew:
+    name: "{{ homebrew_packages_macOS }}"
+  ignore_errors: yes
+  when: ansible_os_family == "Darwin"
