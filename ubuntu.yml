@@ -31,7 +31,7 @@
 
 - name: Install fzf key bindings
   shell:
-    cmd: $(brew --prefix)/bin/fzf/install
+    cmd: /home/linuxbrew/.linuxbrew/bin/fzf/install
 
 - name: Install rustup
   shell:
