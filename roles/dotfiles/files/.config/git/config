@@ -1,6 +1,3 @@
-[commit]
-    gpgsign = true
-
 [core]
     editor = vim
     excludesfile = ~/.gitignoreglobal
@@ -8,3 +5,8 @@
 
 [pull]
     ff = only
+[user]
+	email = ikanago@ikanago.dev
+	name = ikanago
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe

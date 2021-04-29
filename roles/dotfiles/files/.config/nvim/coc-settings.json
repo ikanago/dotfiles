@@ -8,5 +8,17 @@
 		"go",
 		"python"
 	],
-	"coc.preferences.formatOnType": false
+	"coc.preferences.formatOnType": false,
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cc", "cpp"],
+            "rootPatterns": [".ccls-root", "compile_commands.json"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls-cache"
+                }
+            }
+        }
+    }
 }
