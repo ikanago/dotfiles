@@ -16,10 +16,10 @@ filetype plugin indent on
 syntax enable
 
 " Color scheme
+colorscheme tokyonight
 let g:tokyonight_style = 'night'
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_transparent_background = 1
-colorscheme tokyonight
 
 "----------------------------------------
 " Plugin settings
@@ -60,11 +60,10 @@ let g:lightline = {
     \       'cocstatus': 'coc#status',
     \       'gitbranch': 'FugitiveHead'
     \ },
+    \ 'colorscheme': 'tokyonight',
     \ }
 set noshowmode
 set statusline^=%{coc#status()}
-autocmd Filetype yaml setlocal shiftwidth=2 expandtab
-autocmd Filetype go setlocal tabstop=4 expandtab!
 
 " Rainbow parentheses
 let g:rainbow_active=1
@@ -75,6 +74,11 @@ command! -bang -nargs=* Rg
     \   'rg --column --line-number --hidden --follow --ignore-case --no-heading --color always --glob "!.git/*" '.shellescape(<q-args>),
     \   1, fzf#vim#with_preview(), <bang>0
     \ )
+
+" ctrlsf.vim
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
 
 "----------------------------------------
 " General settings
@@ -110,6 +114,8 @@ syntax on
 set listchars=tab:>-,trail:~
 set list
 autocmd TermOpen * setlocal nonumber
+autocmd Filetype yaml setlocal shiftwidth=2 expandtab
+autocmd Filetype go setlocal tabstop=4 expandtab!
 
 "----------------------------------------
 " Key mapping
@@ -171,4 +177,11 @@ noremap <leader>ff :Files<CR>
 noremap <leader>ft :tabnew<CR>:Files<CR>
 noremap <leader>fh <C-w>s<CR>:Files<CR>
 noremap <leader>fv <C-w>v<CR>:Files<CR>
+
+" ctrlsf.vim
+nmap <C-F>f <Plug>CtrlSFPrompt
+vmap <C-F>f <Plug>CtrlSFVwordExec
+vmap <C-F>F <Plug>CtrlSFVwordPath
+nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
 
