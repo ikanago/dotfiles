@@ -1,6 +1,5 @@
 [character]
 error_symbol = "✗"
-use_symbol_for_status = true
 
 [cmd_duration]
 min_time = 10

@@ -41,7 +41,8 @@ let g:coc_global_extensions = [
     \ 'coc-python',
     \ 'coc-rust-analyzer',
     \ 'coc-tsserver',
-    \ 'coc-yaml'
+    \ 'coc-yaml',
+    \ 'coc-yank'
     \ ]
 
 " lightline
@@ -158,6 +159,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>r <Plug>(coc-rename)
+nnoremap <silent> <leader>y :<C-u>CocList -A --normal yank<CR>
 command! -nargs=0 Fmt :call CocAction('format')
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()

@@ -32,7 +32,6 @@ homebrew_packages:
   - tokei
   - wget
   - xh
-  - yarn
 
 homebrew_packages_macOS:
   - clang-format
