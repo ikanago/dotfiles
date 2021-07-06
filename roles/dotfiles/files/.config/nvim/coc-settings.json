@@ -1,13 +1,8 @@
 {
 	"html.autoClosingTags": true,
 	"python.linting.pylintEnabled": false,
-	"python.linting.pep8Enabled": true,
 	"python.linting.enabled": true,
-	"coc.preferences.formatOnSaveFileTypes": [
-		"rust",
-		"go",
-		"python"
-	],
+    "python.pythonPath": ".",
 	"coc.preferences.formatOnType": false,
     "languageserver": {
         "ccls": {

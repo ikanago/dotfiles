@@ -38,7 +38,7 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-pairs',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-rust-analyzer',
     \ 'coc-tsserver',
     \ 'coc-yaml',
@@ -126,11 +126,13 @@ nnoremap j gj
 nnoremap k gk
 inoremap jj <Esc>:w<CR>
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
 " Move in insert mode
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
+
 " Buffers Tab and pane
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabc<CR>
@@ -141,6 +143,7 @@ nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 noremap sh <C-w>h
+
 " Key mapping w/ space
 nnoremap <leader>s :%s/
 nnoremap <leader>/ <S-i>// <ESC>
@@ -159,8 +162,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>r <Plug>(coc-rename)
-nnoremap <silent> <leader>y :<C-u>CocList -A --normal yank<CR>
-command! -nargs=0 Fmt :call CocAction('format')
+command! -nargs=0 Fmt :call CocActionAsync('format')
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -171,6 +173,7 @@ function! s:show_documentation()
     exsecute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
 " fzf.vim
 noremap <leader>g :Rg<CR>
 noremap <leader>b :Buffers<CR>

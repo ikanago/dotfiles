@@ -1,8 +1,6 @@
 #!/bin/sh
 set -eu
-DOTFILES_HOME=$PWD/dotfiles
-
-cd $DOTFILES_HOME
+DOTFILES_HOME=$PWD/roles/dotfiles/files
 
 echo 'Creating symbolic links to dotfiles'
 find . -type d | xargs -I '{}' mkdir -p "${HOME}/{}"
