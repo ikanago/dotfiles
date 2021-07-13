@@ -1,14 +1,11 @@
 homebrew_packages:
   - bat
   - bandwhich
-  - cmake
   - curl
   - dust
   - exa
   - fd
   - fzf
-  - gcc
-  - gdb
   - gh
   - ghq
   - git-delta
@@ -24,7 +21,6 @@ homebrew_packages:
   - 'n'
   - neovim
   - procs
-  - python
   - ripgrep
   - silicon
   - starship
@@ -35,4 +31,7 @@ homebrew_packages:
 
 homebrew_packages_macOS:
   - clang-format
+  - cmake
+  - gcc
+  - gdb
 
