@@ -26,7 +26,6 @@ homebrew_packages:
   - starship
   - tmux
   - tokei
-  - wget
   - xh
 
 homebrew_packages_macOS:
@@ -34,4 +33,5 @@ homebrew_packages_macOS:
   - cmake
   - gcc
   - gdb
+  - wget
 

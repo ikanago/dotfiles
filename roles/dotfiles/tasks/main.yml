@@ -10,14 +10,13 @@
     - .bashrc
     - .functions
     - .gdbinit
-    - .gitignore_global
     - .starship.toml
     - .tmux.conf
     - .vimrc
     - .zshenv
     - .zshrc
 
-- name: Create .config/nvim directory
+- name: Create .config directory
   file:
     path: "{{ ansible_env.HOME }}/.config"
     state: directory

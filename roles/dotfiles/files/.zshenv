@@ -53,3 +53,4 @@ export PATH="/opt/rv32/bin:$PATH"
 
 # gpg
 export GPG_TTY=$(tty)
+. "$HOME/.cargo/env"

@@ -18,11 +18,9 @@
   ignore_errors: yes
 
 - name: Install linuxbrew
-  shell:
-    cmd: |
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    creates: |
-      "/home/linuxbrew/.linuxbrew"
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  args:
+    creates: "/home/linuxbrew/.linuxbrew"
   become: no
 
 - name: Install tools via brew
