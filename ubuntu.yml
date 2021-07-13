@@ -22,6 +22,7 @@
   args:
     creates: "/home/linuxbrew/.linuxbrew"
   become: no
+  tags: brew
 
 - name: Install tools via brew
   import_role:
@@ -30,23 +31,17 @@
     PATH: /home/linuxbrew/.linuxbrew/bin:{{ ansible_facts.env.PATH }}
   ignore_errors: yes
   become: no
+  tags: brew
 
 - name: Install fzf key bindings
   shell:
     cmd: /home/linuxbrew/.linuxbrew/opt/fzf/install
 
-- name: Install rustup
-  shell:
-    cmd: |
-      curl -sSf https://sh.rustup.rs | sh -s -- -y
-    creates: |
-      "{{ ansible_env.HOME }}/.cargo"
-      "{{ ansible_env.HOME }}/.rustup"
+- import_role:
+    name: rustup
 
-- name: Install zinit
-  shell:
-    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-    creates: "{{ ansible_env.HOME }}/.zinit"
+- import_role:
+    name: zinit
 
 - name: Install dein.vim
   import_role:

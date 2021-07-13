@@ -2,30 +2,21 @@
   import_role:
     name: homebrew
 
-- name: Install rustup
-  shell:
-    cmd: |
-      curl -sSf https://sh.rustup.rs | sh -s -- -y
-    creates: |
-      "{{ ansible_env.HOME }}/.cargo"
-      "{{ ansible_env.HOME }}/.rustup"
+- import_role:
+    name: rustup
 
 - name: Install fzf key bindings
   shell:
     cmd: $(brew --prefix)/opt/fzf/install
 
-- name: Install dein.vim
-  import_role:
+- import_role:
     name: dein
 
-- name: Install tpm(tmux plugin manager)
-  import_role:
+- import_role:
     name: tmux
 
-- name: Install zinit
-  shell:
-    cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
-    creates: .zinit
+- import_role:
+    name: zinit
 
 - name: Install heroku CLI
   import_role:
