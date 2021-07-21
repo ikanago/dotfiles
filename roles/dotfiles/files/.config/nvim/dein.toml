@@ -41,3 +41,6 @@ depends = 'fzf'
 [[plugins]]
 repo = 'dyng/ctrlsf.vim'
 
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'
+

@@ -33,6 +33,7 @@ let NERDTreeWinSize=25
 " Coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-css',
+    \ 'coc-elixir',
     \ 'coc-git',
     \ 'coc-go',
     \ 'coc-html',
