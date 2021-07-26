@@ -15,21 +15,12 @@ endif
 filetype plugin indent on
 syntax enable
 
-" Color scheme
-colorscheme tokyonight
-let g:tokyonight_style = 'night'
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
+colorscheme onedark
+let g:onedark_terminal_italics = 1
 
 "----------------------------------------
 " Plugin settings
 "----------------------------------------
-" NERDTree
-"autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let NERDTreeShowHidden=1
-let NERDTreeWinSize=25
-
 " Coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-css',
@@ -62,7 +53,7 @@ let g:lightline = {
     \       'cocstatus': 'coc#status',
     \       'gitbranch': 'FugitiveHead'
     \ },
-    \ 'colorscheme': 'tokyonight',
+    \ 'colorscheme': 'onedark',
     \ }
 set noshowmode
 set statusline^=%{coc#status()}
@@ -156,8 +147,6 @@ tnoremap jj <C-\><C-n>
 " Vim Test
 nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
-" NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
 " Coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

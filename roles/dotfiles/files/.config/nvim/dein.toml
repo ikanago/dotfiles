@@ -5,13 +5,7 @@ repo = 'Shougo/dein.vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'ghifarit53/tokyonight-vim'
-
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
-repo = 'jistr/vim-nerdtree-tabs'
+repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
