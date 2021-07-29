@@ -5,27 +5,23 @@ promptinit
 autoload -Uz colors
 colors
 
-PROMPT=$'%{\e[30;48;5;016m%}%{\e[38;5;001m%}[%n@%m]%{\e[0m%}'
-
 setopt histignorealldups sharehistory
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
+[ $(command -v dircolors) ] && eval "$(dircolors -b)"
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
-if [ $(command -v dircolors) ]; then
-    eval "$(dircolors -b)"
-fi
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -40,10 +36,20 @@ zstyle :prompt:pure:path color 033
 zstyle :prompt:pure:prompt:success color 034
 zstyle :prompt:pure:git:branch color 058
 
-### zinit configuration
+# zinit configuration
 source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+
+# cdr
+ZSH_CDR_DIR="${XDG_CACHE_HOME}/zsh-cdr"
+mkdir -p $ZSH_CDR_DIR
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file $ZSH_CDR_DIR/chpwd-recent-dirs
+zstyle ':chpwd:*' recent-dirs-max 100
+zstyle ':chpwd:*' recent-dirs-pushd true
 
 # cd
 zinit ice wait lucid

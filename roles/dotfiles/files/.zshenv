@@ -1,14 +1,7 @@
-# General
-export EDITOR="nvim"
+export XDG_CACHE_HOME="$HOME/.cache"
 
 # Do not clear the screen after quitting a man page
 export MANPAGER="less -X"
-
-# Go
-export GOPATH="$HOME/go"
-
-# starship
-export STARSHIP_CONFIG=~/.starship.toml
 
 # fzf
 export FZF_DEFAULT_OPTS="--reverse --inline-info"
@@ -19,10 +12,10 @@ export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob 
 # n(node version manager)
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-
-# gpg
+export GOPATH="$HOME/go"
+export EDITOR="nvim"
+export STARSHIP_CONFIG=~/.starship.toml
 export GPG_TTY=$(tty)
 
 typeset -gU PATH path

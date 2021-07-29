@@ -22,7 +22,6 @@ homebrew_packages:
   - neovim
   - procs
   - ripgrep
-  - silicon
   - starship
   - tmux
   - tokei
