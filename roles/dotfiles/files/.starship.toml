@@ -12,12 +12,6 @@ symbol = "🌱 "
 [gcloud]
 disabled = true
 
-[memory_usage]
-disabled = false
-format = "RAM: [$ram_pct](dimmed white) "
-threshold = -1
-symbol = ""
-
 [time]
 disabled = false
 format = "[| $time |](yellow) "

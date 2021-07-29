@@ -1,18 +1,4 @@
 # commands
-alias c="cargo"
-alias cb="cargo build"
-alias cf="cargo fmt"
-alias ct="cargo test"
-alias cr="cargo run"
-alias cli="cargo clippy --all-features"
-alias co="cargo outdated"
-
-alias dc="docker-compose"
-alias e='nvim'
-alias grep="rg"
-alias t='tmux'
-
-# Prompt before action and show influenced files
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -29,25 +15,34 @@ alias gd="git diff"
 alias gb="git branch"
 alias gsw="git switch"
 
+[ $(command -v docker-compose) ] && alias dc="docker-compose"
+[ $(command -v nvim) ] && alias e='nvim'
+[ $(command -v tmux) ] && alias t='tmux attach | tmux new'
+[ $(command -v procs) ] && alias ps="procs"
+[ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
+
+if [ $(command -v cargo) ]; then
+    alias c="cargo"
+    alias cb="cargo build"
+    alias cf="cargo fmt"
+    alias ct="cargo test"
+    alias cr="cargo run"
+    alias cli="cargo clippy --all-features"
+    alias co="cargo outdated"
+fi
+
 if [ $(command -v exa) ]; then
-	alias l="exa"
-	alias ls="exa --git"
-	alias la="exa -a --git"
-	alias ll="exa -lab --time-style=long-iso --git"
-	alias tree='exa --tree'
+    alias l="exa"
+    alias ls="exa --git"
+    alias la="exa -a --git"
+    alias ll="exa -lab --time-style=long-iso --git"
+    alias tree='exa --tree'
 else
-	alias l="ls"
-	alias la="ls -a"
-	alias ll="ls -al"
+    alias l="ls"
+    alias la="ls -a"
+    alias ll="ls -al"
 fi
 
-if [ $(command -v procs) ]; then
-	alias ps="procs"
-fi
-
-if [ $(command -v powershell.exe) ]; then
-	alias open="powershell.exe /c start"
-fi
 
 # Show paths splitted with newline.
 alias path="printf '%b\n' '${PATH//:/\\n}'"
