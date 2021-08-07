@@ -17,7 +17,7 @@ alias gsw="git switch"
 
 [ $(command -v docker-compose) ] && alias dc="docker-compose"
 [ $(command -v nvim) ] && alias e='nvim'
-[ $(command -v tmux) ] && alias t='tmux attach | tmux new'
+[ $(command -v tmux) ] && alias t='tmux'
 [ $(command -v procs) ] && alias ps="procs"
 [ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
 
