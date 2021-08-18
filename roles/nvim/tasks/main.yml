@@ -1,0 +1,6 @@
+- name: Install nvim
+  get_url:
+    url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+    dest: /usr/local/bin/nvim
+  become: yes
+

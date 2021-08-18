@@ -43,8 +43,10 @@
 - import_role:
     name: zinit
 
-- name: Install dein.vim
-  import_role:
+- import_role:
+    name: nvim
+
+- import_role:
     name: dein
 
 - name: Install tpm(tmux plugin manager)
