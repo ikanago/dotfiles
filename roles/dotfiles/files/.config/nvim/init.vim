@@ -152,6 +152,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>r <Plug>(coc-rename)
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 command! -nargs=0 Fmt :call CocActionAsync('format')
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -172,11 +174,4 @@ noremap <leader>ff :Files<CR>
 noremap <leader>ft :tabnew<CR>:Files<CR>
 noremap <leader>fh <C-w>s<CR>:Files<CR>
 noremap <leader>fv <C-w>v<CR>:Files<CR>
-
-" ctrlsf.vim
-nmap <C-F>f <Plug>CtrlSFPrompt
-vmap <C-F>f <Plug>CtrlSFVwordExec
-vmap <C-F>F <Plug>CtrlSFVwordPath
-nnoremap <C-F>o :CtrlSFOpen<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
 
