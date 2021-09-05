@@ -36,7 +36,7 @@ if [ $(command -v exa) ]; then
     alias ls="exa --git"
     alias la="exa -a --git"
     alias ll="exa -lab --time-style=long-iso --git"
-    alias tree='exa --tree'
+    alias tree='exa -al --tree --git-ignore --git -I ".git"'
 else
     alias l="ls"
     alias la="ls -a"
