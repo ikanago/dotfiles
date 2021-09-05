@@ -1,6 +1,6 @@
 # dotfiles
 
-![Ansible CI](https://github.com/ikanago/dotfiles/workflows/Ansible%20CI/badge.svg?branch=master)
+![Ansible CI](https://github.com/ikanago/dotfiles/workflows/Ansible%20CI/badge.svg?branch=main)
 
 ## Requirements
 ### Ubuntu
