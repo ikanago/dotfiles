@@ -68,11 +68,6 @@ command! -bang -nargs=* Rg
     \   1, fzf#vim#with_preview(), <bang>0
     \ )
 
-" ctrlsf.vim
-let g:ctrlsf_auto_focus = {
-    \ "at": "start"
-    \ }
-
 "----------------------------------------
 " General settings
 "----------------------------------------
@@ -138,7 +133,8 @@ noremap sh <C-w>h
 
 " Key mapping w/ space
 nnoremap <leader>s :%s/
-nnoremap <leader>/ <S-i>// <ESC>
+nnoremap <leader>/ :s/^/\/\/ /<CR>:nohlsearch<CR>j
+nnoremap <leader># :s/^/# /<CR>:nohlsearch<CR>j
 
 " Terminal mode
 tnoremap jj <C-\><C-n>
