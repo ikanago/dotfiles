@@ -31,6 +31,7 @@ path=(
 )
 path=(
     "$HOME/.cargo/bin"(N-/)
+    "$HOME/.local/bin"(N-/)
     $(yarn global bin)(N-/)
     "$PYENV_ROOT/bin"(N-/)
     "${path[@]}"
