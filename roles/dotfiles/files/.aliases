@@ -19,6 +19,7 @@ alias gsw="git switch"
 [ $(command -v nvim) ] && alias e='nvim'
 [ $(command -v tmux) ] && alias t='tmux'
 [ $(command -v procs) ] && alias ps="procs"
+[ $(command -v terraform) ] && alias tf="terraform"
 [ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
 
 if [ $(command -v cargo) ]; then
