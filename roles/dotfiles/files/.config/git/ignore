@@ -5,8 +5,5 @@
 # Vim session file
 Session.vim
 
-# cpplint
-CPPLINT.cfg
-
 # macOS
 .DS_Store
