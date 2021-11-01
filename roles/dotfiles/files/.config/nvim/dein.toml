@@ -32,6 +32,3 @@ merged = 0
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 
-[[plugins]]
-repo = 'elixir-editors/vim-elixir'
-

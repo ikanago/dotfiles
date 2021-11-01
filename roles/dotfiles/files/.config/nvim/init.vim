@@ -30,7 +30,6 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-json',
     \ 'coc-pairs',
-    \ 'coc-pyright',
     \ 'coc-rust-analyzer',
     \ 'coc-tsserver',
     \ 'coc-yaml',
