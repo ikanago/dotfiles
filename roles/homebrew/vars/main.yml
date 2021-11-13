@@ -10,6 +10,7 @@ homebrew_packages:
   - ghq
   - git-delta
   - go
+  - hadolint
   - hexyl
   - htop
   - httpie

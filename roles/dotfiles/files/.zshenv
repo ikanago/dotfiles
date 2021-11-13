@@ -33,6 +33,7 @@ path=(
     "$HOME/.cargo/bin"(N-/)
     "$HOME/.local/bin"(N-/)
     "$PYENV_ROOT/bin"(N-/)
+    "$GOPATH/bin"(N-/)
     "${path[@]}"
 )
 
