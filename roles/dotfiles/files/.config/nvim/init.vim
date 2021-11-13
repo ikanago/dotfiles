@@ -108,16 +108,14 @@ autocmd Filetype go setlocal tabstop=4 expandtab!
 " Key mapping
 "----------------------------------------
 let mapleader = "\<Space>"
-nnoremap j gj
-nnoremap k gk
 inoremap jj <Esc>:w<CR>
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Move in insert mode
-inoremap <C-j> <down>
-inoremap <C-k> <up>
-inoremap <C-h> <left>
-inoremap <C-l> <right>
+" inoremap <C-j> <down>
+" inoremap <C-k> <up>
+" inoremap <C-h> <left>
+" inoremap <C-l> <right>
 
 " Buffers Tab and pane
 nnoremap tn :tabnew<CR>
