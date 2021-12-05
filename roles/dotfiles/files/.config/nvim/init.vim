@@ -112,6 +112,8 @@ inoremap jj <Esc>:w<CR>
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 " Move in insert mode
+inoremap <C-k> <up>
+inoremap <C-j> <down>
 inoremap <C-h> <left>
 inoremap <C-l> <right>
 

@@ -44,6 +44,8 @@ else
     alias ll="ls -al"
 fi
 
+# Show keymap
+alias km="head -n 80 $HOME/ghq/github.com/ikanago/qmk_firmware/keyboards/ergodash/rev1/keymaps/ikanago/keymap.c | grep \* | cut -c 6-"
 
 # Show paths splitted with newline.
 alias path="printf '%b\n' '${PATH//:/\\n}'"
