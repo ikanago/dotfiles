@@ -46,6 +46,7 @@ fi
 
 # Show keymap
 alias km="head -n 80 $HOME/ghq/github.com/ikanago/qmk_firmware/keyboards/ergodash/rev1/keymaps/ikanago/keymap.c | grep \* | cut -c 6-"
+alias kmm="sed -n '85,100p' /home/ikanago/ghq/github.com/ikanago/qmk_firmware/keyboards/ergodash/rev1/keymaps/ikanago/keymap.c | grep \* | cut -c 6-"
 
 # Show paths splitted with newline.
 alias path="printf '%b\n' '${PATH//:/\\n}'"
