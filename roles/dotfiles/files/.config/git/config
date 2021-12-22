@@ -8,3 +8,5 @@
 [user]
     email = ikanago-dev@protonmail.com
     name = ikanago
+[init]
+    defaultBranch = main
