@@ -1,6 +1,6 @@
 - name: Install zinit
   shell:
     cmd: sh -c "$(curl -fsSL https://git.io/zinit-install)"
-    creates: "{{ ansible_env.HOME }}/.zinit"
+    creates: "{{ ansible_env.HOME }}/.local/share/zinit"
   tags: zinit
 

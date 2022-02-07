@@ -11,6 +11,10 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
+# source zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+source "${ZINIT_HOME}/zinit.zsh"
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
@@ -35,11 +39,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 zstyle :prompt:pure:path color 033
 zstyle :prompt:pure:prompt:success color 034
 zstyle :prompt:pure:git:branch color 058
-
-# zinit configuration
-source ~/.zinit/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
 # cdr
 ZSH_CDR_DIR="${XDG_CACHE_HOME}/zsh-cdr"
@@ -66,7 +65,7 @@ zinit light zsh-users/zsh-completions
 
 # Syntax highlighting
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 
 # Jump directories quickly
 zinit load agkozak/zsh-z
@@ -102,3 +101,13 @@ source "$HOME/.cargo/env"
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ikanago/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/completion.zsh.inc'; fi
 
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
