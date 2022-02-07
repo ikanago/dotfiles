@@ -1,5 +1,7 @@
 [character]
-error_symbol = "✗"
+success_symbol = "[* '-'b](bold green)"
+error_symbol = "[v '-'v](bold red)"
+vicmd_symbol = "[V '_'V](bold green)"
 
 [cmd_duration]
 min_time = 10
