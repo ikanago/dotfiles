@@ -24,7 +24,6 @@ let g:onedark_terminal_italics = 1
 " Coc.nvim
 let g:coc_global_extensions = [
     \ 'coc-css',
-    \ 'coc-elixir',
     \ 'coc-git',
     \ 'coc-go',
     \ 'coc-html',
