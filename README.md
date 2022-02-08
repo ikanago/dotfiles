@@ -18,11 +18,6 @@ xcode-select --install
 brew update && brew install caskroom/cask/brew-cask ansible git
 ```
 
-And configure git.
-```
-git config --global user.name "ikanago" \
-    && git config --global user.email ikanago@ikanago.dev
-```
 Generate ssh key to establish connection with GitHub. [Connecting to GitHub with SSH](https://docs.github.com/ja/github/authenticating-to-github/connecting-to-github-with-ssh). You may need to add some lines of configuration to `~/.ssh/config`. See [here](https://gist.github.com/ikanago/cbbaffbef12b86f6cbb60886b30d4ac0)  
 
 To use HTTPS for authentication, set up credential helper(now macOS only).
