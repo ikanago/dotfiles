@@ -66,39 +66,9 @@ command! -bang -nargs=* Rg
     \   1, fzf#vim#with_preview(), <bang>0
     \ )
 
-"----------------------------------------
-" General settings
-"----------------------------------------
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set smartindent
-set mouse=a
-set ignorecase
-set smartcase
-set incsearch
-set wrapscan
-set hlsearch
-set fenc=utf-8
-set nobackup
-set noswapfile
-set autoread
-set hidden
-set showcmd
-set scrolloff=5
-set number
-set relativenumber
-set cursorline
-hi clear CursorLine
-set virtualedit=onemore
-set visualbell
-set showmatch
-set wildmode=list:longest
-syntax on
-set listchars=tab:>-,trail:~
-set list
+" Share settings with Vim
+source $HOME/.vimrc
+
 autocmd TermOpen * setlocal nonumber
 autocmd Filetype yaml setlocal shiftwidth=2 expandtab
 autocmd Filetype go setlocal tabstop=4 expandtab!
@@ -107,25 +77,6 @@ autocmd Filetype go setlocal tabstop=4 expandtab!
 " Key mapping
 "----------------------------------------
 let mapleader = "\<Space>"
-inoremap jj <Esc>:w<CR>
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
-" Move in insert mode
-inoremap <C-k> <up>
-inoremap <C-j> <down>
-inoremap <C-h> <left>
-inoremap <C-l> <right>
-
-" Buffers Tab and pane
-nnoremap tn :tabnew<CR>
-nnoremap tc :tabc<CR>
-nnoremap th :tabN<CR>
-nnoremap tl :tabn<CR>
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-noremap sh <C-w>h
 
 " Key mapping w/ space
 nnoremap <leader>s :%s/
