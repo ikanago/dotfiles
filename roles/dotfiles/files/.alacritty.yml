@@ -4,6 +4,7 @@ window:
   padding:
     x: 5
     y: 0
+  opacity: 0.9
 font:
   normal:
     family: "Hack Nerd Font Mono"
@@ -11,4 +12,4 @@ font:
   bold:
     family: "Hack Nerd Font Mono"
     style: Bold
-  size: 14
+  size: 13
