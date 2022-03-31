@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu
 
 RUN apt update \
     && apt install -y software-properties-common \

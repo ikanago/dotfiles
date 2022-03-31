@@ -9,12 +9,15 @@ alias ga="git add"
 alias gap="git add -p"
 alias gc="git commit"
 alias gp="git push"
+alias gpl="git pull"
 alias gl="git log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 alias gs="git status"
 alias gd="git diff"
 alias gb="git branch"
 alias gsw="git switch"
+alias gswc="git switch -c"
 
+# Aliases for commands which may not be installed.
 [ $(command -v docker-compose) ] && alias dc="docker-compose"
 [ $(command -v nvim) ] && alias e='nvim'
 [ $(command -v tmux) ] && alias t='tmux'
