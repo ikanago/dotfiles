@@ -92,7 +92,7 @@ eval "$(starship init zsh)"
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval $(pyenv init --path)
+    eval "$(pyenv init -)"
 fi
 
 # cargo
@@ -111,3 +111,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+
+# Wasmer
+export WASMER_DIR="/Users/ikanago/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"

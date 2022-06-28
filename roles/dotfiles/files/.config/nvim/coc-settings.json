@@ -4,6 +4,7 @@
 	"python.linting.enabled": true,
     "python.pythonPath": ".",
 	"coc.preferences.formatOnType": false,
+    "rust-analyzer.inlayHints.typeHints": true,
     "languageserver": {
         "ccls": {
             "command": "ccls",

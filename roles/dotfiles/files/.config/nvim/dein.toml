@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'rebelot/kanagawa.nvim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
