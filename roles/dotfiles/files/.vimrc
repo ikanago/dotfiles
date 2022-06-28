@@ -27,12 +27,11 @@ set virtualedit=onemore
 set visualbell
 set showmatch
 set wildmode=list:longest
-syntax on
 set listchars=tab:>-,trail:~
 set list
+syntax on
 highlight clear CursorLine
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
+highlight Normal ctermbg=NONE guibg=NONE
 
 "----------------------------------------
 " Key mapping

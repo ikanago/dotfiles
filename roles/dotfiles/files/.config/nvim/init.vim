@@ -9,11 +9,14 @@ endif
 if dein#check_install()
     call dein#install()
 endif
-filetype plugin indent on
-syntax enable
 
+filetype plugin indent on
+
+augroup make_transparent
+    autocmd!
+    autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+augroup END
 colorscheme kanagawa
-let g:onedark_terminal_italics = 1
 
 "----------------------------------------
 " Plugin settings
