@@ -21,6 +21,7 @@ export GPG_TTY=$(tty)
 typeset -gU PATH path
 
 path=(
+    "/opt/homebrew/bin"(N-)
     "/bin"(N-/)
     "/sbin"(N-/)
     "/usr/bin"(N-/)
