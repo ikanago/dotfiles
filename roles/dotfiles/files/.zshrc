@@ -77,7 +77,7 @@ done;
 unset file;
 
 # Vim like key binding on terminal
-bindkey -v
+bindkey -e
 
 # Search and move to a repository easily
 # `search_ghq` is defined at .functions
