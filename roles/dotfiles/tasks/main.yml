@@ -6,7 +6,6 @@
     force: yes
   loop:
     - .aliases
-    - .alacritty.yml
     - .bashrc
     - .functions
     - .gdbinit
@@ -28,5 +27,6 @@
     state: link
     force: yes
   loop:
+    - alacritty
     - nvim
     - git

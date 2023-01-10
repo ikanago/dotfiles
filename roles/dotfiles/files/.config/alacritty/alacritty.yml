@@ -13,3 +13,9 @@ font:
     family: "Hack Nerd Font Mono"
     style: Bold
   size: 13
+shell:
+  program: /bin/zsh
+  args:
+   - -l
+   - -c
+   - 'tmux a -t default || tmux new -s default'

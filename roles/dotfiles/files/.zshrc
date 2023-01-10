@@ -76,7 +76,7 @@ for file in $HOME/.{aliases,functions}; do
 done;
 unset file;
 
-# Vim like key binding on terminal
+# Emacs like key binding on terminal
 bindkey -e
 
 # Search and move to a repository easily
@@ -115,3 +115,4 @@ zinit light-mode for \
 # Wasmer
 export WASMER_DIR="/Users/ikanago/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
+### End of Zinit's installer chunk

@@ -36,8 +36,26 @@ function ff() {
     fzf -m --ansi --phony --bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" --preview "rg -i --context 2 --pretty {q} {}"
 }
 
-qrcode () {
+function qrcode () {
     local input="$*"
     [ -z "$input" ] && local input="@/dev/stdin"
     curl -d "$input" https://qrcode.show
+}
+
+funtion fzf-switch-branch() {
+    if [ $@ ]; then
+        git switch $@
+    else
+        local branch=$(
+            git branch -a | \
+                grep -v 'HEAD' | \
+                cut -c 3- | \
+                fzf --exit-0 --info=hidden --no-multi --prompt="CHECKOUT BRANCH > " --preview-window=right:60% \
+                    --preview="echo {} | xargs git log --graph --color=always --date=iso --pretty=format:'%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]'"
+        )
+        if [ -n "${branch}" ]; then
+            # In sed regex, ^/ matches characters other than '/'.
+            git switch $(echo "${branch}" | sed 's#remotes/[^/]*/##')
+        fi
+    fi
 }
