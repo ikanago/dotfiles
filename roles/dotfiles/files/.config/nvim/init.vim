@@ -11,6 +11,7 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
+let g:vim_json_conceal=0
 
 augroup make_transparent
     autocmd!
@@ -51,7 +52,6 @@ let g:lightline = {
     \       'cocstatus': 'coc#status',
     \       'gitbranch': 'FugitiveHead'
     \ },
-    \ 'colorscheme': 'onedark',
     \ }
 set noshowmode
 set statusline^=%{coc#status()}
