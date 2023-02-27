@@ -21,6 +21,7 @@ homebrew_packages:
   - mercurial
   - minikube
   - 'n'
+  - neovim
   - procs
   - ripgrep
   - starship
@@ -32,6 +33,5 @@ homebrew_packages_macOS:
   - clang-format
   - cmake
   - gcc
-  - neovim
   - wget
 

@@ -18,4 +18,4 @@ shell:
   args:
    - -l
    - -c
-   - 'tmux a -t default || tmux new -s default'
+   - 'tmux new -A -s default'

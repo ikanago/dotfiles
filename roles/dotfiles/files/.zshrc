@@ -101,7 +101,6 @@ source "$HOME/.cargo/env"
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ikanago/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/completion.zsh.inc'; fi
 
-
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -112,7 +111,3 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Wasmer
-export WASMER_DIR="/Users/ikanago/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
-### End of Zinit's installer chunk
