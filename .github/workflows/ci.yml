@@ -5,23 +5,17 @@ on:
 
 jobs:
   build-ubuntu:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ ubuntu-18.04, ubuntu-20.04 ]
+    runs-on: 'ubuntu-22.04'
     steps:
     - uses: actions/checkout@v2
     - name: Run Ansible Playbook
       env:
         CI: 1
       run: |
-        ansible-playbook main.yml -b
+        ansible-playbook main.yml -b --skip-tags brew
 
   build-macos:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ macos-11 ]
+    runs-on: 'macos-12'
     steps:
     - uses: actions/checkout@v2
     - name: Install Ansible
@@ -29,4 +23,5 @@ jobs:
         brew install ansible
     - name: Run Ansible Playbook
       run: |
-        ansible-playbook main.yml
+        ansible-playbook main.yml --skip-tags brew
+
