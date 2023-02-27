@@ -1,3 +1,8 @@
+- name: Create .config directory
+  file:
+    path: "{{ ansible_env.HOME }}/.cache"
+    state: directory
+
 - name: Fetch dein.vim
   get_url:
     url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
