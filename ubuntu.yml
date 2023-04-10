@@ -46,9 +46,6 @@
 - import_role:
     name: zinit
 
-- import_role:
-    name: dein
-
 - name: Install tpm(tmux plugin manager)
   import_role:
     name: tmux

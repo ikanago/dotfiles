@@ -10,9 +10,6 @@
     cmd: $(brew --prefix)/opt/fzf/install
 
 - import_role:
-    name: dein
-
-- import_role:
     name: tmux
 
 - import_role:
