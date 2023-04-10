@@ -18,3 +18,5 @@
 	program = /opt/homebrew/bin/gpg
 [commit]
 	gpgsign = true
+[merge]
+    conflictStyle = diff3
