@@ -37,6 +37,8 @@ highlight Normal ctermbg=NONE guibg=NONE
 " Key mapping
 "----------------------------------------
 inoremap jj <Esc>:w<Enter>
+inoremap <C-a> <home>
+inoremap <C-e> <end>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
 inoremap <C-h> <left>
