@@ -8,15 +8,14 @@
 [user]
     email = ikanago-dev@protonmail.com
     name = ikanago
-	signingkey = D64152BD6342B24E
+    signingkey = D64152BD6342B24E
 [init]
     defaultBranch = main
 [credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
+    helper = !/opt/homebrew/bin/gh auth git-credential
 [gpg]
-	program = /opt/homebrew/bin/gpg
+    program = /opt/homebrew/bin/gpg
 [commit]
-	gpgsign = true
+    gpgsign = true
 [merge]
     conflictStyle = diff3
