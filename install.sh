@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -eu
+
 function bootstrap() {
     local dotfiles_dir="$HOME/.local/share/chezmoi"
     if [ "$(/bin/ls -A1 $dotfiles_dir)" ]; then
