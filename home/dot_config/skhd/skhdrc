@@ -1,0 +1,44 @@
+# focus window
+alt - x : yabai -m window --focus recent
+alt - h : yabai -m window --focus west || yabai -m display --focus west
+alt - j : yabai -m window --focus south || yabai -m display --focus south
+alt - k : yabai -m window --focus north || yabai -m display --focus north
+alt - l : yabai -m window --focus east || yabai -m display --focus east
+
+# swap window
+ctrl + alt - x : yabai -m window --swap recent
+ctrl + alt - h : yabai -m window --swap west
+ctrl + alt - j : yabai -m window --swap south
+ctrl + alt - k : yabai -m window --swap north
+ctrl + alt - l : yabai -m window --swap east
+
+# move window
+ctrl + shift - h : yabai -m window --warp west
+ctrl + shift - j : yabai -m window --warp south
+ctrl + shift - k : yabai -m window --warp north
+ctrl + shift - l : yabai -m window --warp east
+ctrl + shift - 1 : yabai -m window --space 1
+ctrl + shift - 2 : yabai -m window --space 2
+ctrl + shift - 3 : yabai -m window --space 3
+ctrl + shift - 4 : yabai -m window --space 4
+ctrl + shift - 5 : yabai -m window --space 5
+ctrl + shift - 6 : yabai -m window --space 6z
+# mirror tree y-axis
+shift + ctrl - y : yabai -m space --mirror y-axis
+# mirror tree x-axis
+shift + ctrl - x : yabai -m space --mirror x-axis
+
+# move window
+shift + ctrl - a : yabai -m window --move rel:-20:0
+shift + ctrl - s : yabai -m window --move rel:0:20
+shift + ctrl - w : yabai -m window --move rel:0:-20
+shift + ctrl - d : yabai -m window --move rel:20:0
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+# balance windows
+alt - b : yabai -m space --balance
+# toggle window native fullscreen
+alt - f : yabai -m window --toggle native-fullscreen
+# float / unfloat window and restore position
+alt - t : yabai -m window --toggle float && /tmp/yabai-restore/$(yabai -m query --windows --window | jq -re '.id').restore 2>/dev/null || true
