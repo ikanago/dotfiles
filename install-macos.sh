@@ -2,8 +2,13 @@
 
 set -eu
 
+PROCNAME=${0##*/}
+
+source ./common/log.sh
+
 function deploy_dotfiles() {
     if [ ! $(command -v chezmoi) ]; then
+        log "chezmoi is not installed yet"
         sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     fi
 
@@ -11,10 +16,13 @@ function deploy_dotfiles() {
 }
 
 function install_fzf_script() {
+    log "Install fzf scripts"
     yes | /opt/homebrew/opt/fzf/install
 }
 
 function install_via_brew() {
+    log "Install softwares via Homebrew"
+
     brew install \
         bat \
         cmake \
@@ -55,9 +63,15 @@ function install_via_brew() {
         slack \
         spotify \
         zoom
- }
+}
+
+log "Install softwares for macOS"
+
+./common/install-rustup.sh
 
 deploy_dotfiles
 install_fzf_script
 install_via_brew
+
+log "Install completed"
 
