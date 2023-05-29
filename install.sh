@@ -22,7 +22,7 @@ function bootstrap() {
     # Install chezmoi
     sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     # Clone dotfiles repo to $dotfiles_dir
-    chezmoi init https://github.com/ikanago/dotfiles.git
+    $HOME/.local/bin/chezmoi init https://github.com/ikanago/dotfiles.git
     cd "$dotfiles_dir"
 }
 
