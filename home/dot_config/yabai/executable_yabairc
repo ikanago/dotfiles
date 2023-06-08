@@ -1,5 +1,5 @@
 yabai -m config                                 \
-    mouse_follows_focus          off            \
+    mouse_follows_focus          on             \
     focus_follows_mouse          autoraise      \
     window_origin_display        default        \
     window_placement             second_child   \
@@ -36,6 +36,5 @@ yabai -m config                                 \
 
 yabai -m rule --add app="Bitwarden" layer=above manage=off
 yabai -m rule --add app="Finder" layer=above manage=off
-yabai -m rule --add app="Spotify" layer=above manage=off
 yabai -m rule --add app="システム設定" layer=above manage=off
 

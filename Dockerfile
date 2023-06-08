@@ -1,8 +1,6 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 RUN apt update \
-    && apt install -y software-properties-common \
-    && apt-add-repository --y --update ppa:ansible/ansible \
-    && apt install -y git ansible vim
+    && apt install -y curl \
+    && /bin/sh -c $(curl -fsSL "https://raw.githubusercontent.com/ikanago/dotfiles/main/install.sh")
 
-COPY . .

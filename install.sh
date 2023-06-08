@@ -2,13 +2,9 @@
 
 set -eu
 
-PROCNAME=${0##*/}
-
-source ./common/log.sh
-
 function ensure_command() {
     if [ ! $(command -v $1 ) ]; then
-        error "Install $1 first"
+        echo "Install $1 first"
     fi
 }
 
@@ -19,9 +15,9 @@ function bootstrap() {
     fi
 
     ensure_command "curl"
-    # Install chezmoi
+    echo "Install chezmoi"
     sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
-    # Clone dotfiles repo to $dotfiles_dir
+    echo "Clone dotfiles repo"
     $HOME/.local/bin/chezmoi init https://github.com/ikanago/dotfiles.git
     cd "$dotfiles_dir"
 }

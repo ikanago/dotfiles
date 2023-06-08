@@ -8,15 +8,18 @@ window:
   startup_mode: Maximized
 font:
   normal:
-    family: "Hack Nerd Font"
+    family: "0xProto"
     style: Regular
   bold:
-    family: "Hack Nerd Font"
+    family: "0xProto"
     style: Bold
-  size: 13
+  size: 12
 shell:
   program: /bin/zsh
   args:
    - -l
    - -c
    - 'tmux new -A -s default'
+import:
+  - ~/.config/alacritty/themes/themes/tokyo-night-storm.yaml
+
