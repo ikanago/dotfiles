@@ -96,7 +96,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # cargo
-source "$HOME/.cargo/env"
+[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
+
+# rye
+[ -d "$HOME/.rye" ] && source "$HOME/.rye/env"
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/ikanago/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/completion.zsh.inc'; fi

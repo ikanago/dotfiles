@@ -19,3 +19,8 @@
     gpgsign = true
 [merge]
     conflictStyle = diff3
+
+[delta]
+    side-by-side = true
+    line-numbers = true
+    navigate = true
