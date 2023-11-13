@@ -1,8 +1,0 @@
-- name: Install rustup
-  shell:
-    cmd: |
-      curl -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-    creates: |
-      "{{ ansible_env.HOME }}/.cargo"
-      "{{ ansible_env.HOME }}/.rustup"
-

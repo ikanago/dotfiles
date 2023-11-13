@@ -8,7 +8,7 @@ function ensure_command() {
     fi
 }
 
-function bootstrap() {
+function install_chezmoi() {
     local dotfiles_dir="$HOME/.local/share/chezmoi"
     if [ "$(/bin/ls -A $dotfiles_dir 2>/dev/null)" ]; then
         return 0
@@ -19,16 +19,14 @@ function bootstrap() {
     sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     echo "Clone dotfiles repo"
     $HOME/.local/bin/chezmoi init https://github.com/ikanago/dotfiles.git
-    cd "$dotfiles_dir"
+    echo "dotfiles are cloned to $dotfiles_dir"
 }
 
-bootstrap
+function install_rustup() {
+    if [ ! $(command -v rustup) ]; then
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    fi
+}
 
-if [ $(uname) == 'Darwin' ]; then
-    ./install_macos.sh
-elif [ $(command -v apt) ]; then
-    ./install_ubuntu.sh
-elif [ $(command -v pacman) ]; then
-    ./install_arch.sh
-fi
-
+install_chezmoi
+install_rustup
