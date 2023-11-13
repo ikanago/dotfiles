@@ -1,27 +1,23 @@
-name: Ansible CI
+name: Test Installation
+
 on:
   push:
   pull_request:
 
 jobs:
-  build-ubuntu:
-    runs-on: 'ubuntu-22.04'
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, macos-12]
+    runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Ansible Playbook
-      env:
-        CI: 1
-      run: |
-        ansible-playbook main.yml -b --skip-tags brew
+      - uses: actions/checkout@v4
 
-  build-macos:
-    runs-on: 'macos-12'
-    steps:
-    - uses: actions/checkout@v2
-    - name: Install Ansible
-      run: |
-        brew install ansible
-    - name: Run Ansible Playbook
-      run: |
-        ansible-playbook main.yml --skip-tags brew
+      - name: Run Install Script
+        run: |
+          ./install.sh
 
+      - name: Check dotfiles Installation
+        run: |
+          ls -la "$HOME/.local/share/chezmoi"
+          [ -f "$HOME/.zshrc" ]
