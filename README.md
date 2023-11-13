@@ -1,6 +1,6 @@
 # dotfiles
 
-![Ansible CI](https://github.com/ikanago/dotfiles/workflows/Ansible%20CI/badge.svg?branch=main)
+[![Test Installation](https://github.com/ikanago/dotfiles/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ikanago/dotfiles/actions/workflows/ci.yml)
 
 ## Requirements
 - curl
