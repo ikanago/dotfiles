@@ -16,9 +16,7 @@ function install_chezmoi() {
 
     ensure_command "curl"
     echo "Install chezmoi"
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
-    echo "Clone dotfiles repo"
-    $HOME/.local/bin/chezmoi init https://github.com/ikanago/dotfiles.git
+    sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply ikanago
     echo "dotfiles are cloned to $dotfiles_dir"
 }
 
