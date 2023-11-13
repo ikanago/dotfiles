@@ -14,7 +14,6 @@ function install_chezmoi() {
         return 0
     fi
 
-    ensure_command "curl"
     echo "Install chezmoi"
     sh -c "$(curl -fsLS get.chezmoi.io/lb)" -- init --apply ikanago
     echo "dotfiles are cloned to $dotfiles_dir"
@@ -26,5 +25,6 @@ function install_rustup() {
     fi
 }
 
+ensure_command "curl"
 install_chezmoi
 install_rustup
