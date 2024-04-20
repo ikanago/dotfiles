@@ -8,7 +8,7 @@
 [user]
     email = ikanago-dev@protonmail.com
     name = ikanago
-    signingkey = D64152BD6342B24E
+    signingkey = A799D787873283A6
 [init]
     defaultBranch = main
 [credential "https://github.com"]
