@@ -1,10 +1,9 @@
-import = ["/Users/nagaoka/.config/alacritty/themes/themes/kanagawa_dragon.toml"]
 
 [env]
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.bold]
 family = "0xProto"
@@ -14,14 +13,19 @@ style = "Bold"
 family = "0xProto"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 args = ["-l", "-c", "tmux new -A -s default"]
 program = "/bin/zsh"
 
 [window]
-opacity = 0.8
+opacity = 0.9
 startup_mode = "Maximized"
 
 [window.padding]
 x = 5
 y = 0
+
+[general]
+import = ["~/.config/alacritty/themes/themes/kanagawa_wave.toml"]
+
+[terminal]
