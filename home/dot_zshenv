@@ -39,6 +39,7 @@ path=(
     "${HOME}/.ghcup/bin"(N-/)
     "${PYENV_ROOT}/bin"(N-/)
     "${GOPATH}/bin"(N-/)
+    "/opt/homebrew/opt/llvm/bin"(N-/)
     "${path[@]}"
 )
 

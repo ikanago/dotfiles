@@ -1,6 +1,8 @@
 # Set up the prompt
 autoload -Uz promptinit
 promptinit
+prompt pure
+PURE_CMD_MAX_EXEC_TIME=1
 
 autoload -Uz colors
 colors
@@ -84,9 +86,6 @@ bindkey -e
 zle -N search_ghq
 bindkey "^g" search_ghq
 
-# starship
-eval "$(starship init zsh)"
-
 # fzf
 source <(fzf --zsh)
 
@@ -97,12 +96,6 @@ fi
 
 # cargo
 [ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
-
-# rye
-[ -d "$HOME/.rye" ] && source "$HOME/.rye/env"
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/ikanago/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ikanago/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
