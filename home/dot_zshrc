@@ -1,4 +1,7 @@
 # Set up the prompt
+PURE_DIR="$HOME/.zsh/pure"
+[ ! -d "$PURE_DIR" ] && mkdir -p "$HOME/.zsh"
+[ ! -d "$PURE_DIR/.git" ] && git clone https://github.com/sindresorhus/pure.git "$PURE_DIR"
 autoload -Uz promptinit
 promptinit
 prompt pure
@@ -15,6 +18,8 @@ HISTFILE=~/.zsh_history
 
 # source zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Use modern completion system

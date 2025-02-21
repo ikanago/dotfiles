@@ -16,12 +16,11 @@ export N_PREFIX="$HOME/n"
 export PYENV_ROOT="$HOME/.pyenv"
 export GOPATH="$HOME/go"
 export EDITOR="nvim"
-export STARSHIP_CONFIG=~/.starship.toml
 export GPG_TTY=$(tty)
 
 typeset -gU PATH path
 
-path=(
+path+=(
     "/opt/homebrew/bin"(N-)
     "${N_PREFIX}/bin"(N-)
     "/bin"(N-/)
@@ -30,9 +29,6 @@ path=(
     "/usr/local/bin"(N-/)
     "/usr/local/sbin"(N-/)
     "/usr/sbin"(N-/)
-    "${path[@]}"
-)
-path=(
     "${HOME}/.cargo/bin"(N-/)
     "${HOME}/.local/bin"(N-/)
     "${HOME}/google-cloud-sdk/bin"(N-/)
@@ -40,8 +36,8 @@ path=(
     "${PYENV_ROOT}/bin"(N-/)
     "${GOPATH}/bin"(N-/)
     "/opt/homebrew/opt/llvm/bin"(N-/)
-    "${path[@]}"
 )
+fpath+=($HOME/.zsh/pure)
 
 # Linuxbrew
 if [ $(uname) = "Linux" ]; then
