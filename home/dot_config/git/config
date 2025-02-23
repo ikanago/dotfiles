@@ -14,7 +14,7 @@
 [credential "https://github.com"]
     helper = !/opt/homebrew/bin/gh auth git-credential
 [gpg]
-    program = /opt/homebrew/bin/gpg
+    program = gpg
 [commit]
     gpgsign = true
 [merge]

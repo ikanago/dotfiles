@@ -6,11 +6,11 @@ TERM = "xterm-256color"
 size = 13
 
 [font.bold]
-family = "0xProto"
+family = "0xProto Nerd Font"
 style = "Bold"
 
 [font.normal]
-family = "0xProto"
+family = "0xProto Nerd Font"
 style = "Regular"
 
 [terminal.shell]
