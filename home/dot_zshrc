@@ -11,7 +11,6 @@ autoload -Uz colors
 colors
 
 setopt histignorealldups sharehistory
-
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
@@ -23,8 +22,17 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Use modern completion system
+# ref: https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
-compinit
+local now=$(date +"%s")
+local updated=$(date -r ~/.zcompdump +"%s")
+local threshold=$((60 * 60 * 24))
+if [ $((${now} - ${updated})) -gt ${threshold} ]; then
+  compinit
+else
+  # if there are new functions can be omitted by giving the option -C.
+  compinit -C
+fi
 
 [ $(command -v dircolors) ] && eval "$(dircolors -b)"
 
