@@ -27,16 +27,35 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(event)
+          vim.cmd[[set completeopt+=menuone,noselect,popup]]
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
           if client:supports_method('textDocument/completion') then
-            -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-            -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-            -- client.server_capabilities.completionProvider.triggerCharacters = chars
             vim.lsp.completion.enable(true, client.id, event.buf, {autotrigger = true})
+            vim.keymap.set('i', '<c-space>', function()
+              vim.lsp.completion.get()
+            end)
           end
-          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = event.buf, desc = 'Go to definition' })
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = event.buf, desc = 'Hover' })
+
+          vim.diagnostic.config({
+            signs = false,
+            virtual_text = {
+              format = function(diagnostic)
+                return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
+              end,
+            },
+          })
+
+          function map(key, action, desc)
+            local opts = { noremap = true, silent = true, buffer = event.buf, desc = "LSP: " .. desc }
+            vim.keymap.set('n', key, action, opts)
+          end
+
+          map('ga', vim.lsp.buf.code_action, 'Code Action')
+          map('gd', vim.lsp.buf.definition, 'Go to Definition')
+          map('gi', vim.lsp.buf.implementation, 'Go to Implementation')
+          map('gr', vim.lsp.buf.references, 'Go to References')
+          map('<leader>D', vim.lsp.buf.type_definition, 'Go to Type Definition')
+          map('<leader>rn', vim.lsp.buf.rename, 'Rename Symbol')
         end,
       })
     end

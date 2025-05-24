@@ -1,15 +1,29 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+    build = ":TSUpdate",
+    lazy = false,
 	config = function()
 		require("nvim-treesitter.configs").setup({
-			ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "go", "gomod", "python" },
+			ensure_installed = {
+			    "go",
+			    "gomod",
+			    "lua",
+			    "python",
+			    "query",
+                "ruby",
+                "rust",
+			    "vim",
+			    "vimdoc",
+			},
 			auto_install = true,
 			highlight = {
 				enable = true,
-				disable = { "c", "rust" },
-				additional_vim_regex_highlighting = false,
+				additional_vim_regex_highlighting = { "ruby" },
 			},
+            indent = {
+                enable = true,
+                disable = { "ruby" }
+            }
 		})
 		vim.treesitter.language.register("markdown", "octo")
 	end,

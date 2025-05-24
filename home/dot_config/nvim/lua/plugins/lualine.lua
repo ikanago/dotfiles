@@ -1,7 +1,9 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
-	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+	dependencies = {
+	    "nvim-tree/nvim-web-devicons",
+	},
 	config = function()
 		local lsp_component = {
 			function()
@@ -26,7 +28,6 @@ return {
 			icon = " LSP:",
 			color = { fg = "#179299", gui = "bold" },
 		}
-		local navic = require("nvim-navic")
 
 		require("lualine").setup({
 			options = {
@@ -54,9 +55,8 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { lsp_component },
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { { require("recorder").recordingStatus }, "progress" },
+				lualine_x = { lsp_component },
+				lualine_y = { "encoding", "fileformat", "filetype" },
 				lualine_z = { "location" },
 			},
 			inactive_sections = {
@@ -67,21 +67,6 @@ return {
 				lualine_y = {},
 				lualine_z = {},
 			},
-			tabline = {},
-			winbar = {
-				lualine_c = {
-					{
-						function()
-							if navic.get_location() == "" then
-								return " "
-							end
-							return navic.get_location()
-						end,
-					},
-				},
-			},
-			inactive_winbar = {},
-			extensions = {},
 		})
 	end,
 }

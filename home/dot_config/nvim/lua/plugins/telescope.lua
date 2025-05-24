@@ -128,6 +128,7 @@ return {
 				},
 			},
 		})
+
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {
 			desc = "Change colorscheme",
