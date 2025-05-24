@@ -16,7 +16,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.showmatch = true
 vim.o.matchtime = 1
-vim.o.listchars = "eol:$,tab:>.,trail:_,lead:."
+vim.o.listchars = "tab:>.,trail:~,lead:."
 vim.o.list = true
 vim.o.scrolloff = 5
 vim.api.nvim_exec(
@@ -70,7 +70,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	callback = function()
 		vim.opt_local.spell = false
 		vim.opt_local.wrap = true
-		-- j と k に gj と gk を割り当て
 		vim.keymap.set("n", "j", "gj", { noremap = true, silent = true })
 		vim.keymap.set("n", "k", "gk", { noremap = true, silent = true })
 	end,
@@ -82,7 +81,6 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	end,
 })
 
-vim.api.nvim_set_keymap("i", "っｊ", "<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "<C-a>", "<Esc>A", { noremap = true, silent = true })
@@ -137,3 +135,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end, 100)
 	end,
 })
+

@@ -3,14 +3,14 @@
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.bold]
-family = "0xProto"
+family = "0xProto Nerd Font"
 style = "Bold"
 
 [font.normal]
-family = "0xProto"
+family = "0xProto Nerd Font"
 style = "Regular"
 
 [terminal.shell]
