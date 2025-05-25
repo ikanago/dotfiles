@@ -17,7 +17,7 @@ local opts = {
 	},
 	performance = {
 		cache = {
-			enabled = true,
+            enabled = true,
 		},
 	},
 }

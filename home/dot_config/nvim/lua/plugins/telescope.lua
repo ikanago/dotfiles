@@ -78,6 +78,7 @@ return {
 				actions["select_" .. method](prompt_bufnr)
 			end
 		end
+
 		require("telescope").setup({
 			pickers = {
 				colorscheme = {
@@ -85,6 +86,11 @@ return {
 				},
 			},
 			defaults = {
+                sorting_strategy = "ascending",
+                layout_strategy = "horizontal",
+                layout_config = {
+                    prompt_position = "top",
+                },
 				mappings = {
 					i = {
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
@@ -130,54 +136,23 @@ return {
 		})
 
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {
-			desc = "Change colorscheme",
-		})
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, {
-			desc = "Find files",
-		})
-		vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, {
-			desc = "Find in current buffer",
-		})
-		vim.keymap.set("n", "<leader>fr", builtin.live_grep, {
-			desc = "Live grep",
-		})
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, {
-			desc = "Buffers",
-		})
-		vim.keymap.set("n", "<leader>fg", builtin.grep_string, {
-			desc = "Grep string",
-		})
-		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {
-			desc = "Old files",
-		})
-		vim.keymap.set("n", "<leader>fp", builtin.registers, {
-			desc = "Registers",
-		})
-		vim.keymap.set("n", "<leader>ft", builtin.treesitter, {
-			desc = "Treesitter",
-		})
-		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {
-			desc = "Diagnostics",
-		})
-		vim.keymap.set("n", "<leader>fm", builtin.marks, {
-			desc = "Marks",
-		})
-		vim.keymap.set("n", "<leader>fn", require("telescope").extensions.notify.notify, {
-			desc = "Notify",
-		})
-		vim.keymap.set("n", "gr", builtin.lsp_references, {
-			desc = "LSP references",
-		})
-		vim.keymap.set("n", "gi", builtin.lsp_implementations, {
-			desc = "LSP implementations",
-		})
-		vim.keymap.set("n", "<leader>fw", require("telescope").extensions.windows.list, {
-			desc = "Windows",
-		})
-		vim.keymap.set("n", "<leader>fh", require("telescope").extensions.git_file_history.git_file_history, {
-			desc = "Git file history",
-		})
+		vim.keymap.set("n", "<leader>fb", function() builtin.buffers({ sort_mtu = true, ignore_current_buffer=true }) end, {desc = "Switch among buffers",})
+		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {desc = "Change colorscheme",})
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, {desc = "Find files",})
+		vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, {desc = "Find in current buffer",})
+		vim.keymap.set("n", "<leader>fr", builtin.live_grep, {desc = "Live grep",})
+		vim.keymap.set("n", "<leader>fg", builtin.grep_string, {desc = "Grep string",})
+		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {desc = "Old files",})
+		vim.keymap.set("n", "<leader>fp", builtin.registers, {desc = "Registers",})
+		vim.keymap.set("n", "<leader>ft", builtin.treesitter, {desc = "Treesitter",})
+		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {desc = "Diagnostics",})
+		vim.keymap.set("n", "<leader>fm", builtin.marks, {desc = "Marks",})
+		vim.keymap.set("n", "<leader>fn", require("telescope").extensions.notify.notify, {desc = "Notify",})
+		vim.keymap.set("n", "<leader>fh", require("telescope").extensions.git_file_history.git_file_history, {desc = "Git file history",})
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, {desc = "LSP definitions",})
+		vim.keymap.set("n", "gD", builtin.lsp_type_definitions, {desc = "LSP type definitions",})
+		vim.keymap.set("n", "gr", builtin.lsp_references, {desc = "LSP references",})
+		vim.keymap.set("n", "gi", builtin.lsp_implementations, {desc = "LSP implementations",})
 
 		require("telescope").load_extension("git_file_history")
 	end,

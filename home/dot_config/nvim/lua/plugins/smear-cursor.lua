@@ -6,6 +6,5 @@ return {
 		stiffness = 0.9,
 		trailing_stiffness = 0.6,
 		distance_stop_animating = 0.4,
-		legacy_computing_symbols_support = true,
 	},
 }

@@ -32,20 +32,13 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "solarized",
+				theme = "nightfly",
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
 					statusline = { "Avante", "AvanteInput", "AvanteSelectedFiles", "NvimTree" },
 					winbar = { "Avante", "AvanteInput", "AvanteSelectedFiles", "NvimTree" },
 				},
-				disabled_buftypes = {
-					statusline = { "nofile" },
-					winbar = { "nofile" },
-				},
-				ignore_focus = {},
-				always_divide_middle = true,
-				globalstatus = false,
 				refresh = {
 					statusline = 1000,
 					tabline = 1000,
@@ -55,17 +48,18 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
+                lualine_c = {},
 				lualine_x = { lsp_component },
-				lualine_y = { "encoding", "fileformat", "filetype" },
+				lualine_y = { "filetype", "encoding" },
 				lualine_z = { "location" },
 			},
 			inactive_sections = {
-				lualine_a = {},
+				lualine_a = { "filename" },
 				lualine_b = {},
-				lualine_c = { "filename" },
-				lualine_x = { "location" },
+				lualine_c = {},
+				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {},
+				lualine_z = { "location" },
 			},
 		})
 	end,

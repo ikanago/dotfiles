@@ -52,8 +52,6 @@ return {
 
           map('ga', vim.lsp.buf.code_action, 'Code Action')
           map('gd', vim.lsp.buf.definition, 'Go to Definition')
-          map('gi', vim.lsp.buf.implementation, 'Go to Implementation')
-          map('gr', vim.lsp.buf.references, 'Go to References')
           map('<leader>D', vim.lsp.buf.type_definition, 'Go to Type Definition')
           map('<leader>rn', vim.lsp.buf.rename, 'Rename Symbol')
         end,
