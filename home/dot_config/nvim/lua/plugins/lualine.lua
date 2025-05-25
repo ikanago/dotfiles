@@ -50,7 +50,7 @@ return {
 				lualine_b = { "branch", "diff", "diagnostics" },
                 lualine_c = {},
 				lualine_x = { lsp_component },
-				lualine_y = { "filetype", "encoding" },
+				lualine_y = { "filetype", { require("recorder").recordingStatus }, "progress" },
 				lualine_z = { "location" },
 			},
 			inactive_sections = {

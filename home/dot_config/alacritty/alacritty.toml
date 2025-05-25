@@ -28,4 +28,7 @@ y = 0
 [general]
 import = ["~/.config/alacritty/themes/themes/kanagawa_wave.toml"]
 
-[terminal]
+[[keyboard.bindings]]
+  key = "H"
+  mods = "Control | Shift"
+  chars = "\u001b[72;6u"
