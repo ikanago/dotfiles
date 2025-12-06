@@ -12,7 +12,7 @@ return {
 			use_local_fs = false, -- use local files on right side of reviews
 			enable_builtin = false, -- shows a list of builtin actions when no action is provided
 			default_remote = { "upstream", "origin" }, -- order to try remotes
-			default_merge_method = "commit", -- default merge method which should be used when calling `Octo pr merge`, could be `commit`, `rebase` or `squash`
+			default_merge_method = "merge", -- default merge method which should be used when calling `Octo pr merge`, could be `merge`, `rebase` or `squash`
 			ssh_aliases = {}, -- SSH aliases. e.g. `ssh_aliases = {["github.com-work"] = "github.com"}`
 			picker = "telescope", -- or "fzf-lua"
 			picker_config = {
@@ -31,7 +31,7 @@ return {
 			users = "search", -- Users for assignees or reviewers. Values: "search" | "mentionable" | "assignable"
 			user_icon = " ", -- user icon
 			timeline_marker = " ", -- timeline marker
-			timeline_indent = "2", -- timeline indentation
+			timeline_indent = 2, -- timeline indentation
 			right_bubble_delimiter = "", -- bubble delimiter
 			left_bubble_delimiter = "", -- bubble delimiter
 			github_hostname = "", -- GitHub Enterprise host

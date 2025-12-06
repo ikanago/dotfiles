@@ -9,7 +9,7 @@ return {
 			function()
 				local msg = "No Active Lsp"
 				local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-				local clients = vim.lsp.get_active_clients()
+				local clients = vim.lsp.get_clients()
 				if next(clients) == nil then
 					return msg
 				end
@@ -36,8 +36,8 @@ return {
 				component_separators = { left = "|", right = "|" },
 				section_separators = { left = "", right = "" },
 				disabled_filetypes = {
-					statusline = { "Avante", "AvanteInput", "AvanteSelectedFiles", "NvimTree" },
-					winbar = { "Avante", "AvanteInput", "AvanteSelectedFiles", "NvimTree" },
+					statusline = { "no-neck-pain", "NvimTree" },
+					winbar = { "no-neck-pain", "NvimTree" },
 				},
 				refresh = {
 					statusline = 1000,
