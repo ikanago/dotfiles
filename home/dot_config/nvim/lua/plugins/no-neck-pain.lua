@@ -8,9 +8,6 @@ return {
                 enableOnVimEnter = true,
                 enableOnTabEnter = true,
             },
-            buffers = {
-                backgroundColor = "catppuccin-frappe",
-            },
             width = 120,
         })
     end
