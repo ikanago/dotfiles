@@ -4,11 +4,14 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("no-neck-pain").setup({
-            width = 120,
             autocmds = {
                 enableOnVimEnter = true,
-                enableOnTabEnter = true
-            }
+                enableOnTabEnter = true,
+            },
+            buffers = {
+                backgroundColor = "catppuccin-frappe",
+            },
+            width = 120,
         })
     end
 }

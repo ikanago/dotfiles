@@ -1,6 +1,4 @@
-vim.api.nvim_set_keymap("i", "jj", "<ESC>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "<C-a>", "<Esc>A", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "jj", "<ESC>:w<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>n", ":bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>p", ":bprev<CR>", { noremap = true, silent = true })

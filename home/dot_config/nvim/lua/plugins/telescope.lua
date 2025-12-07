@@ -1,7 +1,10 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.4",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope-frecency.nvim",
+    },
 	event = { "VimEnter" },
 	config = function()
 		local gfh_actions = require("telescope").extensions.git_file_history.actions
@@ -79,6 +82,16 @@ return {
 			end
 		end
 
+        require("telescope").load_extension("frecency")
+        require("telescope").setup({
+            extensions = {
+                frecency = {
+                    db_safe_mode = false,
+                    path_display = { "shorten" }
+                },
+            },
+        })
+
 		require("telescope").setup({
 			pickers = {
 				colorscheme = {
@@ -136,13 +149,18 @@ return {
 		})
 
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>fb", function() builtin.buffers({ sort_mtu = true, ignore_current_buffer=true }) end, {desc = "Switch among buffers",})
+		vim.keymap.set("n", "<leader>fb", function() builtin.buffers({
+            sort_mtu = true,
+            ignore_current_buffer=true
+        }) end, {desc = "Switch among buffers",})
 		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {desc = "Change colorscheme",})
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, {desc = "Find files",})
 		vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, {desc = "Find in current buffer",})
 		vim.keymap.set("n", "<leader>fr", builtin.live_grep, {desc = "Live grep",})
 		vim.keymap.set("n", "<leader>fg", builtin.grep_string, {desc = "Grep string",})
-		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {desc = "Old files",})
+		vim.keymap.set("n", "<leader>fo", function() builtin.oldfiles({
+            cwd_only = true
+        }) end, {desc = "Old files in the current directory",})
 		vim.keymap.set("n", "<leader>fp", builtin.registers, {desc = "Registers",})
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {desc = "Diagnostics",})
 		vim.keymap.set("n", "<leader>fm", builtin.marks, {desc = "Marks",})
