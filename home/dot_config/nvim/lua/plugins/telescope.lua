@@ -3,7 +3,12 @@ return {
 	tag = "0.1.4",
 	dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope-frecency.nvim",
+        {
+			"isak102/telescope-git-file-history.nvim",
+			dependencies = {
+				"tpope/vim-fugitive",
+			},
+        }
     },
 	event = { "VimEnter" },
 	config = function()
@@ -80,12 +85,10 @@ return {
 			end
 		end
 
-        require("telescope").load_extension("frecency")
-		require("telescope").load_extension("git_file_history")
-
+        local telescope = require("telescope")
 		local gfh_actions = require("telescope").extensions.git_file_history.actions
 
-		require("telescope").setup({
+		telescope.setup({
 			pickers = {
 				colorscheme = {
 					enable_preview = true,
@@ -124,6 +127,7 @@ return {
 			extensions = {
                 frecency = {
                     db_safe_mode = false,
+                    matcher = "fuzzy",
                     path_display = { "shorten" }
                 },
 				git_file_history = {
@@ -145,13 +149,15 @@ return {
 			},
 		})
 
+		telescope.load_extension("git_file_history")
+
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>fb", function() builtin.buffers({
             sort_mru = true,
             ignore_current_buffer = true
         }) end, {desc = "Switch among buffers",})
 		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, {desc = "Change colorscheme",})
-		vim.keymap.set("n", "<leader>ff", "<CMD>Telescope frecency workspace=CWD<CR>", {desc = "Find files ordered by frecency",})
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, {desc = "Find files",})
 		vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, {desc = "Find in current buffer",})
 		vim.keymap.set("n", "<leader>fr", builtin.live_grep, {desc = "Live grep",})
 		vim.keymap.set("n", "<leader>fg", builtin.grep_string, {desc = "Grep string",})
@@ -161,8 +167,8 @@ return {
 		vim.keymap.set("n", "<leader>fp", builtin.registers, {desc = "Registers",})
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {desc = "Diagnostics",})
 		vim.keymap.set("n", "<leader>fm", builtin.lsp_document_symbols, {desc = "Symbols in the file such as functions and structs",})
-		vim.keymap.set("n", "<leader>fn", require("telescope").extensions.notify.notify, {desc = "Notify",})
-		vim.keymap.set("n", "<leader>fh", require("telescope").extensions.git_file_history.git_file_history, {desc = "Git file history",})
+		vim.keymap.set("n", "<leader>fn", telescope.extensions.notify.notify, {desc = "Notify",})
+		vim.keymap.set("n", "<leader>fh", telescope.extensions.git_file_history.git_file_history, {desc = "Git file history",})
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, {desc = "LSP definitions",})
 		vim.keymap.set("n", "gD", builtin.lsp_type_definitions, {desc = "LSP type definitions",})
 		vim.keymap.set("n", "gr", builtin.lsp_references, {desc = "LSP references",})
