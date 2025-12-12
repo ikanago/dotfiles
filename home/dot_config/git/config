@@ -16,7 +16,7 @@
 [gpg]
     program = gpg
 [commit]
-    gpgsign = true
+    gpgsign = false
 [merge]
     conflictStyle = diff3
 

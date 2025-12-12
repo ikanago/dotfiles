@@ -1,61 +1,54 @@
+-- based `:h lsp-attach`
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("my.lsp", {}),
+    callback = function(args)
+        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+        -- completion
+        if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, args.buf, {
+                autotrigger = true,
+            })
+        end
+        -- auto formatting
+        if not client:supports_method('textDocument/willSaveWaitUntil')
+            and client:supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+                buffer = args.buf,
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 3000 })
+                end,
+            })
+        end
+    end,
+})
+
 return {
-  {
-    'williamboman/mason.nvim',
-    config = true,
-    build = ':MasonUpdate',
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    lazy = false,
-    opts = {
-      automatic_installation = true,
-      ensure_installed = {
-        'jsonls',
-        'lua_ls',
-        'rust_analyzer',
-      },
+    {
+        "mason-org/mason.nvim",
+        build = ":MasonUpdate",
+        cmd = { "Mason", "MasonUpdate", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
+        config = true,
     },
-    dependencies = {
-      'williamboman/mason.nvim',
-      'neovim/nvim-lspconfig',
-    }
-  },
-  {
-    'neovim/nvim-lspconfig',
-    lazy = false,
-    config = function()
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(event)
-          vim.cmd[[set completeopt+=menuone,noselect,popup]]
-          local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client:supports_method('textDocument/completion') then
-            vim.lsp.completion.enable(true, client.id, event.buf, {autotrigger = true})
-            vim.keymap.set('i', '<c-space>', function()
-              vim.lsp.completion.get()
-            end)
-          end
-
-          vim.diagnostic.config({
-            signs = false,
-            virtual_text = {
-              format = function(diagnostic)
-                return string.format("%s (%s: %s)", diagnostic.message, diagnostic.source, diagnostic.code)
-              end,
-            },
-          })
-
-          function map(key, action, desc)
-            local opts = { noremap = true, silent = true, buffer = event.buf, desc = "LSP: " .. desc }
-            vim.keymap.set('n', key, action, opts)
-          end
-
-          map('ga', vim.lsp.buf.code_action, 'Code Action')
-          map('gd', vim.lsp.buf.definition, 'Go to Definition')
-          map('<leader>D', vim.lsp.buf.type_definition, 'Go to Type Definition')
-          map('<leader>rn', vim.lsp.buf.rename, 'Rename Symbol')
-        end,
-      })
-    end
-  }
+    {
+        "mason-org/mason-lspconfig.nvim",
+        dependencies = {
+            { "mason-org/mason.nvim" },
+            { "neovim/nvim-lspconfig" },
+        },
+        event = { "BufReadPre", "BufNewFile" },
+        config = true,
+        opts = {
+            ensure_installed = {
+                "lua_ls",
+                "solargraph",
+            }
+        },
+        keys = {
+            { "<C-space>", "<cmd>lua vim.lsp.completion.get()  <CR>", mode = "i" },
+            { "gh",        "<cmd>lua vim.lsp.buf.hover()       <CR>" },
+            { "gd",        "<cmd>lua vim.lsp.buf.definition()  <CR>" },
+            { "gD",        "<cmd>lua vim.lsp.buf.declaration() <CR>" },
+        },
+    },
 }
