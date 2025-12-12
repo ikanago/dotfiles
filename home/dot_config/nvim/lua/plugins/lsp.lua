@@ -40,7 +40,9 @@ return {
         config = true,
         opts = {
             ensure_installed = {
+                "clangd",
                 "lua_ls",
+                "rust_analyzer",
                 "solargraph",
             }
         },
