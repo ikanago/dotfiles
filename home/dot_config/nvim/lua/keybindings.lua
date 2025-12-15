@@ -1,5 +1,4 @@
 vim.api.nvim_set_keymap("i", "jj", "<ESC><CMD>w<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>n", "<CMD>bnext<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>p", "<CMD>bprev<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>v", "<CMD>vert sball<CR>", { noremap = true, silent = true }) -- splits all buffers
