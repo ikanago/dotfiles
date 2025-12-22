@@ -1,7 +1,7 @@
 return {
     "shortcuts/no-neck-pain.nvim",
     version = "*",
-	event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         require("no-neck-pain").setup({
             autocmds = {

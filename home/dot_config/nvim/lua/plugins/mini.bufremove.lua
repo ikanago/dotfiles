@@ -7,6 +7,6 @@ return {
         vim.api.nvim_create_user_command("Bufdelete", function()
             MiniBufremove.delete()
         end, { desc = "Remove buffer" })
-        vim.keymap.set("n", "<leader>w", ":Bufdelete<CR>", { noremap = true, silent = true })
+        vim.keymap.set({ "n", "v" }, "<leader>w", ":Bufdelete<CR>", { noremap = true, silent = true })
     end,
 }
