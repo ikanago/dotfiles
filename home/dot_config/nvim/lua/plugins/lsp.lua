@@ -14,6 +14,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 end,
             })
         end
+
+        if client:supports_method('textDocument/completion') then
+            local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+            client.server_capabilities.completionProvider.triggerCharacters = chars
+
+            vim.cmd [[set completeopt+=menuone,noselect,popup]]
+            vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+        end
     end,
 })
 
