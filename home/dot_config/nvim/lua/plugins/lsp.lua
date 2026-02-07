@@ -25,6 +25,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = vim.api.nvim_create_augroup("my.lsp", {}),
+    callback = function()
+        vim.diagnostic.open_float(nil, {
+            focus = false,
+            scope = "cursor",
+            border = "rounded",
+        })
+    end,
+})
+
 return {
     {
         "mason-org/mason.nvim",
@@ -49,10 +60,11 @@ return {
             }
         },
         keys = {
-            { "<C-space>", "<cmd>lua vim.lsp.completion.get()  <CR>", mode = "i" },
-            { "gh",        "<cmd>lua vim.lsp.buf.hover()       <CR>" },
-            { "gd",        "<cmd>lua vim.lsp.buf.definition()  <CR>" },
-            { "gD",        "<cmd>lua vim.lsp.buf.declaration() <CR>" },
+            { "<C-space>", "<cmd>lua vim.lsp.completion.get()<CR>", mode = "i" },
+            { "ga",        "<cmd>lua vim.lsp.buf.code_action()<CR>" },
+            { "gd",        "<cmd>lua vim.lsp.buf.definition()<CR>" },
+            { "gD",        "<cmd>lua vim.lsp.buf.declaration()<CR>" },
+            { "gh",        "<cmd>lua vim.lsp.buf.hover()<CR>" },
         },
     },
 }

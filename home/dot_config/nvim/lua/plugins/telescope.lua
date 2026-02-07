@@ -6,6 +6,7 @@ return {
         {
             "isak102/telescope-git-file-history.nvim",
             "nvim-telescope/telescope-live-grep-args.nvim",
+            'nvim-telescope/telescope-ui-select.nvim',
             dependencies = {
                 "tpope/vim-fugitive",
             },
@@ -146,12 +147,22 @@ return {
                     -- If nil, it will check if xdg-open, open, start, wslview are available, in that order.
                     browser_command = nil,
                 },
+                ['ui-select'] = {
+                    require('telescope.themes').get_dropdown({
+                        -- 設定オプション
+                        layout_config = {
+                            height = 15,
+                            width = 90,
+                        },
+                    })
+                },
                 windows = {},
             },
         })
 
         telescope.load_extension("live_grep_args")
         telescope.load_extension("git_file_history")
+        telescope.load_extension('ui-select')
 
         local builtin = require("telescope.builtin")
         vim.keymap.set("n", "<leader>fb", function()
@@ -163,9 +174,11 @@ return {
         vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { desc = "Change colorscheme", })
         vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files", })
         vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer", })
-        vim.keymap.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { desc = "Live grep", })
+        vim.keymap.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+            { desc = "Live grep", })
         vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Grep string", })
-        vim.keymap.set("n", "<leader>fo", function() builtin.oldfiles({ cwd_only = true }) end, { desc = "Old files in the current directory", })
+        vim.keymap.set("n", "<leader>fo", function() builtin.oldfiles({ cwd_only = true }) end,
+            { desc = "Old files in the current directory", })
         vim.keymap.set("n", "<leader>fp", builtin.registers, { desc = "Registers", })
         vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics", })
         vim.keymap.set("n", "<leader>fm", builtin.lsp_document_symbols,
