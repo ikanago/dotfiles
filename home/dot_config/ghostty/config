@@ -3,3 +3,5 @@ command = ~/.config/ghostty/start.sh
 font-family = "Monaspace Argon NF"
 maximize = true
 shell-integration-features = no-title
+theme = "Catppuccin Macchiato"
+window-padding-x = 5
