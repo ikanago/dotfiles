@@ -24,6 +24,7 @@ alias gswc="git switch -c"
 [ $(command -v procs) ] && alias ps="procs"
 [ $(command -v terraform) ] && alias tf="terraform"
 [ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
+[ $(command -v rg) ] && alias rg="rg --hidden -g '!.git'"
 
 if [ $(command -v cargo) ]; then
     alias c="cargo"
@@ -53,7 +54,3 @@ alias kmm="sed -n '85,100p' /home/ikanago/ghq/github.com/ikanago/qmk_firmware/ke
 
 # Show paths splitted with newline.
 alias path="printf '%b\n' '${PATH//:/\\n}'"
-
-# others
-alias mdtopdf='docker run -it --rm -v "`pwd`":/workdir plass/mdtopdf mdtopdf'
-
