@@ -25,6 +25,7 @@ alias gswc="git switch -c"
 [ $(command -v terraform) ] && alias tf="terraform"
 [ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
 [ $(command -v rg) ] && alias rg="rg --hidden -g '!.git'"
+[ $(command -v gdate) ] && alias date="gdate"
 
 if [ $(command -v cargo) ]; then
     alias c="cargo"
