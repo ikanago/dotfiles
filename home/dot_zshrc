@@ -24,15 +24,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 # Use modern completion system
 # ref: https://gist.github.com/ctechols/ca1035271ad134841284
 autoload -Uz compinit
-local now=$(date +"%s")
-local updated=$(date -r ~/.zcompdump +"%s")
-local threshold=$((60 * 60 * 24))
-if [ $((${now} - ${updated})) -gt ${threshold} ]; then
-  compinit
-else
-  # if there are new functions can be omitted by giving the option -C.
-  compinit -C
-fi
+compinit
 
 [ $(command -v dircolors) ] && eval "$(dircolors -b)"
 
@@ -104,7 +96,7 @@ source <(fzf --zsh)
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
+    eval "$(pyenv init - --no-rehash)"
 fi
 
 # cargo
