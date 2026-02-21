@@ -10,6 +10,9 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 
 vim.o.visualbell = true
 vim.o.number = true
@@ -29,8 +32,8 @@ vim.api.nvim_exec(
 	false
 )
 vim.o.sidescrolloff = 5
-vim.o.wrap = false
 vim.o.signcolumn = "yes:1"
+vim.o.updatetime = 300
 
 -- dotenv filetype
 vim.filetype.add({
@@ -55,15 +58,6 @@ vim.o.undodir = vim.fn.stdpath("cache") .. "/undo"
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
--- disable in copilot-chat
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	callback = function()
-		if vim.bo.filetype == "copilot-chat" then
-			vim.opt_local.spell = false
-		end
-	end,
-})
 -- disable in txt
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	pattern = { "*.txt", "*.md" },
@@ -93,3 +87,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
+    pattern = "*",
+    command = "checktime",
+})

@@ -1,6 +1,6 @@
 vim.api.nvim_set_keymap("i", "jj", "<ESC><CMD>w<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>n", "<CMD>bnext<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>p", "<CMD>bprev<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", "<CMD>bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>h", "<CMD>bprev<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>v", "<CMD>vert sball<CR>", { noremap = true, silent = true }) -- splits all buffers
 
 vim.api.nvim_set_keymap("n", "<A-j>", "<CMD>m .+1<CR>==", { noremap = true, silent = true })        -- move line down in normal mode
