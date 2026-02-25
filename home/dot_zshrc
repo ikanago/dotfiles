@@ -21,11 +21,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Use modern completion system
-# ref: https://gist.github.com/ctechols/ca1035271ad134841284
-autoload -Uz compinit
-compinit
-
 [ $(command -v dircolors) ] && eval "$(dircolors -b)"
 
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -47,20 +42,6 @@ zstyle :prompt:pure:path color 033
 zstyle :prompt:pure:prompt:success color 034
 zstyle :prompt:pure:git:branch color 058
 
-# cdr
-ZSH_CDR_DIR="${XDG_CACHE_HOME}/zsh-cdr"
-mkdir -p $ZSH_CDR_DIR
-autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file $ZSH_CDR_DIR/chpwd-recent-dirs
-zstyle ':chpwd:*' recent-dirs-max 100
-zstyle ':chpwd:*' recent-dirs-pushd true
-
-# cd
-zinit ice wait lucid
-zinit light changyuheng/zsh-interactive-cd
-
 # autosuggestions, trigger precmd hook upon load
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
@@ -73,9 +54,6 @@ zinit light zsh-users/zsh-completions
 # Syntax highlighting
 zinit ice wait lucid atinit'zpcompinit; zpcdreplay'
 zinit light zdharma-continuum/fast-syntax-highlighting
-
-# Jump directories quickly
-zinit load agkozak/zsh-z
 
 # Load aliases and useful functions
 for file in $HOME/.{aliases,functions}; do
@@ -91,8 +69,14 @@ bindkey -e
 zle -N search_ghq
 bindkey "^g" search_ghq
 
-# fzf
-source <(fzf --zsh)
+# fzf (cached to avoid subprocess on every startup)
+_fzf_cache="${XDG_CACHE_HOME:-$HOME/.cache}/fzf-zsh.zsh"
+if [[ ! -f "$_fzf_cache" ]]; then
+    mkdir -p "${_fzf_cache:h}"
+    fzf --zsh > "$_fzf_cache"
+fi
+source "$_fzf_cache"
+unset _fzf_cache
 
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then

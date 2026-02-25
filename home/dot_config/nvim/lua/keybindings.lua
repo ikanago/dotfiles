@@ -13,4 +13,4 @@ vim.api.nvim_set_keymap("n", "sj", "<C-w>j", { noremap = true, silent = true }) 
 vim.api.nvim_set_keymap("n", "sk", "<C-w>k", { noremap = true, silent = true })                     -- move to the window above
 vim.api.nvim_set_keymap("n", "sl", "<C-w>l", { noremap = true, silent = true })                     -- move to the window right
 
-vim.api.nvim_set_keymap("n", "<leader>c", "<CMD>nohlsearch<CR>", { noremap = true, silent = true }) -- clear search highlights
+vim.api.nvim_set_keymap("n", "<ESC><ESC>", "<CMD>nohlsearch<CR>", { noremap = true, silent = true }) -- clear search highlights
