@@ -6,13 +6,19 @@
     ff = only
 
 [user]
+{{- if eq .chezmoi.username "nagaoka.yuta" }}
+    email = nagaoka.yuta@moneyforward.co.jp
+{{- else }}
     email = me@ikanago.dev
+{{- end }}
     name = ikanago
     signingkey = A799D787873283A6
 [init]
     defaultBranch = main
 [credential "https://github.com"]
+{{ if eq .chezmoi.os "darwin" }}
     helper = !/opt/homebrew/bin/gh auth git-credential
+{{ end }}
 [gpg]
     program = gpg
 [commit]

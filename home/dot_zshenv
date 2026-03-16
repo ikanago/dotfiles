@@ -33,6 +33,7 @@ path+=(
     "${HOME}/.local/bin"(N-/)
     "${HOME}/google-cloud-sdk/bin"(N-/)
     "${HOME}/.ghcup/bin"(N-/)
+    "${HOME}/.devcontainers/bin"(N-/)
     "${PYENV_ROOT}/bin"(N-/)
     "${GOPATH}/bin"(N-/)
     "/opt/homebrew/opt/llvm/bin"(N-/)
