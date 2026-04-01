@@ -91,3 +91,10 @@ vim.api.nvim_create_autocmd({ "WinEnter", "FocusGained", "BufEnter" }, {
     pattern = "*",
     command = "checktime",
 })
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.jsonl",
+  callback = function()
+    vim.bo.filetype = "json"
+  end,
+})

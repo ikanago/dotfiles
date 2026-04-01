@@ -95,6 +95,10 @@ return {
                 colorscheme = {
                     enable_preview = true,
                 },
+                find_files = {
+                    find_command = { "rg", "--files", "--color", "never", "-g", "!.git" },
+                    hidden = true
+                }
             },
             defaults = {
                 sorting_strategy = "ascending",
@@ -172,7 +176,7 @@ return {
             })
         end, { desc = "Switch among buffers", })
         vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { desc = "Change colorscheme", })
-        vim.keymap.set("n", "<leader>ff", "<CMD>lua require('telescope.builtin').find_files({ hidden = true })<CR>", { desc = "Find files", })
+        vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files", })
         vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer", })
         vim.keymap.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
             { desc = "Live grep", })
