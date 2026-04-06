@@ -1,5 +1,4 @@
 background-opacity = 0.9
-command = ~/.config/ghostty/start.sh
 font-family = "Monaspace Argon NF"
 maximize = true
 macos-option-as-alt = true
