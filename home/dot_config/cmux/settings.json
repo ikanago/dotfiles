@@ -1,6 +1,9 @@
 {
     "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux-settings.schema.json",
     "schemaVersion": 1,
+    "browser": {
+        "openTerminalLinksInCmuxBrowser": false
+    },
     "shortcuts": {
         "bindings": {
             "focusLeft": "opt+h",
@@ -9,8 +12,8 @@
             "focusRight": "opt+l",
             "prevSurface": "ctrl+opt+,",
             "nextSurface": "ctrl+opt+.",
-            "prevSidebarTab": "opt+,",
-            "nextSidebarTab": "opt+.",
+            "nextSidebarTab": "opt+,",
+            "prevSidebarTab": "opt+.",
             "splitRight": ["ctrl+q", "|"],
             "splitDown": ["ctrl+q", "-"],
             "reloadConfiguration": ["ctrl+q", "r"]

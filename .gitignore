@@ -1,3 +1,4 @@
 /vimfiles/bundle/*
 /vimfiles/molokai/*
 .todos
+node_modules

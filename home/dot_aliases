@@ -39,19 +39,15 @@ fi
 
 if [ $(command -v eza) ]; then
     alias l="eza"
-    alias ls="eza --git"
-    alias la="eza -a --git"
-    alias ll="eza -lab --time-style=long-iso --git"
-    alias tree='eza -al --tree --git-ignore --git -I ".git"'
+    alias ls="eza"
+    alias la="eza -a"
+    alias ll="eza -lab --time-style=long-iso"
+    alias tree='eza -al --tree --git-ignore -I ".git"'
 else
     alias l="ls"
     alias la="ls -a"
     alias ll="ls -al"
 fi
-
-# Show keymap
-alias km="head -n 80 $HOME/ghq/github.com/ikanago/qmk_firmware/keyboards/ergodash/rev1/keymaps/ikanago/keymap.c | grep \* | cut -c 6-"
-alias kmm="sed -n '85,100p' /home/ikanago/ghq/github.com/ikanago/qmk_firmware/keyboards/ergodash/rev1/keymaps/ikanago/keymap.c | grep \* | cut -c 6-"
 
 # Show paths splitted with newline.
 alias path="printf '%b\n' '${PATH//:/\\n}'"
