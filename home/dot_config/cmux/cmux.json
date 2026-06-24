@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux-settings.schema.json",
+    "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
     "schemaVersion": 1,
     "browser": {
         "openTerminalLinksInCmuxBrowser": false
@@ -14,8 +14,8 @@
             "nextSurface": "ctrl+opt+.",
             "nextSidebarTab": "opt+,",
             "prevSidebarTab": "opt+.",
-            "splitRight": ["ctrl+q", "|"],
-            "splitDown": ["ctrl+q", "-"],
+            "splitRight": "cmd+d",
+            "splitDown": "cmd+shift+d",
             "reloadConfiguration": ["ctrl+q", "r"]
         }
     }

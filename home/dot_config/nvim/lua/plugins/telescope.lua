@@ -1,6 +1,5 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
     dependencies = {
         "nvim-lua/plenary.nvim",
         {
@@ -169,30 +168,30 @@ return {
         telescope.load_extension('ui-select')
 
         local builtin = require("telescope.builtin")
-        vim.keymap.set("n", "<leader>fb", function()
-            builtin.buffers({
-                sort_mru = true,
-                ignore_current_buffer = true
-            })
-        end, { desc = "Switch among buffers", })
-        vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { desc = "Change colorscheme", })
-        vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files", })
-        vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer", })
-        vim.keymap.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
-            { desc = "Live grep", })
-        vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Grep string", })
-        vim.keymap.set("n", "<leader>fo", function() builtin.oldfiles({ cwd_only = true }) end,
-            { desc = "Old files in the current directory", })
-        vim.keymap.set("n", "<leader>fp", builtin.registers, { desc = "Registers", })
-        vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics", })
-        vim.keymap.set("n", "<leader>fm", builtin.lsp_document_symbols,
-            { desc = "Symbols in the file such as functions and structs", })
-        vim.keymap.set("n", "<leader>fn", telescope.extensions.notify.notify, { desc = "Notify", })
-        vim.keymap.set("n", "<leader>fh", telescope.extensions.git_file_history.git_file_history,
-            { desc = "Git file history", })
-        vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP definitions", })
-        vim.keymap.set("n", "gD", builtin.lsp_type_definitions, { desc = "LSP type definitions", })
-        vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP references", })
-        vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP implementations", })
+        -- vim.keymap.set("n", "<leader>fb", function()
+        --     builtin.buffers({
+        --         sort_mru = true,
+        --         ignore_current_buffer = true
+        --     })
+        -- end, { desc = "Switch among buffers", })
+        -- vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { desc = "Change colorscheme", })
+        -- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files", })
+        -- vim.keymap.set("n", "<leader>fF", builtin.current_buffer_fuzzy_find, { desc = "Find in current buffer", })
+        -- vim.keymap.set("n", "<leader>fr", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+        --     { desc = "Live grep", })
+        -- vim.keymap.set("n", "<leader>fg", builtin.grep_string, { desc = "Grep string", })
+        -- vim.keymap.set("n", "<leader>fo", function() builtin.oldfiles({ cwd_only = true }) end,
+        --     { desc = "Old files in the current directory", })
+        -- vim.keymap.set("n", "<leader>fp", builtin.registers, { desc = "Registers", })
+        -- vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "Diagnostics", })
+        -- vim.keymap.set("n", "<leader>fm", builtin.lsp_document_symbols,
+        --     { desc = "Symbols in the file such as functions and structs", })
+        -- vim.keymap.set("n", "<leader>fn", telescope.extensions.notify.notify, { desc = "Notify", })
+        -- vim.keymap.set("n", "<leader>fh", telescope.extensions.git_file_history.git_file_history,
+        --     { desc = "Git file history", })
+        -- vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "LSP definitions", })
+        -- vim.keymap.set("n", "gD", builtin.lsp_type_definitions, { desc = "LSP type definitions", })
+        -- vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "LSP references", })
+        -- vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP implementations", })
     end,
 }
