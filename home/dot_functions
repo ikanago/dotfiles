@@ -14,8 +14,17 @@ function cl() {
 }
 
 # Fuzzy search in repositories
+# ghq list does not follow symlinks, so list directory symlinks under
+# the ghq root ourselves. repo layout is host/owner/repo => maxdepth 3.
 function search_ghq() {
-    local target_dir=$(ghq list -p | fzf --query="$LBUFFER")
+    local target_dir=$(
+        {
+            ghq list -p
+            find "$(ghq root)" -maxdepth 3 -type l 2>/dev/null | while read -r link; do
+                [ -d "$link" ] && echo "$link"
+            done
+        } | sort -u | fzf --query="$LBUFFER"
+    )
     if [ -n "$target_dir" ]; then
         BUFFER="cd ${target_dir}"
         zle accept-line
@@ -51,5 +60,18 @@ funtion fzf-switch-branch() {
             # In sed regex, ^/ matches characters other than '/'.
             git switch $(echo "${branch}" | sed 's#remotes/[^/]*/##')
         fi
+    fi
+}
+
+function fzf-switch-worktree() {
+    local selected_path
+    # Preview shows the diff between the worktree's branch and its default branch
+    # (origin/HEAD, falling back to origin/main), computed inside each worktree ({1} = path).
+    selected_path=$(git worktree list | fzf --height 40% --reverse --header "Select a Worktree" \
+        --preview 'default=$(git -C {1} rev-parse --abbrev-ref origin/HEAD 2>/dev/null || echo origin/main); git -C {1} diff --color=always "${default}...HEAD"' \
+        --preview-window 'right,60%' | awk '{print $1}')
+
+    if [ -n "$selected_path" ]; then
+        cd "$selected_path" || return
     fi
 }

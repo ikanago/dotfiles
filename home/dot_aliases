@@ -16,6 +16,9 @@ alias gd="git diff"
 alias gb="git branch"
 alias gsw="fzf-switch-branch"
 alias gswc="git switch -c"
+alias gswt="fzf-switch-worktree"
+alias cs="agent"
+alias cl="claude"
 
 # Aliases for commands which may not be installed.
 [ $(command -v docker-compose) ] && alias dc="docker-compose"

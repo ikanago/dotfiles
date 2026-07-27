@@ -15,6 +15,12 @@ vim.api.nvim_set_keymap("n", "sl", "<C-w>l", { noremap = true, silent = true }) 
 
 vim.api.nvim_set_keymap("n", "<leader>c", "<CMD>nohlsearch<CR>", { noremap = true, silent = true }) -- clear search highlights
 
+vim.keymap.set("n", "yp", function()
+	local path = vim.fn.expand("%:.")
+	vim.fn.setreg('"', path)
+	vim.fn.setreg("+", path)
+end, { noremap = true, silent = true, desc = "yank relative path of current buffer" })
+
 -- treesitter textobjects
 local ts_select = function(query)
 	return function() require("nvim-treesitter-textobjects.select").select_textobject(query, "textobjects") end

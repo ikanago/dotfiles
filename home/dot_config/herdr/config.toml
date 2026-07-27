@@ -1,0 +1,19 @@
+[keys]
+prefix = "ctrl+q"
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+previous_workspace = "alt+."
+next_workspace = "alt+,"
+split_vertical = "prefix+|"
+split_horizontal = "prefix+-"
+
+[ui.toast]
+delivery = "system"
+
+[[keys.command]]
+key = "prefix+="
+type = "plugin_action"
+command = "ikanago.pane-layout.equalize-vertical"
+description = "Equal-width vertical columns"

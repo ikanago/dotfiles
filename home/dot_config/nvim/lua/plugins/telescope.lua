@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -195,3 +197,4 @@ return {
         -- vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "LSP implementations", })
     end,
 }
+]]
