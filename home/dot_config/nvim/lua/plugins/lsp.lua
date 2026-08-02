@@ -36,32 +36,59 @@ vim.api.nvim_create_autocmd("CursorHold", {
     end,
 })
 
+local servers = {
+    "clangd",
+    "gopls",
+    "lua_ls",
+    "rust_analyzer",
+    "solargraph",
+    "terraformls",
+}
+
+-- Equivalent of mason-lspconfig's `ensure_installed`.
+-- Mason package names (lua-language-server) differ from lspconfig server names
+-- (lua_ls), so build a lookup table from `spec.neovim.lspconfig` in mason-registry.
+local function ensure_installed(names)
+    local registry = require("mason-registry")
+    registry.refresh(function()
+        local package_names = {}
+        for _, spec in ipairs(registry.get_all_package_specs()) do
+            local lspconfig_name = vim.tbl_get(spec, "neovim", "lspconfig")
+            if lspconfig_name then
+                package_names[lspconfig_name] = spec.name
+            end
+        end
+
+        for _, name in ipairs(names) do
+            local package_name = package_names[name]
+            if package_name then
+                local pkg = registry.get_package(package_name)
+                if not pkg:is_installed() then
+                    pkg:install()
+                end
+            end
+        end
+    end)
+end
+
 return {
     {
         "mason-org/mason.nvim",
         build = ":MasonUpdate",
-        cmd = { "Mason", "MasonUpdate", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
         config = true,
     },
     {
-        "mason-org/mason-lspconfig.nvim",
+        -- Never required directly; it is here only to put its lsp/*.lua server
+        -- definitions on the runtimepath for `vim.lsp.enable` to pick up.
+        "neovim/nvim-lspconfig",
         dependencies = {
             { "mason-org/mason.nvim" },
-            { "neovim/nvim-lspconfig" },
         },
         event = { "BufReadPre", "BufNewFile" },
-        config = true,
-        opts = {
-            ensure_installed = {
-                "clangd",
-                "circleci-yaml-language-server",
-                "gopls",
-                "lua_ls",
-                "rust_analyzer",
-                "solargraph",
-                "terraform-ls",
-            }
-        },
+        config = function()
+            ensure_installed(servers)
+            vim.lsp.enable(servers)
+        end,
         keys = {
             { "<C-space>", "<cmd>lua vim.lsp.completion.get()<CR>", mode = "i" },
             { "ga",        "<cmd>lua vim.lsp.buf.code_action()<CR>" },
