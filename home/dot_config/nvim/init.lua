@@ -6,5 +6,4 @@ require("keybindings")
 require("text_objects").setup()
 require("lazy_nvim")
 
-vim.cmd("colorscheme tokyonight-night")
-
+vim.cmd.colorscheme("tokyonight-night")
