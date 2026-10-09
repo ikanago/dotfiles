@@ -14,7 +14,6 @@ alias gl="git log --graph --color=always --date=iso --pretty=format:'%C(yellow)%
 alias gs="git status"
 alias gd="git diff"
 alias gb="git branch"
-alias gsw="fzf-switch-branch"
 alias gswc="git switch -c"
 alias gswt="fzf-switch-worktree"
 alias cs="agent"
@@ -27,8 +26,8 @@ alias cl="claude"
 [ $(command -v procs) ] && alias ps="procs"
 [ $(command -v terraform) ] && alias tf="terraform"
 [ $(command -v powershell.exe) ] && alias open="powershell.exe /c start"
-[ $(command -v rg) ] && alias rg="rg --hidden -g '!.git'"
-[ $(command -v gdate) ] && alias date="gdate"
+whence -p rg >/dev/null && alias rg="rg --hidden -g '!.git'"
+whence -p gdate >/dev/null && alias date="gdate"
 
 if [ $(command -v cargo) ]; then
     alias c="cargo"

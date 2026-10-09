@@ -45,6 +45,17 @@ function ff() {
     fzf -m --ansi --phony --bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" --preview "rg -i --context 2 --pretty {q} {}"
 }
 
+# git switch with worktree awareness (cd to existing worktree when branch is checked out elsewhere)
+unalias gsw 2>/dev/null
+gsw() {
+    [[ $# -eq 0 ]] && { fzf-switch-branch; return; }
+    [[ "$1" == -* ]] && { git switch "$@"; return; }
+    local b="$1" t p
+    t=$(git rev-parse --show-toplevel)
+    p=$(git worktree list --porcelain | awk -v b="$b" '/^worktree /{w=$2} /^branch /{br=$2; sub(/^refs\/heads\//,"",br); if(br==b)p=w} END{print p}')
+    [[ -n $p && $p != $t ]] && cd "$p" || git switch "$@"
+}
+
 funtion fzf-switch-branch() {
     if [ $@ ]; then
         git switch $@

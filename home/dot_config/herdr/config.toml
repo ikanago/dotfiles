@@ -13,7 +13,13 @@ split_horizontal = "prefix+-"
 delivery = "system"
 
 [[keys.command]]
-key = "prefix+="
+key = "prefix+f"
 type = "plugin_action"
-command = "ikanago.pane-layout.equalize-vertical"
-description = "Equal-width vertical columns"
+command = "sessionizer.pick"
+description = "fuzzy-switch workspace"
+
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "sessionizer.agents"
+description = "jump to an agent"
