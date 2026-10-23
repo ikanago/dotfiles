@@ -2,3 +2,10 @@
 /vimfiles/molokai/*
 .todos
 node_modules
+
+# Runtime state written by herdr through the symlink
+/config/herdr/session.json
+/config/herdr/session-snapshots/
+
+# nix build output
+/result

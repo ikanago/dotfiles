@@ -1,23 +1,22 @@
-name: Test Installation
+name: CI
 
 on:
   push:
   pull_request:
 
 jobs:
-  test:
+  build:
     strategy:
       matrix:
-        os: [ubuntu-24.04, macos-15]
-    runs-on: ${{ matrix.os }}
+        host: [personal, work]
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run Install Script
-        run: |
-          ./install.sh
+      - uses: DeterminateSystems/determinate-nix-action@v3
 
-      - name: Check dotfiles Installation
-        run: |
-          ls -la "$HOME/.local/share/chezmoi"
-          [ -f "$HOME/.zshrc" ]
+      - name: Check flake
+        run: nix flake check
+
+      - name: Build
+        run: nix build .#darwinConfigurations.${{ matrix.host }}.system
