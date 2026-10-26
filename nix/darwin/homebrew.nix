@@ -18,11 +18,8 @@
       "alt-tab"
       "bitwarden"
       "clipy"
-      "discord"
       "ghostty"
       "obsidian"
-      "qmk-toolbox"
-      "spotify"
       "yubico-authenticator"
     ];
   };

@@ -11,6 +11,10 @@ in
   imports = [ ./homebrew.nix ];
 
   options.my.host = {
+    profile = lib.mkOption {
+      type = lib.types.enum [ "personal" "work" ];
+      description = "Host profile for host-specific home-manager configuration.";
+    };
     user = lib.mkOption { type = lib.types.str; };
     email = lib.mkOption { type = lib.types.str; };
     dotfilesDir = lib.mkOption {
