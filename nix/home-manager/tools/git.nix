@@ -1,4 +1,9 @@
-{ pkgs, host, ... }:
+{
+  pkgs,
+  host,
+  lib,
+  ...
+}:
 {
   home.packages = [ pkgs.gh ];
 
@@ -11,22 +16,27 @@
       ".DS_Store"
       "**/.claude/settings.local.json"
     ];
-    settings = {
-      user = {
-        name = "ikanago";
-        email = host.email;
-        signingkey = "A799D787873283A6";
-      };
-      # Overridden by GIT_EDITOR in AI shells.
-      core.editor = "vim";
-      pull.ff = "only";
-      init.defaultBranch = "main";
-      credential."https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
-      gpg.program = "gpg";
-      commit.gpgsign = false;
-      merge.conflictStyle = "diff3";
-      extensions.worktreeConfig = true;
-    };
+    settings = lib.mkMerge [
+      {
+        user = {
+          name = "ikanago";
+          email = host.email;
+          signingkey = "A799D787873283A6";
+        };
+        # Overridden by GIT_EDITOR in AI shells.
+        core.editor = "vim";
+        pull.ff = "only";
+        init.defaultBranch = "main";
+        credential."https://github.com".helper = "!${pkgs.gh}/bin/gh auth git-credential";
+        gpg.program = "gpg";
+        commit.gpgsign = false;
+        merge.conflictStyle = "diff3";
+        extensions.worktreeConfig = true;
+      }
+      (lib.mkIf (host.profile == "work") {
+        http.sslCAInfo = "/etc/nix/ca-bundle-with-cloudflare.crt";
+      })
+    ];
   };
 
   programs.delta = {

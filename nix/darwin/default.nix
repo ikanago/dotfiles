@@ -12,7 +12,10 @@ in
 
   options.my.host = {
     profile = lib.mkOption {
-      type = lib.types.enum [ "personal" "work" ];
+      type = lib.types.enum [
+        "personal"
+        "work"
+      ];
       description = "Host profile for host-specific home-manager configuration.";
     };
     user = lib.mkOption { type = lib.types.str; };

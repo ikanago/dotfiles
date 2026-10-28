@@ -1,4 +1,8 @@
 {
+  pkgs,
+  ...
+}:
+{
   my.host = {
     profile = "work";
     user = "nagaoka.yuta";
@@ -15,5 +19,12 @@
   ];
   homebrew.brews = [
     "atlassian/acli/acli"
+    "displayplacer"
+    "grep" # GNU grep as ggrep, egrep, fgrep
+  ];
+  # nix-darwin's services.karabiner-elements targets pre-15.x layout (missing LaunchAgents).
+  environment.systemPackages = [
+    pkgs.karabiner-elements
+    pkgs.meetingbar
   ];
 }

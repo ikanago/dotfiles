@@ -39,9 +39,11 @@ in
 
     # Infrastructure
     argocd
+    awscli2
     cloudflared
     kubectl
     kubernetes-helm
+    kustomize
     k9s
     postgresql
 
