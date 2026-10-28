@@ -20,6 +20,7 @@
       "clipy"
       "ghostty"
       "obsidian"
+      "raycast"
       "yubico-authenticator"
     ];
   };

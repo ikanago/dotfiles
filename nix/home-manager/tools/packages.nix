@@ -12,41 +12,41 @@ let
 in
 {
   home.packages = with pkgs; [
-    # Commands AI agents use often
+    argocd
     ast-grep
-    duckdb
-    fd
-    hyperfine
-    jq
-    scc
-    shellcheck
-    shfmt
-    yq-go
-    (only "timeout" coreutils "timeout")
-    (only "gsed" gnused "sed")
-
-    # General
+    awscli2
     bat
+    cloudflared
     cmake
+    deno
+    duckdb
     exiftool
+    fd
+    gnupg
     hexyl
     htop
+    hyperfine
     imagemagick
+    jq
     just
-    mosh
-    tokei
-    yubikey-manager
-
-    # Infrastructure
-    argocd
-    awscli2
-    cloudflared
+    k9s
     kubectl
     kubernetes-helm
     kustomize
-    k9s
-    postgresql
-
-    ollama
+    nodejs_26
+    pinentry_mac
+    pnpm
+    procs
+    scc
+    shellcheck
+    shfmt
+    tokei
+    # Python versions and packages are managed by uv.
+    # pip and poetry are denied for Claude Code (see claude.nix).
+    uv
+    yq-go
+    yubikey-manager
+    (only "gsed" gnused "sed")
+    (only "timeout" coreutils "timeout")
   ];
 }

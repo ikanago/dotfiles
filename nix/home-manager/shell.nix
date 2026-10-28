@@ -149,7 +149,8 @@ in
         colors
       ''
       (lib.mkOrder 10000 ''
-        [[ -n "''${ZSH_ZPROF:-}" ]] && zprof
+        # `if` keeps $? at 0; with `&&` pure shows the first prompt as failed.
+        if [[ -n "''${ZSH_ZPROF:-}" ]]; then zprof; fi
       '')
     ];
 

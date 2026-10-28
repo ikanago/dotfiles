@@ -7,6 +7,13 @@
 
   homebrew.casks = [
     "discord"
+    "docker-desktop"
+    "eqmac"
+    "fujifilm-x-raw-studio"
+    "google-drive"
     "spotify"
+    "steam"
+    "tailscale-app"
+    "zen"
   ];
 }
