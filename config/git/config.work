@@ -1,0 +1,14 @@
+[include]
+	path = config.common
+[user]
+	name = nagaoka.yuta
+	email = nagaoka.yuta@moneyforward.co.jp
+	signingkey = A799D787873283A6
+[http]
+	sslCAInfo = /etc/nix/ca-bundle-with-cloudflare.crt
+[credential "https://github.com"]
+	helper = 
+	helper = !/nix/store/8nvbn7pvjwfg6aqaz4sns4ga5s05yq00-gh-2.103.2/bin/.gh-wrapped auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/nix/store/8nvbn7pvjwfg6aqaz4sns4ga5s05yq00-gh-2.103.2/bin/.gh-wrapped auth git-credential

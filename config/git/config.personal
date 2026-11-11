@@ -1,0 +1,6 @@
+[include]
+	path = config.common
+[user]
+	name = ikanago
+	email = me@ikanago.dev
+	signingkey = A799D787873283A6

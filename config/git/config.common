@@ -1,0 +1,19 @@
+[core]
+	editor = vim
+	pager = delta
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = false
+[merge]
+	conflictStyle = diff3
+[extensions]
+	worktreeConfig = true
+[interactive]
+	diffFilter = delta --color-only

@@ -1,0 +1,8 @@
+2026-10-27T00:50:15.107985Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=4847
+2026-10-27T00:50:15.108057Z  INFO herdr::client: connecting to server path=/Users/nagaoka.yuta/.config/herdr/herdr-client.sock
+2026-10-27T00:50:15.110621Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
+2026-11-09T09:34:14.642756Z  WARN herdr::sound: sound playback failed sound=Request err=player exited with exit status: 1: Error: AudioQueueStart failed (-66681)
+2026-11-10T10:23:24.018698Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=4847
+2026-11-11T00:17:30.324466Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=7935
+2026-11-11T00:17:30.324531Z  INFO herdr::client: connecting to server path=/Users/nagaoka.yuta/.config/herdr/herdr-client.sock
+2026-11-11T00:17:30.428998Z  INFO herdr::client::handshake: endpoint handshake succeeded generation=1 server_version=0.9.5
