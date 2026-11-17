@@ -39,11 +39,10 @@ in
     procs
     scc
     shellcheck
+    tfenv
+    tflint
     shfmt
     tokei
-    # Python versions and packages are managed by uv.
-    # pip and poetry are denied for Claude Code (see claude.nix).
-    uv
     yq-go
     yubikey-manager
     (only "gsed" gnused "sed")

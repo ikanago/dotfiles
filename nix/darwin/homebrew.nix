@@ -11,6 +11,7 @@
       "laishulu/homebrew"
     ];
     brews = [
+      "git"
       # Input source switcher used by nvim (auto-input-switch.lua)
       "laishulu/homebrew/macism"
     ];
@@ -20,6 +21,7 @@
       "clipy"
       "ghostty"
       "obsidian"
+      "orbstack"
       "raycast"
       "yubico-authenticator"
     ];

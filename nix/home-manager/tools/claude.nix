@@ -17,6 +17,10 @@ let
     "Bash(pip3:*)"
     "Bash(poetry:*)"
   ];
+  # Paths the Bash sandbox may write, merged the same way.
+  allowWrite = [
+    "~/Library/Caches/uv"
+  ];
   skills = builtins.attrNames (
     lib.filterAttrs (_: type: type == "directory") (builtins.readDir ../../../config/claude/skills)
   );
@@ -33,11 +37,13 @@ in
       [ -f "$settings" ] || echo '{}' > "$settings"
       tmp=$(mktemp)
       ${pkgs.jq}/bin/jq --argjson d ${lib.escapeShellArg (builtins.toJSON deny)} \
-        '.permissions.deny = (((.permissions.deny // []) + $d) | unique)' \
+        --argjson w ${lib.escapeShellArg (builtins.toJSON allowWrite)} \
+        '.permissions.deny = (((.permissions.deny // []) + $d) | unique)
+         | .sandbox.filesystem.allowWrite = (((.sandbox.filesystem.allowWrite // []) + $w) | unique)' \
         "$settings" > "$tmp"
       mv "$tmp" "$settings"
     fi
   '';
 
-  my.human.aliases.cl = "claude";
+  my.human.aliases.cl = "claude --permission-mode auto";
 }

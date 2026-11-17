@@ -76,9 +76,9 @@ in
     ${renderEnv cfg.env}
 
     typeset -gU path
-    path=(${lib.concatMapStringsSep " " (p: ''"${p}"(N-/)'') cfg.path} $path)
-    # Homebrew comes after Nix.
-    path+=("/opt/homebrew/bin"(N-/) "/opt/homebrew/sbin"(N-/))
+    path=(${
+      lib.concatMapStringsSep " " (p: ''"${p}"(N-/)'') cfg.path
+    } "/opt/homebrew/bin"(N-/) "/opt/homebrew/sbin"(N-/) $path)
   '';
   xdg.configFile."zsh/human.zsh".text = renderShell cfg.human;
   xdg.configFile."zsh/ai.zsh".text = renderShell cfg.ai;
